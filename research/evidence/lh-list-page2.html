@@ -1,0 +1,70 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<meta http-equiv="content-language" content="ko">
+<title>eGovFrame 템플릿</title>
+
+<link href="/;jsessionid=GZL2KQuPXL7YjtK3pV4dlpzkkIaVAZXDg7Cs5mhmuOWp6XpUD7d7!-1360634608!NONEcss/common.css" rel="stylesheet" type="text/css" >
+
+<script type="text/javascript">
+function fncGoAfterErrorPage(){
+    history.back(-2);
+}
+</script>
+</head>
+
+<body>
+<div id="wrap">
+	<h2>LH청약플러스</h2>
+	<div class="errorWrap">
+		<p class="img"><img src="/00_common/images/layout/img_error.png" alt=""></p>
+		<div class="inner">
+			<p><i class="xi-info-o" aria-hidden="true"></i> 알려드립니다</p>
+			<span><strong>페이지가 삭제</strong>되었거나 <br><strong>잘못된 경로</strong>로 <strong>접근</strong>하셨습니다.</span>
+		</div>
+		<div class="btns">
+			<a href="javascript:fncGoAfterErrorPage();" class="btn_blL">이전페이지 <i class="xi-angle-right-min" aria-hidden="true"></i></a>
+			<a href="/lhapply/main.do" class="btn_bl">LH청약플러스 홈으로 <i class="xi-angle-right-min" aria-hidden="true"></i></a>
+		</div>
+	</div>
+</div>
+</body>
+
+<style>
+	body{ min-height:100vh; display:flex; align-items:center; justify-content:center; background:#efefef;}
+
+	#wrap{ flex:1; max-width:62rem; padding:0 1rem; margin:2rem auto;}
+	#wrap h2{ font-size:1.25rem; font-weight:800; text-align:left;}
+
+	.errorWrap{ display:flex; flex-wrap: wrap; align-content:center; justify-content:center; min-height:65vh; padding:3rem 1.5em; margin-top:1rem; border-radius:1rem; border:1px solid #bdbecb;; background:#fff;}
+	.errorWrap > *{ width:100%;}
+	.errorWrap .img{  text-align:center; margin-bottom:-1px;}
+	.errorWrap .img img{ max-width:80%;}
+	.errorWrap .inner{ padding:2rem 1rem; max-width:30rem; text-align:center; word-break: keep-all; border-radius:0.5rem; border:1px solid #bdbecb; }
+	.errorWrap .inner > p{ color:#ff5050;}
+	.errorWrap .inner > span{ font-size:1.25rem; font-weight:200; line-height:1.2;}
+	.errorWrap .inner > span strong{ font-weight:600;}
+	.errorWrap .btns{ text-align:center; margin-top:1rem;}
+
+	.btns a{ display:inline-block; border-radius:0.25rem; margin:0.15rem; padding:0.5rem 1rem; border:2px solid #5267cc; transition: all .2s; -webkit-transition: all .2s;}
+	.btns a.btn_blL{ color:#5267cc; }
+	.btns a.btn_bl{ color:#fff; background:#5267cc}
+	.btns a:hover,
+	.btns a:focus{ box-shadow:2px 2px 5px rgba(0,0,0,0.3);}
+
+	@media screen and (max-width: 768px){
+		.errorWrap .inner > p{ font-size:0.75rem;}
+		.errorWrap .inner > span{ font-size:1.1rem;}
+	}
+
+@media screen and (max-width: 360px){
+	.errorWrap .inner > span{ font-size:1rem;}
+	.btns a{ padding:0.35rem 0.75rem; font-size:0.75rem;}
+}
+</style>
+</html>

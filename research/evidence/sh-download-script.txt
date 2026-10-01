@@ -1,0 +1,945 @@
+﻿var board_common_hostIndex = location.href.indexOf( location.host ) + location.host.length;
+var board_common_ctx = location.href.substring( board_common_hostIndex, location.href.indexOf('/', board_common_hostIndex + 1) );
+$('head').append('<script src=\''+board_common_ctx+'/inno/common/innorix.js\'><\/script>');
+$('head').append('<script src=\''+board_common_ctx+'/inno/common/comtrue-error-handler-220805-B.js\'><\/script>');
+$('head').append('<link rel="stylesheet" type="text/css" href=\''+board_common_ctx+'/inno/common/innorix.css\'/>');
+/*
+ * 이노릭스 초기화 함수
+ * 
+ * formId : Form 객체 ID
+ * allowExt : 허용 확장자
+ * fileSize : 파일 최대 크기
+ * fileCnt : 파일 개수
+ * type : 저장(I) / 수정(U)
+ * downList : 기존 파일 리스트
+ * callBackFunction : 업로드 완료 후 호출 함수
+ *
+ * 전역변수 : filelist, innoType
+ * 
+ * */
+var filelist  = new Array();										// 파일리스트
+var innoType;														// 이노릭스 유형
+var initParam = {};													// 초기화 파라미터
+var control   = new Object();										// 이노릭스 컨트롤
+var delArr    = new Array();										// 삭제정보 배열
+
+function initInnorix(){
+	if(initParam.formId == null || initParam.formId == "" || initParam.formId == 'undefined'){
+		initParam.formId = $('#content').find('form').attr('id');
+	}
+	initParam.controlId = 'fileControl'; //innorix Object 명
+	
+	var urlBase = location.protocol + "//" + location.hostname + (location.port && ":" + location.port) ;
+	var curUrl  = window.location.href;
+	var maxSeq  = 0;
+	
+	var inno = $('<input type="hidden" name="sw_tp" id="sw_tp" value="INNODS">');
+	$("#" + initParam.formId).append(inno);
+	
+	// 컨트롤 생성
+	if(curUrl.indexOf("/view.do") != -1) {	// 공지 및 공지 상세화면일 경우
+		control = innorix.create({
+			el: "#" + initParam.controlId,													// 컨트롤 앨리먼트 아이디
+			agent: false,																	// 이노릭스 에이전트 설치여부
+			uploadUrl: urlBase + "/transfer.innorix",										// 업로드 URL
+			downloadType: "stream",															// direct : URL 다이렉트 다운로드, stream : http://url?fid=333
+			allowExtension: initParam.allowExt,												// 허용 가능 확장자 배열 ["xlsx", "pptx", "docx"]
+			uploadSliceSize: 2147483648, 													//2GB 업로드 조각 사이즈
+			// maxTotalSize: Number(initParam.fileSize) * Number(initParam.fileCnt),		// 첨부가능 1개 파일 전체 사이즈(바이트)
+			// maxFileSize: Number(initParam.fileSize),										// 첨부가능 파일 전체 사이즈(바이트)
+			// maxFileCount: Number(initParam.fileCnt),										// 첨부가능 파일 전체개수
+			width: initParam.width,															// 리스트 컨트롤 너비(pixel)
+			height: initParam.height,														// 리스트 컨트롤 높이(pixel)
+			useContextMenu: false,															// 우클릭 컨텍스트 메뉴 출력 여부
+			enableDropZone: true,															// 드롭존 사용여부
+			showGraph: true,																// 우측그래프 출력
+			useFuncBtn: false,																// 버튼안나오게
+			showFileListHeader : false,														// 리스트헤더메뉴
+			installUrl: urlBase + "/install/install.html"									// 에이전트 설치가 필요시 이동할 URL
+		});
+	} else {
+		control = innorix.create({
+			el: "#" + initParam.controlId,													// 컨트롤 앨리먼트 아이디
+			agent: false,																	// 이노릭스 에이전트 설치여부
+			uploadUrl: urlBase + "/transfer.innorix",										// 업로드 URL
+			downloadType: "stream",															// direct : URL 다이렉트 다운로드, stream : http://url?fid=333
+			allowExtension: initParam.allowExt,												// 허용 가능 확장자 배열 ["xlsx", "pptx", "docx"]
+			uploadSliceSize: 2147483648, 													//2GB 업로드 조각 사이즈
+			maxTotalSize: Number(initParam.fileSize) * Number(initParam.fileCnt),			// 첨부가능 1개 파일 전체 사이즈(바이트)
+			maxFileSize: Number(initParam.fileSize),										// 첨부가능 파일 전체 사이즈(바이트)
+			maxFileCount: Number(initParam.fileCnt),										// 첨부가능 파일 전체개수
+			width: initParam.width,															// 리스트 컨트롤 너비(pixel)
+			height: initParam.height,														// 리스트 컨트롤 높이(pixel)
+			useContextMenu: false,															// 우클릭 컨텍스트 메뉴 출력 여부
+			enableDropZone: true,															// 드롭존 사용여부
+			showGraph: true,																// 우측그래프 출력
+			useFuncBtn: false,																// 버튼안나오게
+			showFileListHeader : false,														// 리스트헤더메뉴
+			installUrl: urlBase + "/install/install.html"									// 에이전트 설치가 필요시 이동할 URL
+		});
+	}
+	
+	var resizeWidth = Number(initParam.width) + 10;
+	$("#" + initParam.controlId).css("width", resizeWidth + "px");
+	
+	// 컨트롤 로딩 완료
+	control.on("loadComplete", function(p) {
+		var downUrl = urlBase + "/com/file/innoFD.do";
+            innoType = initParam.type;
+            //console.log("##### afterAddFiles : ", p, control.getUploadFiles());
+            console.log("##### afterAddFiles : ", p, control.getAllFiles());
+            if(initParam.downList.length != 0){
+				var downArr = new Array();
+				
+	            for(var i = 0; i < initParam.downList.length; i++){
+					var downObj = new Object();
+					downObj.fileSize = initParam.downList[i].fileSize;
+					downObj.printFileName = initParam.downList[i].oriFileNm;
+					
+	            	if(initParam.type != 'ETC'){
+						downObj.downloadUrl = downUrl + "?brdId="+initParam.downList[i].brdId+"&seq="+initParam.downList[i].seq+"&fileTp="+initParam.downList[i].fileTp+"&fileSeq="+initParam.downList[i].fileSeq;
+	            	} else {
+	            		downObj.downloadUrl = downUrl + "?fileNm="+initParam.downList[i].fileNm+"&oriFileNm="+initParam.downList[i].oriFileNm;
+	            	}
+	            	console.log("##### maxSeq : " + Math.max(maxSeq,initParam.downList[i].fileSeq));
+	        		maxSeq = Math.max(maxSeq,initParam.downList[i].fileSeq);
+					downArr.push(downObj);
+	            }
+	            control.presetDownloadFiles(downArr); // 컨트롤에 다운로드 목록 갱신
+            }
+	});
+	
+	// 다운로드 취소 (Agent 설치형 모드 전용)
+	control.on("downloadCancel", function(p) {
+		rmLoading();
+	});
+	
+	// 다운로드 에러 (Agent 설치형 모드 전용)
+	control.on("downloadError", function(p) {
+		if(initParam.downList[0].seq != '179810') {
+			window.open("http://211.170.79.204/msg_sh.html","personalInformation", "status=yes,resizable=yes,scrollbars=yes,toolbar=no,width=738,height=398");
+		}
+		
+	});
+	
+	// 다운로드 완료 (Agent 설치형 모드 전용)
+	control.on("downloadComplete", function(p) {
+		
+	});
+	
+	// 업로드 취소
+	control.on("uploadCancel", function(p) {
+		
+	});
+	
+	// 파일추가 에러
+	control.on("addFileError", function(p) {
+	/**
+        A.  개별파일 사이즈 : maxFileSize
+        B.  전체파일 사이즈 : maxTotalSize
+        C.  첨부파일 개수제한 : maxFileCount
+        D.  특정확장자 제외 : limitExtension
+        E.  특정확장자만 추가 : allowExtension
+        F.  중복파일 추가 : addDuplicateFile 
+    */
+    console.log(p); //첨부에 실패한 파일 개수만큼의 인덱스 배열로 리턴
+    console.log(p.length); //첨부에 실패한 파일 개수
+   
+    for (var i = 0; i < p.length; i++ ) {
+    	console.log(p[i].type); 			//위반 정책 출력
+        console.log(p[i].message); 			//위반 시의 기본 메시지 출력 (이노릭스 자체 메세지)
+        console.log(p[i].file.printFileName.substring(p[i].file.printFileName.lastIndexOf('.'),p[i].file.printFileName.length).toLowerCase());		//에러 파일에 대한 상세 정보
+        console.log(p[i].file.fileSize);  	//파일에대한 상세정보중 필요한 정보 출력 ex) basePath, filePath 등 
+        console.log(Number(initParam.fileSize));
+        console.log(Number(initParam.fileSize) * Number(initParam.fileCnt));
+        var resultExt = p[i].file.printFileName.substring(p[i].file.printFileName.lastIndexOf('.'),p[i].file.printFileName.length).toLowerCase();
+        var resultCount = Number(initParam.fileCnt);//p[i].message.substring(30,33);
+        var resultSize = Number(initParam.fileSize)/(1024*1024);//p[i].file.fileSize;
+        var maxResultSize = Number(initParam.fileSize)* Number(initParam.fileCnt)/(1024*1024);//p[i].file.fileSize;
+    }
+                    
+  	/*
+  		개개별의 에러를 보여줄 필요가 없는 경우,
+  		리턴되는 p파라메터의 첫번째 인덱스의 에러 메시지를 바로 출력하는 방식으로 구성이 가능
+  	*/
+  	
+    //이노릭스 기본메세지가아닌 다른 메세지를 출력할때
+	    if(p[0].type == "allowExtension") {
+	        alert("확장자"+resultExt+"는 첨부할 수 없습니다.");
+	    } else if(p[0].type == "maxFileCount") {
+	        alert("파일은"+resultCount+"개까지 첨부할 수 있습니다.");
+	    } else if(p[0].type == "maxTotalSize") {
+	        alert("첨부 가능한 총 용량은"+maxResultSize+"MB 입니다.");
+	    } else if(p[0].type == "limitExtension") {
+	    	alert("확장자"+resultExt+"는 첨부할 수 없습니다.");
+	    } else if(p[0].type == "addDuplicateFile") {
+	        alert("동일한 파일이 이미 첨부되어 있습니다.");
+	    } else if(p[0].type == "maxFileSize") {
+	        alert(resultSize+"MB 초과 파일은 첨부할 수 없습니다.");
+	    }
+	});
+	
+	// 업로드 에러
+	control.on("uploadError", function(p) {
+		//window.open("http://211.170.79.204/msg_sh.html","personalInformation", "status=yes,resizable=yes,scrollbars=yes,toolbar=no,width=738,height=398");
+	});
+	
+	// 업로드 완료된
+	control.on("uploadComplete", function(p) {
+		// formId 객체에 업로드 완료된 파일 정보를 추가 //// 확인필요
+		//innorix.util.addFormData(initParam.formId, param);
+		var f = p.files;
+        var r = "Upload complete\n\n";
+        for (var i = 0; i < f.length; i++ ) {
+            r += f[i].clientFileName + " " + f[i].fileSize + "\n";
+        }
+        console.log("##### Upload complete : " + r);
+        //alert(r);
+		addFormData(initParam.formId, p);
+		
+		
+		var strHtml;
+		var files = p.files;
+
+		// 저장 시 file_seq 생성
+		if(initParam.type.indexOf("I") > -1){	//등록
+			for(var i = 1; i <= files.length; i++){
+				strHtml = $('<input type="hidden" id="file_seq'+i+'" name="file_seq" value="'+i+'">');
+				$("#" + initParam.formId).append(strHtml);
+				
+				strHtml = $('<input type="hidden" id="file_tp'+i+'" name="file_tp" value="'+checkExt(files[i-1].clientFileName)+'">');
+				$("#" + initParam.formId).append(strHtml);
+			}
+			
+			if(initParam.type.indexOf("S") > -1){
+				$('#status').html('접수중');
+			}
+		} else if (initParam.type == "U"){	//수정
+			var ePoint = 0;
+			
+			var upCnt = fn_nvl(control.getUploadFiles());		//새로 올릴 파일
+			//var upCnt = fn_nvl(control.getAllFiles());		//새로 올릴 파일
+			
+			if(!fn_is_blank(upCnt)){
+				ePoint = (control.getUploadFiles()).length;
+				//ePoint = (control.getAllFiles()).length;
+			}
+			
+			for(var i = 1; i <= ePoint; i++){
+				console.log("##### file" + i + " : ", files[i-1]);
+				strHtml = $('<input type="hidden" id="file_seq'+i+'" name="file_seq" value="'+i+'">');
+				$("#" + initParam.formId).append(strHtml);
+				
+				strHtml = $('<input type="hidden" id="file_tp'+i+'" name="file_tp" value="'+checkExt(files[i-1].clientFileName)+'">');
+				$("#" + initParam.formId).append(strHtml);
+			}
+			
+			makeInnoDelList(initParam.controlId, initParam.formId, true);
+		}
+		
+		$('#sw_tp').val('INNO');
+		
+		//업로드 이후 호출할 함수
+		eval(initParam.callBackFunction);
+	});
+	
+	// 파일 추가 후
+	control.on("afterAddFiles", function(p) {
+		//console.log("##### afterAddFiles : ", p, control.getUploadFiles());
+		console.log("##### afterAllFiles : ", p, control.getAllFiles());
+		var upCnt = fn_nvl(control.getAllFiles());		//새로 올릴 파일
+    	
+		console.log("##### initParam.type : " + initParam.type + ":", upCnt);
+		
+    	if(initParam.type.indexOf("S") > -1){
+    		console.log("##### upCnt : " + Number(upCnt.length));
+    		if(Number(upCnt.length) > 0){
+    			afterFileDialog(p);
+    		}
+    	}
+	});    
+	
+}
+
+
+
+/*
+ * 이노릭스 업로드 함수
+ * 
+ * controlId : 이노릭스 객체 ID
+ * formId : Form 객체 ID
+ * callBackFunction : 업로드 완료 후 호출 함수
+ * 
+ * */
+function innoFileUpload(controlId, formId){
+	//20230822이노릭스 업로드 로직수정 반영
+	var fileInfo = control.getAllFiles();
+	//var upCnt = fn_nvl(control.getUploadFiles());		//새로 올릴 파일
+	var upCnt = fn_nvl(fileInfo);		//새로 올릴 파일
+	//alert("upCnt======"+upCnt);
+	console.log(upCnt);
+	//신규 파일이 없을 경우 바로 콜백함수 호출
+	if(!fn_is_blank(upCnt)){
+		control.upload();
+	}else{
+		makeInnoDelList(controlId, formId, false);
+		eval(initParam.callBackFunction);
+	}
+}
+
+
+
+/*
+ * 삭제된 파일 fileSeq 생성
+ * 
+ * controlId : 이노릭스 객체 ID
+ * formId : Form 객체 ID
+ * controlUse : uploadComplete 후 호출인지 아닌지
+ * 
+ * */
+function makeInnoDelList(controlId, formId, controlUse){
+	var tempDel = fn_nvl(delArr);	//기존 파일중 삭제된 파일 정보
+	var strHtml;
+	if(!fn_is_blank(tempDel)){
+		delInfo = delArr;
+
+		for(var i = 0; i < delInfo.length; i++){
+			if(!controlUse){
+				//strHtml = $('<input type="hidden" name="innorixDeletedFileName" value="'+delInfo[i].name+'">');
+				strHtml = $('<input type="hidden" name="innorixDeletedFileName" value="'+delInfo[i].printFileName+'">');
+				$("#" + formId).append(strHtml);
+			}
+    		
+    		var sPoint = delInfo[i].downloadUrl.indexOf("fileSeq=") + 8;
+    		var ePoint = delInfo[i].downloadUrl.indexOf("&_StartOffset");
+    		
+    		//IE일 경우 _StartOffset 파라미터가 안붙는다....
+    		if(ePoint == -1){
+    			ePoint = delInfo[i].downloadUrl.length;
+    		}
+    		
+    		strHtml = $('<input type="hidden" name="innorixDeletedFileSeq" value="'+delInfo[i].downloadUrl.substring(sPoint,ePoint)+'">');
+        	$("#" + formId).append(strHtml);
+        }
+	}
+}
+
+/*
+ * 파일 확장자 체크 후 file_tp 데이터 리턴
+ * 
+ * name : 파일 명
+ * 
+ * */
+function checkExt(name){
+
+	if(name.indexOf("_Poster.") > 0){
+		return "P";
+	}
+	if(name.indexOf("_Thumbnail.") > 0){
+		return "T";
+	}
+	if(name.indexOf("_Movie.") > 0){
+		return "M";
+	}
+	if(name.indexOf("_Brochure.") > 0){
+		return "B";
+	}
+	if(name.indexOf("_jogam.") > 0){
+		return "J";
+	}
+	if(name.indexOf("_location.") > 0){
+		return "L";
+	}
+	if(name.indexOf("_batch.") > 0){
+		return "BA";
+	}
+	return "A";
+}
+
+/*
+ * 필수 파일 체크
+ * 
+ * brdTp : 게시판 형태
+ * controlId : 이노릭스 객체 ID
+ * brdTp : 2[이미지], 3[이미지+동영상(브로셔)]
+ * 
+ * */
+function innoFileValidation(brdTp, brdId, type, controlId){
+	
+	if(!checkFileName(controlId)){
+		alert("파일명에서 [ , ]를 제거해 주시기 바랍니다."); 
+		return false;
+	}
+	
+	if(brdTp == '2' || brdTp == '3'){
+		
+		var aList = control.getAllFiles();
+		var dList = [];
+		var uList = [];
+		
+		for(var i=0; i<aList.length; i++) {
+			if(aList[i].transferType == "download") {
+				dList.push(aList[i]);
+			} else if(aList[i].transferType == "upload") {
+				uList.push(aList[i]);
+			}
+		}
+		
+		console.log("##### innoFileValidation.dList : ", dList);
+		console.log("##### innoFileValidation.uList : ", uList);
+		
+		var flag = 0;
+		
+		if(!fn_is_blank(dList)){
+			for(var i = 0; i < dList.length; i++){
+				if(checkExt(dList[i].printFileName) == "P"){
+					flag = flag + 1;
+				}
+			}
+		}
+		
+		if(!fn_is_blank(uList)){
+			for(var i = 0; i < uList.length; i++){
+				if(checkExt(uList[i].printFileName) == "P"){
+					flag = flag + 1;
+				}
+			}
+		}
+
+		if(flag == 0){
+			alert("이미지를 등록해주시기 바랍니다.\n[파일명 : \"_Poster.\" 포함]");
+			return false;
+		}
+		
+		if(flag > 1){
+			alert("이미지 파일은 하나만 첨부가능합니다.");
+			return false;
+		}
+		
+		if(brdTp == '3' && type != 'U' && type != 'E'){
+			//초기화
+			flag = 0;
+			
+			if(!fn_is_blank(dList)){
+				for(var i = 0; i < dList.length; i++){
+					if(brdId == 'KS070801'){
+						if(checkExt(dList[i].printFileName) == "M" || checkExt(dList[i].printFileName) == "B"){
+							flag = flag + 1;
+						}
+					}else{
+						if(checkExt(uList[i].printFileName) == "M"){
+							flag = flag + 1;
+						}
+					}
+				}
+			}
+			
+			if(!fn_is_blank(uList)){
+				for(var i = 0; i < uList.length; i++){
+					if(brdId == 'KS070801'){
+						if(checkExt(uList[i].printFileName) == "M" || checkExt(uList[i].printFileName) == "B"){
+							flag = flag + 1;
+						}
+					}else{
+						if(checkExt(uList[i].printFileName) == "M"){
+							flag = flag + 1;
+						}
+					}
+				}
+			}
+			
+			var msg = '동영상';
+			var caution = '\"_Movie.\"';
+			
+			if(brdId == 'KS070801'){
+				if(type == 'B'){
+					msg = '브로셔';
+					caution = '\"_Brochure.\"';
+				}
+			}
+			
+			if(flag == 0){
+				alert(msg + "파일을 등록해주시기 바랍니다.\n[파일명 : "+caution+" 포함]");
+				return false;
+			}
+			
+			if(flag > 1){
+				alert(msg + "파일은 하나만 첨부가능합니다.");
+				return false;
+			}	
+		}else if(brdTp == '3' && type == 'U'){
+			flag = 0;
+			
+			if(!fn_is_blank(dList)){
+				flag += dList.length;
+			}
+			
+			if(!fn_is_blank(uList)){
+				flag += uList.length;
+			}
+			
+			if(flag > 1){
+				alert("유투브 유형일 경우 이미지 파일만 첨부가능합니다.");
+				return false;
+			}
+		}
+		
+		return true;
+	} 
+	
+	return true;
+}
+
+/*
+ * 파일다운로드 함수
+ * 
+ * */
+function singleDownload(num){
+	forceLoading();
+	
+	// 2022. 01. 10. change by Brian.
+	// 신규 이노릭스 메소드로 변경
+	/*var downFileInfo = innorix.api.getAllFiles(initParam.controlId, 'download');
+
+	innorix.api.singleDownload(initParam.controlId, 
+								{downloadUrl : downFileInfo[num].downloadUrl, //다운로드 url
+								 fileSize : downFileInfo[num].size, // 대상 파일 사이즈
+								 printFileName : downFileInfo[num].name // 출력 파일명
+								 });*/
+	console.log("##### singleDownload index : " + num);
+	/*for(var i=0; i<control.getFileCount(); i++) {
+		control.getAllFiles()[i].selected = false;
+	}
+	control.getAllFiles()[num].selected = true;
+	control.downloadSelectedFiles();*/
+	location.href = control.getAllFiles()[num].downloadUrl;
+	rmLoading();
+}
+
+function getContextPath() {
+	var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+	return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+};
+
+function existFile(num){
+	// 2022. 01. 10. change by Brian.
+	// HTML5 모드로 변경
+	if(!checkInstallInno()){
+		if(confirm('IE브라우저에서 파일을 다운받기 위해서는 다운로드 프로그램을 설치하셔야합니다.\n설치하시겠습니까?')){
+			alert('잠시후 설치페이지로 이동합니다.');
+			location.href = "/install/install.html";
+			return;
+		}else{
+			alert('설치를 하지않으시면 파일을 다운받으실수 없습니다.');
+			rmLoading();
+			return;
+		}
+	};
+	
+	var existFileInfo = initParam.downList[num];
+	
+//	var url = "/com/file/existFile.do";
+	var url = "/com/file/existFile.do";
+	var dataParam;
+	
+	if(innoType=="ETC"){
+		dataParam = {fileNm : existFileInfo.fileNm};
+	} else {
+		dataParam = {
+				  brdId 	: existFileInfo.brdId
+				, seq	 	: existFileInfo.seq
+				, fileSeq	: existFileInfo.fileSeq
+				, fileTp	: existFileInfo.fileTp
+		};
+	}
+	
+	f_block();
+	
+	$.ajax({
+		  cache 	: false
+		, data 		: dataParam
+		, url 		: url
+		, type 		: 'POST'
+		, success 	: function(resData) {
+			
+			rmLoading();
+			
+			var msg;
+			
+			if (resData.resultCode == "0") {
+				msg = "파일이 존재하지 않습니다.";
+				
+				alert(msg);
+				return;
+			} else if (resData.resultCode == "2"){
+				msg = "비정상적인 접근입니다.";
+				
+				alert(msg);
+				return;
+			}
+			
+			singleDownload(num);
+		  }
+		, error : function(e) {
+			alert("시스템에 문제가 생겼습니다.");
+			rmLoading();
+		}
+	});
+}
+
+//멀티파일 업로드
+function MultifileUpload_N(totalCnt, ext, fsize){
+	//파라미터에서 뽑아쓰는걸로.
+	var allow_ext = "";
+	
+//	var url = "/com/file/innoDS.do";
+	var url = "/com/file/innoDS.do";
+	var winname = "winfile";
+	var w = "550";
+	var h = "320";
+	var scrollopt = "no";
+	var wl = (window.screen.width / 2) - (w / 2 + 10);
+	var wt = (window.screen.height / 2) - (h / 2 + 50);
+	var opts = "status=no,height=" + h + ",width=" + w + ",resizable=no,left=" + wl + ",top=" + wt + ",screenX=" + wl + ",screenY=" + wt + ",scrollbars="+ scrollopt;
+	//HKS TO-DO
+	//POST 방식으로 넘겨받기
+	window.open("", winname, opts);
+	
+//	var cnt = $('div[name=fileattach]').length;	//첨부되어있는 파일 수
+	var cnt = $('li[name=fileattach]').length;	//첨부되어있는 파일 수
+	
+	if(cnt == 1){
+//		if($('div[name=fileattach]').css('display') == "none"){
+		if($('li[name=fileattach]').css('display') == "none"){
+			cnt = cnt - 1;
+		}
+	}
+	
+	var tsize = fsize + " * " + (totalCnt - cnt);
+	
+	var mainObj = document.mainform;
+	mainObj.action = url;
+	mainObj.target = "winfile";
+	mainObj.method="post";
+	mainObj.deny_str.value = ext;				//확장자
+	mainObj.file_size.value = fsize;			//파일별 크기 (1024 * 1024 * 파일크기)
+	mainObj.file_status_count.value = cnt;		//업로드 되어있는 파일 개수
+	mainObj.file_count.value = totalCnt - cnt;	//파일업로드 가능 개수
+	mainObj.max_file_size.value = tsize;		//파일 총 크기
+	mainObj.submit();
+}
+//토지사용승낙서용 셜록홈즈 우회
+function MultifileUpload_U(totalCnt, ext, fsize){
+	//파라미터에서 뽑아쓰는걸로.
+	var allow_ext = "";
+	
+//	var url = "/com/file/innoDS.do";
+	var url = "/app/com/file/innoDsUpload.do";
+	var winname = "winfile";
+	var w = "550";
+	var h = "320";
+	var scrollopt = "no";
+	var wl = (window.screen.width / 2) - (w / 2 + 10);
+	var wt = (window.screen.height / 2) - (h / 2 + 50);
+	var opts = "status=no,height=" + h + ",width=" + w + ",resizable=no,left=" + wl + ",top=" + wt + ",screenX=" + wl + ",screenY=" + wt + ",scrollbars="+ scrollopt;
+	//HKS TO-DO
+	//POST 방식으로 넘겨받기
+	window.open("", winname, opts);
+	
+//	var cnt = $('div[name=fileattach]').length;	//첨부되어있는 파일 수
+	var cnt = $('li[name=fileattach]').length;	//첨부되어있는 파일 수
+	
+	if(cnt == 1){
+//		if($('div[name=fileattach]').css('display') == "none"){
+		if($('li[name=fileattach]').css('display') == "none"){
+			cnt = cnt - 1;
+		}
+	}
+	
+	var tsize = fsize + " * " + (totalCnt - cnt);
+	
+	var mainObj = document.mainform;
+	mainObj.action = url;
+	mainObj.target = "winfile";
+	mainObj.method="post";
+	mainObj.deny_str.value = ext;				//확장자
+	mainObj.file_size.value = fsize;			//파일별 크기 (1024 * 1024 * 파일크기)
+	mainObj.file_status_count.value = cnt;		//업로드 되어있는 파일 개수
+	mainObj.file_count.value = totalCnt - cnt;	//파일업로드 가능 개수
+	mainObj.max_file_size.value = tsize;		//파일 총 크기
+	mainObj.submit();
+}
+//주택매도용 싱글파일업로드
+function singlefileUpload(totalCnt, ext, fsize, id){
+	//파라미터에서 뽑아쓰는걸로.
+	var allow_ext = "";
+	
+	var url = "/app/com/file/innoDS.do";
+	var winname = "winfile";
+	var w = "550";
+	var h = "320";
+	var scrollopt = "no";
+	var wl = (window.screen.width / 2) - (w / 2 + 10);
+	var wt = (window.screen.height / 2) - (h / 2 + 50);
+	var opts = "status=no,height=" + h + ",width=" + w + ",resizable=no,left=" + wl + ",top=" + wt + ",screenX=" + wl + ",screenY=" + wt + ",scrollbars="+ scrollopt;
+
+	window.open("", winname, opts);
+	
+	var cnt = $("#"+id).find('li[name=fileattach]').length;	//첨부되어있는 파일 수
+	console.log("MultifileUpload_S cnt : " + cnt);
+	
+	if(cnt == 1){
+		if($('li[name=fileattach]').css('display') == "none"){
+			cnt = cnt - 1;
+		}
+	}
+	
+	var tsize = fsize + " * " + (totalCnt - cnt);
+	
+	var mainObj = document.mainform;
+	mainObj.action = url;
+	mainObj.target = "winfile";
+	mainObj.method="post";
+	mainObj.deny_str.value = ext;				//확장자
+	mainObj.file_size.value = fsize;			//파일별 크기 (1024 * 1024 * 파일크기)
+	mainObj.file_status_count.value = cnt;		//업로드 되어있는 파일 개수
+	mainObj.file_count.value = totalCnt - cnt;	//파일업로드 가능 개수
+	mainObj.max_file_size.value = tsize;		//파일 총 크기
+	mainObj.submit();
+}
+
+//청약 신청서 파일업로드 
+function MultifileUpload_app(totalCnt, ext, fsize, frm){
+	//파라미터에서 뽑아쓰는걸로.
+	var allow_ext = "";
+	
+//	var url = "/com/file/innoDS.do";
+	var url = "/app/com/file/innoDsUpload.do";
+	var winname = "winfile";
+	var w = "550";
+	var h = "320";
+	var scrollopt = "no";
+	var wl = (window.screen.width / 2) - (w / 2 + 10);
+	var wt = (window.screen.height / 2) - (h / 2 + 50);
+	var opts = "status=no,height=" + h + ",width=" + w + ",resizable=no,left=" + wl + ",top=" + wt + ",screenX=" + wl + ",screenY=" + wt + ",scrollbars="+ scrollopt;
+	//HKS TO-DO
+	//POST 방식으로 넘겨받기
+	window.open("", winname, opts);
+	
+//	var cnt = $('div[name=fileattach]').length;	//첨부되어있는 파일 수
+	var cnt = $('li[name=fileattach]').length;	//첨부되어있는 파일 수
+	
+	if(cnt == 1){
+//		if($('div[name=fileattach]').css('display') == "none"){
+		if($('li[name=fileattach]').css('display') == "none"){
+			cnt = cnt - 1;
+		}
+	}
+	
+	var tsize = fsize + " * " + (totalCnt - cnt);
+	
+	var mainObj = frm;
+	mainObj.action = url;
+	mainObj.target = "winfile";
+	mainObj.method="post";
+	mainObj.deny_str.value = ext;				//확장자
+	mainObj.file_size.value = fsize;			//파일별 크기 (1024 * 1024 * 파일크기)
+	mainObj.file_status_count.value = cnt;		//업로드 되어있는 파일 개수
+	mainObj.file_count.value = totalCnt - cnt;	//파일업로드 가능 개수
+	mainObj.max_file_size.value = tsize;		//파일 총 크기
+	mainObj.submit();
+}
+
+
+/*
+ * 파일 삭제
+ * 
+ * fileattach의 개수를 체크하여 0개일 경우
+ * file_seq와 ori_file_seq에 -1을 넣는다.
+ * BoardController.java의 파일 추가,삭제 프로세스에서 위의 두 값이 없으면 안되기 때문.
+ * 
+ * */
+function fileDeleteToInno(_ori_file_seq, _file_nm, tagName){
+	$("#"+_ori_file_seq).val("");	
+	$("#"+_file_nm).val("");
+	
+	$('#' + tagName).remove();
+//	var cnt = $('div[name=fileattach]').length;	//첨부되어있는 파일 수
+	var cnt = $('li[name=fileattach]').length;	//첨부되어있는 파일 수
+	
+	if(cnt == 0){
+		var strTemp = '<input type="hidden" name="file_seq" id="file_seq" value="-1"/>';
+		strTemp	   += '<input type="hidden" name="ori_file_seq" id="ori_file_seq" value="-1"/>';
+		
+		$("#multiAttach").html(strTemp);
+	}
+}
+
+/*
+ * 전체파일삭제
+ */
+function removeAllFiles() {
+	removeInfoAdd("ALL");
+	control.removeAllFiles();
+}
+
+/*
+ * 선택파일삭제
+ */
+function removeSelectedFiles() {
+	removeInfoAdd("SEL");
+	control.removeSelectedFiles();
+}
+
+/*
+ * 파일추가 탐색기
+ */
+function openFileDialog() {
+	control.openFileDialog();
+}
+
+/*
+ * 파일업로드 후 처리 함수
+ * 
+ * multiAttach 영역에 파일업로드 후(result.jsp) 스크립트 추가
+ * 첨부되어있는 파일 개수를 체크하여 0개일 경우 초기화, 0개가 아닐경우 기존에 있던 내용에 추가함.
+ * 
+ * */
+function setMultiFileByStr(style, str){
+	
+//	var cnt = $('div[name=fileattach]').length;	//첨부되어있는 파일 수
+	var cnt = $('li[name=fileattach]').length;	//첨부되어있는 파일 수
+	var id = "";
+	
+	if(style == 'cmsssn'){
+		id = "ssnImgAttach";
+	} else if(style == "multiAttach2"){
+		id = "multiAttach2";
+	} else{
+		id = "multiAttach";
+	}
+	
+	var strTemp;
+	
+	if(cnt == 0){
+		strTemp = "";
+	} else {
+		strTemp = $("#"+id).html();
+	}
+	
+	strTemp = strTemp + str;
+	
+	$("#"+id).html(strTemp);
+}
+
+//사용자 브라우저 정보 가져오기
+function get_browser_info(){
+    var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
+    if(/trident/i.test(M[1])){
+        tem=/\brv[ :]+(\d+)/g.exec(ua) || []; 
+        return {name:'IE',version:(tem[1]||'')};
+        }   
+    if(M[1]==='Chrome'){
+        tem=ua.match(/\bOPR\/(\d+)/)
+        if(tem!=null)   {return {name:'Opera', version:tem[1]};}
+        }   
+    M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+    if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
+    return {
+      name: M[0],
+      version: M[1]
+    };
+}
+
+function checkInstallInno(){
+	var chk = true;
+	f_block();
+	
+	// 컨트롤 설치확인
+	if(get_browser_info().name == 'MSIE' && Number(get_browser_info().version) <= 9){
+		// 2022. 01. 11. change by Brian.
+		/*if (innorix.api.isPluginInstalled() == false) {
+			return false;
+		}*/
+		innorix.checkVersion(function (result) {
+			if(result == null || typeof result === "undefined") {
+				console.log("##### innorix not installed.");
+				chk = false;
+			} else if(result == false) {
+				console.log("##### innorix version not match.");
+				chk = false;
+			} else {
+				console.log("##### innorix installed.");
+			}
+		});
+	}
+	
+	rmLoading();
+	return chk;
+}
+
+function checkFileName(controlId){
+	
+	var fileInfo = fn_nvl(control.getUploadFiles());		//새로 올릴 파일
+	var cnt = 0;
+	
+	if(!fn_is_blank(fileInfo)){
+		cnt = (control.getUploadFiles()).length;
+	}
+	
+	for(var i = 0; i < cnt; i++){
+		if(fileInfo[i].printFileName.indexOf(',') > -1){
+			return false;
+		}
+	}
+	
+	return true;
+}
+
+function fn_nvl(value) {
+	return fn_is_blank(value) ? "" : value;
+}
+
+function fn_is_blank(value) {
+	if (null == value || "" == value || "undefined" == value)
+		return true;
+	return false;
+}
+
+/*
+ * 삭제정보추가
+ */
+function removeInfoAdd(removeType) {
+	if(removeType == "ALL") {
+		for(var i=0; i<control.getFileCount(); i++) {
+			var obj = control.getAllFiles()[i];
+			console.log("##### 삭제파일 " + i + " : ", obj);
+			delArr.push(obj);
+		}
+	} else if(removeType == "SEL") {
+		for(var i=0; i<control.getSelectedFileCount(); i++) {
+			var obj = control.getSelectedFiles()[i];
+			console.log("##### 삭제파일 " + i + " : ", obj);
+			delArr.push(obj);
+		}
+	}
+}
+
+function addFormData(formId, param) {
+	try {
+		if(typeof param !== "undefined") {
+			var files = param.files;
+			
+			for(var i=0; i<files.length; i++) {
+				var obj = files[i];
+				
+				$("#" + formId).append("<input type='hidden' id='innorixOrignalFileName" + i + "' name='innorixOrignalFileName' value='" + obj.clientFileName + "' />");
+				$("#" + formId).append("<input type='hidden' id='innorixOrignalFileSize" + i + "' name='innorixOrignalFileSize' value='" + obj.fileSize + "' />");
+				$("#" + formId).append("<input type='hidden' id='innorixSavedPath" + i + "' name='innorixSavedPath' value='" + obj.serverFilePath + "' />");
+				$("#" + formId).append("<input type='hidden' id='innorixSavedName" + i + "' name='innorixSavedName' value='" + obj.serverFileName + "' />");
+			}
+		}
+	} catch (s) {
+		console.log("error : sh_innorix.js addFormData");
+	}
+}

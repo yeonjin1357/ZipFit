@@ -1,0 +1,20 @@
+[project]
+name = "zipfit"
+version = "0.1.0"
+description = "Local housing notice explorer with source-backed eligibility checks"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+  "requests>=2.32,<3",
+  "beautifulsoup4>=4.13,<5",
+  "lxml>=5,<7",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "httpx>=0.28,<1", "playwright>=1.50,<2"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+

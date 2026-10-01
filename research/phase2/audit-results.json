@@ -1,0 +1,392 @@
+{
+  "generated_at_utc": "2026-10-01T07:04:53.714227+00:00",
+  "window": {
+    "start": "2026-09-01",
+    "end": "2026-09-30",
+    "basis": "Source list publication date; not application period or eligibility reference date"
+  },
+  "coverage": {
+    "LH": {
+      "pages_checked": 2,
+      "september_board_items": 172,
+      "triage_hints": {
+        "recruitment_candidate": 132,
+        "recruitment_revision": 39,
+        "additional_recruitment": 1
+      },
+      "query_listed_total": 172
+    },
+    "SH": {
+      "pages_checked": 6,
+      "september_board_items": 50,
+      "triage_hints": {
+        "recruitment_candidate": 15,
+        "result_or_followup": 20,
+        "review_required": 14,
+        "deadline_update": 1
+      }
+    },
+    "SEOUL_YOUTH": {
+      "pages_checked": 4,
+      "september_board_items": 32,
+      "triage_hints": {
+        "recruitment_candidate": 5,
+        "additional_recruitment": 27
+      }
+    },
+    "GH": {
+      "pages_checked": 2,
+      "september_board_items": 0,
+      "triage_hints": {},
+      "qualification": "Only two intake-board first pages inspected: both newest entries predate September; not a claim about all GH channels."
+    },
+    "GH_MAIN": {
+      "pages_checked": 2,
+      "september_board_items": 12,
+      "triage_hints": {
+        "review_required": 7,
+        "deadline_update": 1,
+        "recruitment_revision": 1,
+        "recruitment_candidate": 3
+      }
+    },
+    "APPLYHOME": {
+      "pages_checked": 2,
+      "september_board_items": 5,
+      "triage_hints": {
+        "review_required": 5
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "LH query total reconciles",
+      "passed": true,
+      "detail": {
+        "listed_total": 172,
+        "unique_ids": 172
+      }
+    },
+    {
+      "name": "SH date boundary reached",
+      "passed": true,
+      "detail": {
+        "last_date": "2026-08-28",
+        "unique_ids": 60
+      }
+    },
+    {
+      "name": "SH no duplicate page IDs",
+      "passed": true,
+      "detail": 60
+    },
+    {
+      "name": "SEOUL_YOUTH date boundary reached",
+      "passed": true,
+      "detail": {
+        "last_date": "2026-08-20",
+        "unique_ids": 40
+      }
+    },
+    {
+      "name": "SEOUL_YOUTH no duplicate page IDs",
+      "passed": true,
+      "detail": 40
+    },
+    {
+      "name": "GH_MAIN date boundary reached",
+      "passed": true,
+      "detail": {
+        "last_date": "2026-08-25",
+        "unique_ids": 20
+      }
+    },
+    {
+      "name": "GH_MAIN no duplicate page IDs",
+      "passed": true,
+      "detail": 20
+    },
+    {
+      "name": "lh-september-p1 first-page recheck",
+      "passed": true,
+      "detail": {
+        "raw_sha_changed": true,
+        "core_fingerprint_same": true
+      }
+    },
+    {
+      "name": "sh-audit-p1 first-page recheck",
+      "passed": true,
+      "detail": {
+        "raw_sha_changed": true,
+        "core_fingerprint_same": true
+      }
+    },
+    {
+      "name": "seoul-audit-p1 first-page recheck",
+      "passed": true,
+      "detail": {
+        "raw_sha_changed": true,
+        "core_fingerprint_same": true
+      }
+    },
+    {
+      "name": "First-page disappearance is not deletion",
+      "passed": true,
+      "detail": {
+        "new_first_page_ids": [
+          "6680",
+          "6681",
+          "6682",
+          "6683",
+          "6684",
+          "6685"
+        ],
+        "displaced_first_page_ids": [
+          "6670",
+          "6671",
+          "6672",
+          "6673",
+          "6674",
+          "6675"
+        ],
+        "displaced_ids_found_on_later_pages": [
+          "6670",
+          "6671",
+          "6672",
+          "6673",
+          "6674",
+          "6675"
+        ],
+        "deletions_inferred": false
+      }
+    },
+    {
+      "name": "Valid empty rental result",
+      "passed": true,
+      "detail": "Explicit September private-rental filter returned the site's empty state"
+    },
+    {
+      "name": "HTTP-200 error rejected",
+      "passed": true,
+      "detail": "Phase-1 error response is not a valid empty list"
+    },
+    {
+      "name": "Old active notices detected",
+      "passed": true,
+      "detail": [
+        {
+          "id": "2015122300019550",
+          "published": "2026-03-24",
+          "closes": "2026.12.31"
+        },
+        {
+          "id": "2015122300019551",
+          "published": "2026-03-24",
+          "closes": "2026.12.31"
+        },
+        {
+          "id": "2015122300019546",
+          "published": "2026-03-24",
+          "closes": "2026.12.31"
+        },
+        {
+          "id": "2015122300019376",
+          "published": "2026-02-24",
+          "closes": "2026.12.31"
+        }
+      ]
+    },
+    {
+      "name": "Explicit LH revision relationship",
+      "passed": true,
+      "detail": {
+        "original": "2015122300020739",
+        "correction": "2015122300020792"
+      }
+    },
+    {
+      "name": "Same-title GH rounds preserved",
+      "passed": true,
+      "detail": [
+        {
+          "id": "812",
+          "date": "2026-08-21"
+        },
+        {
+          "id": "803",
+          "date": "2026-07-07"
+        }
+      ]
+    },
+    {
+      "name": "Result titles take precedence over recruitment words",
+      "passed": true,
+      "detail": "SH titles can contain both 모집공고 and 당첨자 발표"
+    },
+    {
+      "name": "GH closing notice retained",
+      "passed": true,
+      "detail": "GH main site has a closing update classified as 기타"
+    },
+    {
+      "name": "Cross-site PDF version conflict",
+      "passed": true,
+      "detail": "Both source PDFs visually inspected at printed page 7: 581 vs 595 units"
+    }
+  ],
+  "first_page_change": {
+    "new_first_page_ids": [
+      "6680",
+      "6681",
+      "6682",
+      "6683",
+      "6684",
+      "6685"
+    ],
+    "displaced_first_page_ids": [
+      "6670",
+      "6671",
+      "6672",
+      "6673",
+      "6674",
+      "6675"
+    ],
+    "displaced_ids_found_on_later_pages": [
+      "6670",
+      "6671",
+      "6672",
+      "6673",
+      "6674",
+      "6675"
+    ],
+    "deletions_inferred": false
+  },
+  "old_active_notices": [
+    {
+      "raw_columns": [
+        "4",
+        "전세임대",
+        "2026년 신혼·신생아 전세임대 I 입주자 수시모집 공고 1일전",
+        "서울특별시 외",
+        "첨부파일 있음",
+        "2026.03.24",
+        "2026.12.31",
+        "접수중",
+        "449,254"
+      ],
+      "notice_id": "2015122300019550",
+      "title": "2026년 신혼·신생아 전세임대 I 입주자 수시모집 공고",
+      "detail_url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300019550&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17",
+      "published_date": "2026-03-24",
+      "listed_closing_date": "2026.12.31",
+      "status_raw": "접수중",
+      "housing_type": "전세임대",
+      "region": "서울특별시 외",
+      "source": "LH",
+      "snapshot_id": "lh-long-running",
+      "eligibility_evaluated": false,
+      "triage_hint": "recruitment_candidate"
+    },
+    {
+      "raw_columns": [
+        "3",
+        "전세임대",
+        "2026년 신혼·신생아 전세임대Ⅱ 입주자 수시모집 공고 1일전",
+        "서울특별시 외",
+        "첨부파일 있음",
+        "2026.03.24",
+        "2026.12.31",
+        "접수중",
+        "493,233"
+      ],
+      "notice_id": "2015122300019551",
+      "title": "2026년 신혼·신생아 전세임대Ⅱ 입주자 수시모집 공고",
+      "detail_url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300019551&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17",
+      "published_date": "2026-03-24",
+      "listed_closing_date": "2026.12.31",
+      "status_raw": "접수중",
+      "housing_type": "전세임대",
+      "region": "서울특별시 외",
+      "source": "LH",
+      "snapshot_id": "lh-long-running",
+      "eligibility_evaluated": false,
+      "triage_hint": "recruitment_candidate"
+    },
+    {
+      "raw_columns": [
+        "2",
+        "전세임대",
+        "2026 다자녀 전세임대 입주자 수시모집 공고 1일전",
+        "서울특별시 외",
+        "첨부파일 있음",
+        "2026.03.24",
+        "2026.12.31",
+        "접수중",
+        "310,673"
+      ],
+      "notice_id": "2015122300019546",
+      "title": "2026 다자녀 전세임대 입주자 수시모집 공고",
+      "detail_url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300019546&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17",
+      "published_date": "2026-03-24",
+      "listed_closing_date": "2026.12.31",
+      "status_raw": "접수중",
+      "housing_type": "전세임대",
+      "region": "서울특별시 외",
+      "source": "LH",
+      "snapshot_id": "lh-long-running",
+      "eligibility_evaluated": false,
+      "triage_hint": "recruitment_candidate"
+    },
+    {
+      "raw_columns": [
+        "1",
+        "전세임대",
+        "2026년 청년 전세임대 1순위 입주자 수시모집 1일전",
+        "서울특별시 외",
+        "첨부파일 있음",
+        "2026.02.24",
+        "2026.12.31",
+        "접수중",
+        "2,115,087"
+      ],
+      "notice_id": "2015122300019376",
+      "title": "2026년 청년 전세임대 1순위 입주자 수시모집",
+      "detail_url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300019376&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17",
+      "published_date": "2026-02-24",
+      "listed_closing_date": "2026.12.31",
+      "status_raw": "접수중",
+      "housing_type": "전세임대",
+      "region": "서울특별시 외",
+      "source": "LH",
+      "snapshot_id": "lh-long-running",
+      "eligibility_evaluated": false,
+      "triage_hint": "recruitment_candidate"
+    }
+  ],
+  "revision_relationship": {
+    "provider": "LH",
+    "original_id": "2015122300020739",
+    "corrected_id": "2015122300020792",
+    "evidence": "Explicit original/latest IDs in both official detail pages"
+  },
+  "cross_site_version": {
+    "sources": [
+      "SEOUL_YOUTH:6624",
+      "SH:GS0401:309925"
+    ],
+    "same_recruitment_basis": "Same issuing body, 2026 second youth-housing round, 2026-07-31 reference date; SH explicitly identifies republication with corrected volume",
+    "original_units_visually_checked": 581,
+    "corrected_units_visually_checked": 595,
+    "original_pdf_sha256": "8131ac619c45a7b70b78edb80dcefde6de477f1fb3797522ea68246615d97b9e",
+    "corrected_pdf_sha256": "5478910b4f85779d1cdef3dcca9b8882cc1aa91880bad46ba263c638aba3b9c7",
+    "prefer": "Issuing body's explicitly corrected version; retain both sources and versions"
+  },
+  "limitations": [
+    "This is bounded list reconciliation, not independently established nationwide recall.",
+    "Pagination during a changing website can still miss records; three first pages were rechecked once, not continuously monitored.",
+    "No actual cancellation case was found in the September LH sample; cancellation handling remains specified but not live-validated.",
+    "Title classification is a review hint; no user eligibility or application status was automatically decided.",
+    "Cross-site grouping and authoritative version selection were reviewed for one case, not automated generally."
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "generated_at_utc": "2026-10-01T06:34:21.633716+00:00",
+  "checked_at_utc_range": [
+    "2026-10-01T06:28:58.433863+00:00",
+    "2026-10-01T06:34:19.085029+00:00"
+  ],
+  "scope": "Public access and sample retrieval only; no eligibility determination, historical completeness, or scheduled production operation tested.",
+  "http_requests": 43,
+  "source_counts": {
+    "LH": {
+      "page_samples": 3,
+      "unique_board_items": 77
+    },
+    "SH": {
+      "page_samples": 2,
+      "unique_board_items": 20
+    },
+    "GH": {
+      "page_samples": 3,
+      "unique_board_items": 29
+    },
+    "SEOUL_YOUTH": {
+      "page_samples": 3,
+      "unique_board_items": 30
+    },
+    "APPLYHOME": {
+      "page_samples": 4,
+      "unique_board_items": 30,
+      "unique_rental_items": 16
+    }
+  },
+  "pagination_checks": [
+    {
+      "pages": [
+        "lh-list",
+        "lh-list-page2-form"
+      ],
+      "first_page_count": 50,
+      "second_page_count": 14,
+      "overlap_count": 0,
+      "new_ids_on_second_page": 14
+    },
+    {
+      "pages": [
+        "sh-list",
+        "sh-list-page2"
+      ],
+      "first_page_count": 10,
+      "second_page_count": 10,
+      "overlap_count": 0,
+      "new_ids_on_second_page": 10
+    },
+    {
+      "pages": [
+        "gh-rental-list",
+        "gh-rental-list-page2"
+      ],
+      "first_page_count": 10,
+      "second_page_count": 10,
+      "overlap_count": 0,
+      "new_ids_on_second_page": 10
+    },
+    {
+      "pages": [
+        "seoul-list-data",
+        "seoul-list-page2"
+      ],
+      "first_page_count": 10,
+      "second_page_count": 10,
+      "overlap_count": 0,
+      "new_ids_on_second_page": 10
+    },
+    {
+      "pages": [
+        "applyhome-list",
+        "applyhome-list-page2"
+      ],
+      "first_page_count": 10,
+      "second_page_count": 10,
+      "overlap_count": 0,
+      "new_ids_on_second_page": 10
+    }
+  ],
+  "filter_checks": {
+    "lh_all_statuses_filter_selected": true,
+    "applyhome_public_filter": true,
+    "applyhome_private_filter": true,
+    "seoul_public_filter": true
+  },
+  "pdf_documents": [
+    {
+      "snapshot_id": "applyhome-notice-pdf",
+      "file": "evidence\\applyhome-notice-pdf.pdf",
+      "pages": 22,
+      "first_page_text_characters": 2241,
+      "bytes": 491831,
+      "sha256": "660d8c58b37cca6f8b2b7ad77b3338a721bb60e78bbd1042d19a03b4cb29c303",
+      "source_url": "https://static.applyhome.co.kr/ai/aia/getAtchmnfl.do?houseManageNo=2026850050&pblancNo=2026850050&atchmnflSeqNo=1982055&atchmnflSn=2"
+    },
+    {
+      "snapshot_id": "applyhome-private-notice-pdf",
+      "file": "evidence\\applyhome-private-notice-pdf.pdf",
+      "pages": 15,
+      "first_page_text_characters": 2086,
+      "bytes": 169452,
+      "sha256": "f84e8e771ca258d47c825344f29de2a8c594779fa38f84854bb82087d1f4a604",
+      "source_url": "https://static.applyhome.co.kr/ai/aia/getAtchmnfl.do?houseManageNo=2026950017&pblancNo=2026950017&atchmnflSeqNo=1730041&atchmnflSn=7"
+    },
+    {
+      "snapshot_id": "gh-purchase-notice-pdf",
+      "file": "evidence\\gh-purchase-notice-pdf.pdf",
+      "pages": 30,
+      "first_page_text_characters": 1243,
+      "bytes": 1290858,
+      "sha256": "c89b945601cd9006293db7761c4add8258e6a4bec36de2fdab5e4ad6792ea86f",
+      "source_url": "https://apply-cdn.gh.or.kr/sr/sr7155/selectFileDown.do?pbancNo=812&atchFileSn=1723386&atchFileDtlSn=1&mode=1&v=20260821094455"
+    },
+    {
+      "snapshot_id": "gh-rental-notice-pdf",
+      "file": "evidence\\gh-rental-notice-pdf.pdf",
+      "pages": 30,
+      "first_page_text_characters": 2337,
+      "bytes": 1111113,
+      "sha256": "260a9beb0fe5051ea6e5a42257117c36eab858ec2804f4e2e74a86642542ae32",
+      "source_url": "https://apply-cdn.gh.or.kr/sr/sr7150/selectFileDown.do?pbancNo=808&atchFileSn=1720251&atchFileDtlSn=6&mode=1&v=20260813143035"
+    },
+    {
+      "snapshot_id": "lh-notice-pdf",
+      "file": "evidence\\lh-notice-pdf.pdf",
+      "pages": 24,
+      "first_page_text_characters": 1847,
+      "bytes": 635685,
+      "sha256": "b6269b91028ca65d6f3609658bca7c4b59f7eed35b05772ec1deca295c8b4a00",
+      "source_url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68818385"
+    },
+    {
+      "snapshot_id": "seoul-notice-pdf",
+      "file": "evidence\\seoul-notice-pdf.pdf",
+      "pages": 31,
+      "first_page_text_characters": 2251,
+      "bytes": 922180,
+      "sha256": "d5cc1fd3e237af70c3d9aef00bde475f251e8883a6c4adaffb1ca9cdb0c42abb",
+      "source_url": "https://soco.seoul.go.kr/coHouse/cmmn/file/fileDown.do?atchFileId=d8cb94ce7286493e864d7c07d051afe5&fileSn=1"
+    },
+    {
+      "snapshot_id": "seoul-public-notice-pdf",
+      "file": "evidence\\seoul-public-notice-pdf.pdf",
+      "pages": 68,
+      "first_page_text_characters": 63,
+      "bytes": 668962,
+      "sha256": "8131ac619c45a7b70b78edb80dcefde6de477f1fb3797522ea68246615d97b9e",
+      "source_url": "https://soco.seoul.go.kr/coHouse/cmmn/file/fileDown.do?atchFileId=a51ae32dfb81421a9eaaaa16019223eb&fileSn=1"
+    },
+    {
+      "snapshot_id": "sh-notice-pdf",
+      "file": "evidence\\sh-notice-pdf.pdf",
+      "pages": 34,
+      "first_page_text_characters": 105,
+      "bytes": 1033736,
+      "sha256": "298d55ab17e9acaf7cc855211c67e4958be6b6ec5193b62635498ea1274b8ee1",
+      "source_url": "https://www.i-sh.co.kr/app/com/file/innoFD.do?brdId=GS0401&seq=310653&fileTp=A&fileSeq=2"
+    }
+  ],
+  "other_attachments": {
+    "hwp_container_signature_valid": true,
+    "hwpx": {
+      "crc_error_file": null,
+      "contains_contents": true,
+      "mimetype": "application/hwp+zip"
+    }
+  },
+  "credentialed_api_checks": [
+    {
+      "snapshot_id": "lh-api-without-key",
+      "status": 401,
+      "result": "Missing API key; authenticated data response not tested"
+    },
+    {
+      "snapshot_id": "reb-api-without-key",
+      "status": 401,
+      "result": "Missing API key; authenticated data response not tested"
+    }
+  ],
+  "observed_false_http_success": {
+    "snapshot_id": "lh-list-page2",
+    "status": 200,
+    "result": "Error page returned when paging fields omitted; normal published paging form succeeded in lh-list-page2-form"
+  },
+  "limitations": [
+    "SH board samples include announcements/results/service notices; item counts are not open housing offer counts.",
+    "Applyhome default list includes non-rental types; use and verify source housing-type filters.",
+    "Seoul JSON endpoint is an internal public-page endpoint, not a contracted public OpenAPI.",
+    "LH default page uses date and status filters; tested explicit all-status query but not all dates or all pages.",
+    "GH purchase/rental boards tested separately; other GH recruitment channels have not been audited.",
+    "No scheduled repeat runs, production approval, source terms review, or completeness audit performed.",
+    "PDF page count and first-page extraction were checked; full eligibility tables and HWP text parsing were not evaluated."
+  ]
+}

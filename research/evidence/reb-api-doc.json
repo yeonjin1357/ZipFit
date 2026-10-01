@@ -1,0 +1,722 @@
+{
+  "id": "reb-api-doc",
+  "requested_url": "https://www.data.go.kr/data/15098547/openapi.do",
+  "method": "GET",
+  "checked_at_utc": "2026-10-01T06:29:34.809829+00:00",
+  "status": 200,
+  "final_url": "https://www.data.go.kr/data/15098547/openapi.do",
+  "redirects": [],
+  "content_type": "text/html;charset=UTF-8",
+  "content_disposition": null,
+  "bytes": 196361,
+  "sha256": "10eda6aaa50de764f965b675f9a705577ee0c094c28fa753fa7422b6a7777d40",
+  "is_pdf_signature": false,
+  "raw_file": "evidence\\reb-api-doc.html",
+  "title": "한국부동산원_청약홈 분양정보 조회 서비스 | 공공데이터포털",
+  "links": [
+    {
+      "text": "콘텐츠 바로가기",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#contents",
+      "onclick": null
+    },
+    {
+      "text": "푸터 바로가기",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#krds-footer",
+      "onclick": null
+    },
+    {
+      "text": "DATA.GO.KR 공공데이터포털",
+      "href": "https://www.data.go.kr/index.do",
+      "onclick": null
+    },
+    {
+      "text": "English",
+      "href": "https://www.data.go.kr/en/index.do",
+      "onclick": null
+    },
+    {
+      "text": "로그인",
+      "href": "javascript:procLogin()",
+      "onclick": null
+    },
+    {
+      "text": "회원가입",
+      "href": "javascript:window.location.href='/uim/login/signupView.do'",
+      "onclick": null
+    },
+    {
+      "text": "AI 검색",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0001050000_pc','/tcs/dss/aiAssistant.do');"
+    },
+    {
+      "text": "데이터목록",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0001010000_pc','/tcs/dss/selectDataSetList.do');"
+    },
+    {
+      "text": "데이터 큐레이션",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0001040000_pc','/llm/sch/curation/curationList.do');"
+    },
+    {
+      "text": "국가중점데이터",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0001020000_pc','/tcs/eds/selectCoreDataListView.do');"
+    },
+    {
+      "text": "공공데이터 제공신청",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0002010000_pc','/tcs/dor/insertDataOfferReqstProcssView.do');"
+    },
+    {
+      "text": "분쟁조정 신청",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0002020000_pc','/tcs/dor/insertTrublMdatReqstProcssView.do');"
+    },
+    {
+      "text": "공공데이터맵",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0006000000_pc','/tcs/opd/ndm/view.do');"
+    },
+    {
+      "text": "공공데이터 시각화",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0003060000_pc','/tcs/vas/selectVisualizationListView.do');"
+    },
+    {
+      "text": "국민참여지도",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0003040000_pc','/tcs/lms/mpm/memberMapList.do');"
+    },
+    {
+      "text": "위치정보 시각화",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0003050000_pc','/tcs/lms/liv/selectLocationView.do');"
+    },
+    {
+      "text": "공공데이터 활용사례",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0003010000_pc','/tcs/puc/selectPublicUseCaseListView.do');"
+    },
+    {
+      "text": "공공데이터 우수사례",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0003070000_pc','/tcs/eds/ctm/selectContestDataList.do');"
+    },
+    {
+      "text": "기업공공데이터 문제해결지원센터",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "fn_movePage(this, 'M0008000000_pc', '/problem/main.do')"
+    },
+    {
+      "text": "공공 Git저장소",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0004060000_pc','/bbs/dnb/selectDeveloperNetworkListView.do');"
+    },
+    {
+      "text": "데이터 공유하기",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0004050000_pc','/bbs/dsb/selectDataShareContentsListView.do');"
+    },
+    {
+      "text": "공지사항",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0004040000_pc','/bbs/ntc/selectNoticeListView.do');"
+    },
+    {
+      "text": "자료실",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0004020000_pc','/bbs/rcr/selectRecsroomList.do');"
+    },
+    {
+      "text": "포털뉴스",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0004070000_pc','/bbs/cnm/selectCardNewsListView.do');"
+    },
+    {
+      "text": "문의하기",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0004030000_pc','/bbs/faq/selectFaqList.do');"
+    },
+    {
+      "text": "소개",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0005010000_pc','/ugs/selectPortalInfoView.do');"
+    },
+    {
+      "text": "이용가이드",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0005040000_pc','/ugs/selectPublicDataUseGuideView.do');"
+    },
+    {
+      "text": "정책",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0005020000_pc','/ugs/selectPortalPolicyView.do');"
+    },
+    {
+      "text": "품질관리",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0005030000_pc','/ugs/selectPublicDataQlityView.do');"
+    },
+    {
+      "text": "English",
+      "href": "https://www.data.go.kr/en/index.do",
+      "onclick": null
+    },
+    {
+      "text": "공공데이터",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#mGnb-anchor0",
+      "onclick": null
+    },
+    {
+      "text": "데이터활용",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#mGnb-anchor1",
+      "onclick": null
+    },
+    {
+      "text": "기업공공데이터 문제해결지원센터",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#mGnb-anchor2",
+      "onclick": null
+    },
+    {
+      "text": "정보공유",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#mGnb-anchor3",
+      "onclick": null
+    },
+    {
+      "text": "이용안내",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#mGnb-anchor4",
+      "onclick": null
+    },
+    {
+      "text": "AI 검색",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0001050000_mo','/tcs/dss/aiAssistant.do');"
+    },
+    {
+      "text": "데이터목록",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0001010000_mo','/tcs/dss/selectDataSetList.do');"
+    },
+    {
+      "text": "데이터 큐레이션",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0001040000_mo','/llm/sch/curation/curationList.do');"
+    },
+    {
+      "text": "국가중점데이터",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0001020000_mo','/tcs/eds/selectCoreDataListView.do');"
+    },
+    {
+      "text": "공공데이터 제공신청",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0002010000_mo','/tcs/dor/insertDataOfferReqstProcssView.do');"
+    },
+    {
+      "text": "분쟁조정 신청",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0002020000_mo','/tcs/dor/insertTrublMdatReqstProcssView.do');"
+    },
+    {
+      "text": "공공데이터맵",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0006000000_mo','/tcs/opd/ndm/view.do');"
+    },
+    {
+      "text": "공공데이터 시각화",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0003060000_mo','/tcs/vas/selectVisualizationListView.do');"
+    },
+    {
+      "text": "국민참여지도",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0003040000_mo','/tcs/lms/mpm/memberMapList.do');"
+    },
+    {
+      "text": "위치정보 시각화",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0003050000_mo','/tcs/lms/liv/selectLocationView.do');"
+    },
+    {
+      "text": "공공데이터 활용사례",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0003010000_mo','/tcs/puc/selectPublicUseCaseListView.do');"
+    },
+    {
+      "text": "공공데이터 우수사례",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0003070000_mo','/tcs/eds/ctm/selectContestDataList.do');"
+    },
+    {
+      "text": "기업공공데이터 문제해결지원센터",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "fn_movePage(this, 'M0008000000_mo', '/problem/main.do')"
+    },
+    {
+      "text": "공공 Git저장소",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0004060000_mo','/bbs/dnb/selectDeveloperNetworkListView.do');"
+    },
+    {
+      "text": "데이터 공유하기",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0004050000_mo','/bbs/dsb/selectDataShareContentsListView.do');"
+    },
+    {
+      "text": "공지사항",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0004040000_mo','/bbs/ntc/selectNoticeListView.do');"
+    },
+    {
+      "text": "자료실",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0004020000_mo','/bbs/rcr/selectRecsroomList.do');"
+    },
+    {
+      "text": "포털뉴스",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0004070000_mo','/bbs/cnm/selectCardNewsListView.do');"
+    },
+    {
+      "text": "문의하기",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0004030000_mo','/bbs/faq/selectFaqList.do');"
+    },
+    {
+      "text": "소개",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0005010000_mo','/ugs/selectPortalInfoView.do');"
+    },
+    {
+      "text": "이용가이드",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0005040000_mo','/ugs/selectPublicDataUseGuideView.do');"
+    },
+    {
+      "text": "정책",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0005020000_mo','/ugs/selectPortalPolicyView.do');"
+    },
+    {
+      "text": "품질관리",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this,'M0005030000_mo','/ugs/selectPublicDataQlityView.do');"
+    },
+    {
+      "text": "AI 검색",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0001050000_pc', '/tcs/dss/aiAssistant.do');"
+    },
+    {
+      "text": "데이터목록",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0001010000_pc', '/tcs/dss/selectDataSetList.do');"
+    },
+    {
+      "text": "데이터 큐레이션",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0001040000_pc', '/llm/sch/curation/curationList.do');"
+    },
+    {
+      "text": "국가중점데이터",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0001020000_pc', '/tcs/eds/selectCoreDataListView.do');"
+    },
+    {
+      "text": "공공데이터 제공신청",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0002010000_pc', '/tcs/dor/insertDataOfferReqstProcssView.do');"
+    },
+    {
+      "text": "분쟁조정 신청",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0002020000_pc', '/tcs/dor/insertTrublMdatReqstProcssView.do');"
+    },
+    {
+      "text": "공공데이터맵",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0006000000_pc', '/tcs/opd/ndm/view.do');"
+    },
+    {
+      "text": "공공데이터 시각화",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0003060000_pc', '/tcs/vas/selectVisualizationListView.do');"
+    },
+    {
+      "text": "국민참여지도",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0003040000_pc', '/tcs/lms/mpm/memberMapList.do');"
+    },
+    {
+      "text": "위치정보 시각화",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0003050000_pc', '/tcs/lms/liv/selectLocationView.do');"
+    },
+    {
+      "text": "공공데이터 활용사례",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0003010000_pc', '/tcs/puc/selectPublicUseCaseListView.do');"
+    },
+    {
+      "text": "공공데이터 우수사례",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0003070000_pc', '/tcs/eds/ctm/selectContestDataList.do');"
+    },
+    {
+      "text": "기업공공데이터 문제해결지원센터",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0008000000_pc', '/problem/main.do');"
+    },
+    {
+      "text": "공공 Git저장소",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0004060000_pc', '/bbs/dnb/selectDeveloperNetworkListView.do');"
+    },
+    {
+      "text": "데이터 공유하기",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0004050000_pc', '/bbs/dsb/selectDataShareContentsListView.do');"
+    },
+    {
+      "text": "공지사항",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0004040000_pc', '/bbs/ntc/selectNoticeListView.do');"
+    },
+    {
+      "text": "자료실",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0004020000_pc', '/bbs/rcr/selectRecsroomList.do');"
+    },
+    {
+      "text": "포털뉴스",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0004070000_pc', '/bbs/cnm/selectCardNewsListView.do');"
+    },
+    {
+      "text": "문의하기",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0004030000_pc', '/bbs/faq/selectFaqList.do');"
+    },
+    {
+      "text": "소개",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0005010000_pc', '/ugs/selectPortalInfoView.do');"
+    },
+    {
+      "text": "이용가이드",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0005040000_pc', '/ugs/selectPublicDataUseGuideView.do');"
+    },
+    {
+      "text": "정책",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0005020000_pc', '/ugs/selectPortalPolicyView.do');"
+    },
+    {
+      "text": "품질관리",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do",
+      "onclick": "javascript:fn_movePage(this, 'M0005030000_pc', '/ugs/selectPublicDataQlityView.do');"
+    },
+    {
+      "text": "회원가입",
+      "href": "javascript:window.location.href='/uim/login/signupView.do'",
+      "onclick": null
+    },
+    {
+      "text": "로그인",
+      "href": "javascript:procLogin()",
+      "onclick": null
+    },
+    {
+      "text": "공공데이터전략위원회",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#!",
+      "onclick": "fn_movePage(this,'M0007010000_pc','/odsc/intro/index.do')"
+    },
+    {
+      "text": "공공데이터분쟁조정위원회",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#!",
+      "onclick": "fn_movePage(this,'M0007010000_pc','/odmc/intro/index.do')"
+    },
+    {
+      "text": "공공데이터 활용 창업경진대회",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#!",
+      "onclick": "fn_movePage(this,'M0003070000_pc','/suc/startup.do')"
+    },
+    {
+      "text": "공공데이터 지원 오픈스퀘어-D",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#!",
+      "onclick": "fn_movePage(this,'M0003070000_pc','/osd/opensquare.do')"
+    },
+    {
+      "text": "오픈데이터 포럼",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#!",
+      "onclick": "window.open('http://odf.or.kr', '_blank')"
+    },
+    {
+      "text": "홈",
+      "href": "https://www.data.go.kr/index.do",
+      "onclick": null
+    },
+    {
+      "text": "오픈 API 정보",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#tab-layer-api-01",
+      "onclick": null
+    },
+    {
+      "text": "이용 조건 및 라이선스 정보",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#tab-layer-api-02",
+      "onclick": null
+    },
+    {
+      "text": "표준 메타데이터",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#tab-layer-api-04",
+      "onclick": null
+    },
+    {
+      "text": "활용 정보",
+      "href": "https://www.data.go.kr/data/15098547/openapi.do#tab-layer-api-05",
+      "onclick": null
+    },
+    {
+      "text": "한국부동산원",
+      "href": "https://www.data.go.kr/tcs/dss/selectDataSetList.do?dType=&keyword=&orgNm=한국부동산원&conditionType=search",
+      "onclick": null
+    },
+    {
+      "text": "이용허락범위 제한 없음",
+      "href": "https://www.data.go.kr/ugs/selectPortalPolicyView.do",
+      "onclick": null
+    },
+    {
+      "text": "Schema.org",
+      "href": "https://www.data.go.kr/catalog/15098547/openapi.json",
+      "onclick": null
+    },
+    {
+      "text": "DCAT",
+      "href": "https://www.data.go.kr/biz/dcat/metadata/15098547.do",
+      "onclick": null
+    },
+    {
+      "text": "행정안전부",
+      "href": "https://www.mois.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "한국지능정보사회진흥원",
+      "href": "https://www.nia.or.kr/",
+      "onclick": null
+    },
+    {
+      "text": "오픈데이터포럼",
+      "href": "https://www.odf.or.kr/",
+      "onclick": null
+    },
+    {
+      "text": "국가정보자원관리원",
+      "href": "https://www.nirs.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "한국지역정보개발원",
+      "href": "https://www.klid.or.kr/",
+      "onclick": null
+    },
+    {
+      "text": "서울 열린데이터광장",
+      "href": "https://data.seoul.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "경기데이터드림",
+      "href": "https://data.gg.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "부산데이터웨이브",
+      "href": "https://data.busan.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "D-데이터허브",
+      "href": "https://data.daegu.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "인천데이터포털",
+      "href": "https://data.incheon.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "울산광역시 데이터포털",
+      "href": "https://data.ulsan.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "전남광주통합특별시 빅데이터 플랫폼",
+      "href": "https://bigdata.gwangju.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "대전광역시 데이터포털",
+      "href": "https://openlab.daejeon.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "세종특별자치시 데이터포털",
+      "href": "https://www.sejong.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "충청북도 데이터허브",
+      "href": "https://data.chungbuk.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "기상자료개방포털",
+      "href": "https://data.kma.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "국토교통부 공간정보오픈플랫폼",
+      "href": "https://www.vworld.kr/",
+      "onclick": null
+    },
+    {
+      "text": "환경부 환경데이터포털",
+      "href": "https://www.bigdata-environment.kr/",
+      "onclick": null
+    },
+    {
+      "text": "문화데이터광장",
+      "href": "https://www.culture.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "농림축산식품 공공데이터포털",
+      "href": "https://data.mafra.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "보건의료빅데이터개방시스템",
+      "href": "https://opendata.hira.or.kr/",
+      "onclick": null
+    },
+    {
+      "text": "식품의약품안전처 데이터포털",
+      "href": "https://www.foodsafetykorea.go.kr/",
+      "onclick": null
+    },
+    {
+      "text": "교육통계서비스",
+      "href": "https://kess.kedi.re.kr/",
+      "onclick": null
+    },
+    {
+      "text": "공공데이터포털 바로가기",
+      "href": "https://www.data.go.kr/index.do",
+      "onclick": null
+    },
+    {
+      "text": "1566-0025",
+      "href": "tel:1566-0025",
+      "onclick": null
+    },
+    {
+      "text": "운영자 메일 상담 opendata_help@nia.or.kr",
+      "href": "mailto:opendata_help@nia.or.kr",
+      "onclick": null
+    },
+    {
+      "text": "이용가이드",
+      "href": "https://www.data.go.kr/ugs/selectPublicDataUseGuideView.do",
+      "onclick": null
+    },
+    {
+      "text": "분쟁조정 신청",
+      "href": "https://www.data.go.kr/tcs/dor/insertTrublMdatReqstProcssView.do",
+      "onclick": null
+    },
+    {
+      "text": "문의하기",
+      "href": "https://www.data.go.kr/bbs/faq/selectFaqList.do",
+      "onclick": null
+    },
+    {
+      "text": "유튜브",
+      "href": "https://www.youtube.com/@koropendata",
+      "onclick": null
+    },
+    {
+      "text": "X",
+      "href": "https://twitter.com/koreadataportal",
+      "onclick": null
+    },
+    {
+      "text": "페이스북",
+      "href": "http://www.facebook.com/koreadataportal",
+      "onclick": null
+    },
+    {
+      "text": "블로그",
+      "href": "http://blog.naver.com/nia_korea",
+      "onclick": null
+    },
+    {
+      "text": "이용약관",
+      "href": "https://www.data.go.kr/ugs/selectPortalPolicyView.do#use_stplat",
+      "onclick": null
+    },
+    {
+      "text": "개인정보처리방침",
+      "href": "https://www.data.go.kr/ugs/selectPortalPolicyView.do#indvdlinfo_process",
+      "onclick": null
+    },
+    {
+      "text": "공공데이터포털 소개",
+      "href": "https://www.data.go.kr/ugs/selectPortalInfoView.do#portal_info",
+      "onclick": null
+    }
+  ],
+  "forms": [
+    {
+      "action": "https://www.data.go.kr/tcs/dss/selectDataSetList.do",
+      "method": "post",
+      "fields": []
+    }
+  ],
+  "scripts": [
+    "https://www.data.go.kr/common/js/jquery-3.7.1.min.js",
+    "https://www.data.go.kr/common/js/plugin/slick.min.js",
+    "https://www.data.go.kr/common/js/plugin/swiper-bundle.min.js",
+    "https://www.data.go.kr/common/js/component/ui-script.js",
+    "https://www.data.go.kr/common/portal/js/custom.js",
+    "https://www.data.go.kr/js/biz/cmm/cmm/loading.js",
+    "https://www.data.go.kr/js/biz/cmm/cmm/script_cmmFunction.js",
+    "https://www.data.go.kr/js/biz/cmm/cmm/script_cmmPopup.js",
+    "https://www.data.go.kr/js/biz/cmm/cmm/script_numberUtil.js",
+    "https://www.data.go.kr/js/biz/cmm/cmm/script_openSourceSetting.js",
+    "https://www.data.go.kr/js/biz/cmm/cmm/script_stringUtil.js",
+    "https://www.data.go.kr/js/biz/cmm/cmm/script_codeSetting.js",
+    "https://www.data.go.kr/js/biz/cmm/cmm/script_formUtil.js",
+    "https://www.data.go.kr/js/biz/cmm/cmm/file-category-util.js",
+    "https://www.data.go.kr/js/biz/cmm/cmm/checkbox-util.js",
+    "https://www.data.go.kr/js/biz/cmm/cmm/script_voiceCaptcha.js",
+    "https://www.data.go.kr/js/biz/cmm/cmm/script_sessionExtend.js",
+    "https://www.data.go.kr/js/biz/sch/marked/marked.min.js",
+    "https://www.data.go.kr/js/handlebars/handlebars-v4.5.3.min.js",
+    "https://www.data.go.kr/js/handlebars/handlebars-helper.js",
+    "https://www.data.go.kr/js/app/script_favorites.js",
+    "https://www.data.go.kr/js/app/script_shortcut.js",
+    "https://www.data.go.kr/js/swagger-v4/swagger-ui-bundle.js",
+    "https://www.data.go.kr/js/swagger-v4/swagger-ui-standalone-preset.js",
+    "https://www.data.go.kr/js/biz/dss/script_errorReport.js",
+    "https://www.data.go.kr/js/biz/dss/script_dataOfferReqst.js",
+    "https://www.data.go.kr/js/biz/datset/script_fileDetail.js",
+    "https://www.googletagmanager.com/gtag/js?id=G-7TYF9K5TBJ"
+  ],
+  "text_file": "evidence\\reb-api-doc.text.txt",
+  "elapsed_seconds": 0.63
+}

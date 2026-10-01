@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#ffffff" name="theme-color"/>
+<title>집핏 · 내 조건에 맞는 집 찾기</title>
+<link href="/static/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link as="font" crossorigin="" href="/static/fonts/PretendardVariable.woff2" rel="preload" type="font/woff2"/>
+<link href="/static/style.css" rel="stylesheet"/><script defer="" src="/static/app.js"></script>
+</head><body>
+<a class="skip" href="#results">공고 목록으로 이동</a>
+<header class="topbar"><div class="shell nav">
+<a aria-label="집핏 홈" class="brand" href="/"><svg aria-hidden="true" viewbox="0 0 36 36"><path d="M4 16.5 16 6a3 3 0 0 1 4 0l12 10.5v13a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3Z" fill="#3182f6"></path><path d="m11.5 21 4.5 4.5 9-10" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.2"></path></svg><span>집핏</span></a>
+<nav aria-label="주요 메뉴"><a aria-current="page" href="#results">공고 찾기</a><button data-profile-open="" type="button">내 조건</button></nav>
+<button class="nav-help" id="coverage-open" type="button">수집 현황<svg aria-hidden="true" class="icon"><use href="/static/icons.svg#chevron-right"></use></svg></button>
+</div></header>
+<main class="shell">
+<section aria-labelledby="hero-title" class="hero"><h1 id="hero-title">나에게 맞는 집,<br/><span>찾는 건 쉬워야 하니까</span></h1><p>여러 곳에 흩어진 주거 공고를 한곳에서 살펴보세요.</p></section>
+<div class="workspace">
+<aside aria-label="내 조건과 이용 안내" class="sidebar">
+<section class="profile-summary"><div aria-hidden="true" class="summary-icon"><svg><use href="/static/icons.svg#person"></use></svg></div>
+<h2 id="profile-summary-title">내 조건에 맞는 공고를<br/>함께 찾아볼까요?</h2><p id="profile-summary-copy">나이, 소득, 무주택 여부를 입력하면<br/>검토한 공고의 조건을 비교해드려요.</p>
+<dl hidden="" id="profile-summary-values"></dl>
+<button class="primary-button" data-profile-open="" id="profile-open-button" type="button">내 조건 입력하기</button>
+<button class="text-button example-button" id="example-button" type="button">예시 조건으로 둘러보기<svg aria-hidden="true" class="icon"><use href="/static/icons.svg#chevron-right"></use></svg></button>
+<div class="privacy-note"><svg aria-hidden="true" class="icon"><use href="/static/icons.svg#shield"></use></svg>입력한 정보는 저장하지 않아요</div></section>
+<section class="coverage-summary"><h2>어디까지 확인했나요?</h2><p id="coverage-summary">공고를 불러오고 있어요.</p><button class="text-button" id="coverage-open-2" type="button">지원 범위 자세히 보기<svg aria-hidden="true" class="icon"><use href="/static/icons.svg#chevron-right"></use></svg></button></section>
+<p class="sidebar-note">LH · SH · GH · 청년안심주택 · 청약홈<br/>기관별 공고를 모아 보여드려요.</p>
+</aside>
+<section aria-labelledby="results-heading" class="results-panel" id="results">
+<div class="results-title"><h2 id="results-heading">살펴볼 공고 <span id="result-count">—</span></h2><label class="sort-label"><span class="sr-only">정렬</span><select id="sort"><option value="recommended">조건 비교 우선</option><option value="newest">최신 공고순</option><option value="closing">접수 마감순</option></select></label></div>
+<div class="search-row"><label class="search-input"><svg aria-hidden="true" class="icon"><use href="/static/icons.svg#search"></use></svg><span class="sr-only">공고 검색</span><input autocomplete="off" id="search" placeholder="지역이나 단지명을 검색해보세요" type="search"/></label><label class="region-select"><span class="sr-only">희망 지역</span><select class="region-options" id="region-filter"><option value="">모든 지역</option></select></label></div>
+<div aria-label="공고 기관" class="provider-tabs" role="group"><button aria-pressed="true" class="selected" data-provider="" type="button">전체</button><button aria-pressed="false" data-provider="LH" type="button">LH</button><button aria-pressed="false" data-provider="SH" type="button">SH</button><button aria-pressed="false" data-provider="GH" type="button">GH</button><button aria-pressed="false" data-provider="SEOUL_YOUTH" type="button">청년안심주택</button><button aria-pressed="false" data-provider="APPLYHOME" type="button">청약홈</button></div>
+<div class="filter-row"><label class="status-filter"><span class="sr-only">조건 판정 필터</span><select id="eligibility-filter"><option value="all">모든 조건 결과</option><option value="possible">기본조건 일치 · 조건부</option><option value="unknown">추가 확인 필요</option><option value="mismatch">기본조건 불일치</option><option value="needs_input">내 정보 입력 필요</option><option value="unreviewed">공고 조건 검토 중</option><option value="stale">공고 재확인 필요</option></select></label><div class="filter-checks"><label class="inline-check"><input id="show-closed" type="checkbox"/>종료 공고</label><label class="inline-check"><input id="show-other" type="checkbox"/>안내·미분류</label></div></div>
+<p class="result-context" id="result-context">공고 목록을 불러오고 있어요.</p><div aria-live="polite" class="sr-only" id="result-announcement" role="status"></div>
+<div aria-busy="true" class="cards" id="cards"><div class="loading-state" role="status"><span class="loader"></span>공고를 불러오고 있어요</div></div>
+<button class="more-button" hidden="" id="load-more" type="button">공고 더 보기<svg aria-hidden="true" class="icon"><use href="/static/icons.svg#chevron-down"></use></svg></button>
+<div class="list-footer"><svg aria-hidden="true" class="icon"><use href="/static/icons.svg#info"></use></svg><p>최종 신청 자격과 일정은 공급기관의 공고를 확인해 주세요.<br/>모집 후보에는 제목을 기준으로 분류한 공고가 포함돼요.</p></div>
+</section></div></main>
+<footer class="shell footer"><span class="footer-brand">집핏</span><p>내 조건에 맞는 집을 찾는 첫걸음</p><span class="footer-meta">무료로 이용할 수 있어요</span></footer>
+<dialog aria-labelledby="profile-title" class="profile-dialog" id="profile-dialog">
+<header class="profile-dialog-header"><span>내 조건 입력</span><button aria-label="조건 입력 닫기" class="icon-button" data-close="profile-dialog" type="button"><svg aria-hidden="true" class="icon"><use href="/static/icons.svg#close"></use></svg></button></header>
+<div aria-label="입력 진행 단계" class="step-indicator"><span class="current" data-step-indicator="0">1<span>기본 정보</span></span><i></i><span data-step-indicator="1">2<span>주거 조건</span></span><i></i><span data-step-indicator="2">3<span>소득·예산</span></span></div>
+<form id="profile-form" novalidate=""><div class="profile-scroll" id="profile-scroll"><h2 id="profile-title" tabindex="-1">먼저, 기본 정보를<br/>알려주세요</h2><p class="profile-description" id="profile-description">모르는 항목은 비워둬도 괜찮아요.</p><section aria-label="기본 정보" class="profile-step" data-step="0">
+<label>생년월일<input min="1900-01-01" name="birth_date" type="date"/></label>
+<fieldset class="choice-field"><legend>혼인 상태</legend><div aria-label="혼인 상태 선택" class="segmented-control" role="group"><button aria-pressed="false" data-marriage="single" type="button">미혼</button><button aria-pressed="false" data-marriage="planned" type="button">결혼 예정</button><button aria-pressed="false" data-marriage="married" type="button">혼인 중</button></div><select aria-label="혼인 상태" class="sr-only" name="marriage" tabindex="-1"><option value="unknown">선택해 주세요</option><option value="single">미혼</option><option value="planned">결혼 예정</option><option value="married">혼인 중</option></select></fieldset>
+<label hidden="" id="marriage-date-field">혼인신고일<input name="marriage_date" type="date"/></label>
+<label hidden="" id="planned-field">입주 전 혼인신고·증명이 가능한가요?<select name="marriage_before_movein"><option value="unknown">아직 확인하지 않았어요</option><option value="yes">가능해요</option><option value="no">어려워요</option></select></label>
+<div class="form-row"><label>신청자 국적<select name="korean"><option value="unknown">선택해 주세요</option><option value="yes">대한민국</option><option value="no">그 외</option></select></label><label>현재 등본상 거주지<select class="region-options" name="residence"><option value="">선택해 주세요</option></select></label></div>
+</section><section aria-label="주거 조건" class="profile-step" data-step="1" hidden=""><label id="self-homeless-field">본인의 무주택 여부<select name="self_homeless"><option value="unknown">아직 확인하지 않았어요</option><option value="yes">무주택이에요</option><option value="no">공고상 주택 소유에 해당해요</option></select></label><label>공고상 세대구성원 전원이 무주택인가요?<select name="household_homeless"><option value="unknown">가족 범위를 확인해야 해요</option><option value="yes">전원 무주택이에요</option><option value="no">주택 소유자가 있어요</option></select></label><p class="field-help">세대 분리된 배우자가 포함될 수 있어요. 예비신혼은 혼인으로 구성될 세대를 기준으로 확인해 주세요. 분양권·입주권이나 주택 소유 예외가 있으면 ‘확인 필요’로 두세요.</p>
+<label>실제 입주예정자 모두 무주택인가요?<select name="occupants_homeless"><option value="unknown">아직 확인하지 않았어요</option><option value="yes">모두 무주택이에요</option><option value="no">주택 소유자가 있어요</option></select></label>
+<label hidden="" id="couple-field">예비부부 두 분 모두 무주택인가요?<select name="couple_homeless"><option value="unknown">아직 확인하지 않았어요</option><option value="yes">두 사람 모두 무주택이에요</option><option value="no">주택 소유자가 있어요</option></select></label>
+<label>입주예정자의 자동차·이륜차<select name="car_mode"><option value="unknown">아직 확인하지 않았어요</option><option value="none">소유·운행하는 차량 없음</option><option value="simple">일반 차량 1대 · 단독 소유</option><option value="complex">여러 대·공동지분·특례 등</option></select></label>
+<label hidden="" id="car-value-field">차량 가액 <span class="unit-label">만원</span><input inputmode="decimal" max="100000000" min="0" name="car_value" placeholder="예: 2000" step="0.0001" type="number"/></label>
+<p class="field-help">구매가 대신 공고에서 정한 평가 가액을 사용해요. 특례·보조금·공동지분 차량은 원문 확인이 필요해요.</p>
+</section><section aria-label="소득과 예산" class="profile-step" data-step="2" hidden=""><details class="input-details"><summary>소득과 자산 <span>특별공급 비교</span><svg aria-hidden="true" class="icon"><use href="/static/icons.svg#chevron-down"></use></svg></summary><div class="details-body">
+<p class="field-help">세전 월평균 소득을 입력해 주세요. 공고별 공식 산정 결과와 차이가 날 수 있어요.</p>
+<label>청년 특별공급의 소득 합산 범위<select name="youth_income_scope"><option value="unknown">확인 필요</option><option value="self">소득 있음 · 단독 세대주 (본인)</option><option value="household">소득 있음 · 세대원 또는 가족과 거주</option><option value="parents">본인 소득 없음 (본인+부모, 3인)</option></select></label>
+<label>본인 월평균 소득 <span class="unit-label">만원</span><input inputmode="decimal" max="100000000" min="0" name="monthly_income_self" placeholder="예: 300" step="0.0001" type="number"/></label>
+<label>세대 월평균 소득 합계 <span class="unit-label">만원</span><input inputmode="decimal" max="100000000" min="0" name="monthly_income_household" placeholder="예: 775" step="0.0001" type="number"/></label>
+<p class="field-help">송파 청년: 등본상 직계존비속(형제자매 제외). 신혼: 공고상 세대원 전체, 예비신혼: 구성될 세대원 전체.</p>
+<label>본인+부모 월평균 소득 합계 <span class="unit-label">만원</span><input inputmode="decimal" max="100000000" min="0" name="monthly_income_parents" placeholder="본인 무소득 청년의 경우" step="0.0001" type="number"/></label>
+<label>소득 산정 가구원 수 (태아 포함)<input inputmode="numeric" max="20" min="1" name="household_size" placeholder="예: 2" step="1" type="number"/></label>
+<div class="form-row"><label>본인 총자산 <span class="unit-label">만원</span><input inputmode="decimal" max="100000000" min="0" name="assets_self" placeholder="예: 8000" step="0.0001" type="number"/></label><label>세대 총자산 <span class="unit-label">만원</span><input inputmode="decimal" max="100000000" min="0" name="assets_household" placeholder="예: 15000" step="0.0001" type="number"/></label></div>
+<p class="field-help">자산은 공고의 합산·공제 기준으로 확인해 주세요. 청년은 본인, 신혼은 세대 총자산을 비교해요.</p>
+</div></details><details class="input-details" open=""><summary>희망 보증금과 월세 <span>선택</span><svg aria-hidden="true" class="icon"><use href="/static/icons.svg#chevron-down"></use></svg></summary><div class="details-body"><div class="form-row"><label>보증금 상한 <span class="unit-label">만원</span><input inputmode="decimal" max="100000000" min="0" name="deposit_budget" placeholder="예: 8000" step="0.0001" type="number"/></label><label>월세 상한 <span class="unit-label">만원</span><input inputmode="decimal" max="100000000" min="0" name="monthly_rent_budget" placeholder="예: 80" step="0.0001" type="number"/></label></div><p class="field-help">준비 가능한 총보증금 기준이에요. 대출액·이자는 계산하지 않아요. 예산은 신청 자격과 별도로 비교해요.</p></div></details><details class="input-details" id="sh-extra-fields"><summary>SH 신혼·신생아 추가 조건 <span>해당 공고 비교</span><svg aria-hidden="true" class="icon"><use href="/static/icons.svg#chevron-down"></use></svg></summary><div class="details-body">
+<p class="field-help">2026.09.30. SH 매입임대Ⅱ 공고 기준이에요. 아는 항목만 입력하면 돼요. 순위와 가점은 계산하지 않아요.</p>
+<label>신생아·태아가 있는 가구인가요?<select name="sh_newborn"><option value="unknown">확인 필요</option><option value="yes">2024.10.01. 이후 출생 자녀 또는 태아 있음</option><option value="no">해당 없음</option></select></label>
+<label>한부모가족 유형<select name="sh_single_parent"><option value="unknown">확인 필요</option><option value="certified">미성년 자녀 있음 · 한부모가족 증명서 발급 가능</option><option value="young_child">2019.10.01. 이후 출생 자녀를 둔 한부모</option><option value="no">해당 없음</option></select></label>
+<label>본인과 (예비)배우자 모두 근로·사업소득이 있나요?<select name="dual_income"><option value="unknown">확인 필요</option><option value="yes">두 사람 모두 있어요</option><option value="no">해당하지 않아요</option></select></label>
+<p class="field-help">공적 소득자료 기준이에요. 실업급여만 받는 경우는 맞벌이로 인정되지 않아요.</p>
+<label>소득·자산 검증 면제 증명서를 제출할 수 있나요?<select name="benefit_certificate"><option value="unknown">확인 필요</option><option value="yes">수급자·지원대상 한부모·차상위 증명서 제출 가능</option><option value="no">해당 없음</option></select></label>
+<p class="field-help">예비신혼부부에는 면제를 적용하지 않아요. 나머지 신청 조건은 별도로 확인해요.</p>
+<label>자산기준 완화 대상 자녀<select name="sh_asset_children"><option value="unknown">출생일·등본 기준 확인 필요</option><option value="none">2023.03.28. 이후 출생 자녀·태아 없음</option><option value="one">이후 출생 자녀·태아 1명만 있음</option><option value="multiple">이후 2명 이상 또는 이후 1명 + 이전 미성년 자녀</option></select></label>
+<p class="field-help">공고일 기준 미성년 자녀 중 신청자·배우자와 같은 등본에 있는 자녀와 태아를 기준으로 해요. 가구원 수·소득·자산에는 공고상 세대 전체를 반영해 주세요.</p>
+</div></details><label class="checkbox-label"><input name="reference_confirmed" type="checkbox"/><span>입력한 혼인·가족·거주·무주택·소득·자산 정보가 검토할 공고일에도 같음을 확인했어요.<small>공고마다 판단 기준일이 달라요. 상세 화면에서 확인할 수 있어요.</small></span></label></section><div class="error-message" hidden="" id="form-error" role="alert"></div></div><footer class="profile-actions"><button class="secondary-button" hidden="" id="step-back" type="button">이전</button><button class="primary-button" id="step-next" type="button">다음</button><button class="primary-button" hidden="" id="match-button" type="submit">이 조건으로 공고 보기</button></footer></form><div class="profile-reset"><button class="text-button" id="reset-button" type="button">입력한 조건 초기화</button></div>
+</dialog>
+<dialog aria-labelledby="detail-title" id="detail-dialog"><div id="detail-content"></div><button aria-label="공고 상세 닫기" class="dialog-close icon-button" data-close="detail-dialog" type="button"><svg aria-hidden="true" class="icon"><use href="/static/icons.svg#close"></use></svg></button></dialog>
+<dialog aria-labelledby="coverage-title" id="coverage-dialog"><div id="coverage-content"></div><button aria-label="수집 현황 닫기" class="dialog-close icon-button" data-close="coverage-dialog" type="button"><svg aria-hidden="true" class="icon"><use href="/static/icons.svg#close"></use></svg></button></dialog>
+<div class="toast" hidden="" id="toast" role="status"></div>
+</body></html>

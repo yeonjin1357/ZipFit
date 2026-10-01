@@ -1,0 +1,1158 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" type="image/ico" href="https://static.applyhome.co.kr/images/kabhom/common/favicon.ico" />
+	<link rel="apple-touch-icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+	<link rel="shortcut icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+    <title>청약홈</title>
+    <link rel="stylesheet" type="text/css" href="/css/kabhom/main/global.css">
+    <link rel="stylesheet" type="text/css" href="/css/kabhom/main/index.css">
+	
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery.3.7.0.min.js"></script>
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery-ui.min.js"></script>
+	
+	<!-- 성능제어 Netfunnel -->
+	<script src="/js/kabhom/com/com.js"></script>
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel.js"></script>
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel_skin.js"></script>
+</head>
+<body>
+	
+	<form id="bbsSearchFrm" style="display:none;">
+		<input type="hidden" name="pageIndex" id="pageIndex" value="1" >
+	</form>
+	
+	
+	<div class="loding_wrap" id="commonProgressBar">
+		<div class="lod_wrap_box">
+			<div class="lod_box">
+				<i class="xi-spinner-2 xi-spin"></i>
+				<p>처리중입니다.</p>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<div id="pop_info" style="display:none;" tabindex="0">
+		<div class="pop_info_cell">
+			<div class="pop_box" style="margin-top:0px; width:460px">
+				<div class="pop_title">
+					<h5><img src="/images/kabhom/main/popup_logo.png" alt="한국부동산원 로고">청약홈</h5>
+					<button type="button" onclick="javascript:pop_close('pop_info');"><i class="xi xi-close-thin"></i><span class="blind">팝업 닫기</span></button>
+				</div>
+				
+				<div class="pop_cont add">
+					<div class="pop_cont" style="padding:10px; border-bottom:2px #bbb;">
+					<div class="pop_ntt" style="margin:0px; padding:5px; overflow-y:auto;">
+						
+							
+							
+								
+							
+						
+						<style>.pop_cont.add{padding:0px !important; border-bottom:2px #bbb;}</style>					
+					</div>
+				</div>
+				<div class="pop_foot">
+					<span>
+						<input type="checkbox" id="today" name="today" value="Y">
+						<label for="today">오늘 하루 열지 않기</label>
+					</span>
+					<button type="button" onclick="javascript:pop_close('pop_info');">[닫기]</button>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+    <div id="wrap">
+        <a href="#gnb" class="skip-link">주메뉴 바로가기</a>
+        <a href="#content" class="skip-link">본문 바로가기</a>
+        <div id="snb">
+            <div class="info-wrap">
+                <div>
+                    <p><span>청약문의 1644-7445</span>(월~금 09:00~17:30)</p>
+                    <button class="btn-close txt-indent color-wh">닫기</button>
+                </div>
+            </div>
+            <div id="header">
+	            <div class="my-area">
+	                <h1><a href="javascript:$net.href('/co/coa/selectMainView.do');" class="txt-indent">청약HOME</a></h1>
+	                <div>
+	                	
+	                		<button type="button" class="btn-search txt-indent">검색</button>
+	                	
+	                    <button type="button" class="btn-menu txt-indent">메인 메뉴</button>
+	                </div>
+	            </div>
+                
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	
+			<div class="search-area">
+				<div class="search-wrap">
+					<div class="search-btn"><button type="button" class="btn-close txt-indent">닫기</button></div>
+					<div class="search-box">
+						<form name="konanSearchform" id="konanSearchform" action="" method="POST"></form>
+						<input type="search" id="mainSchTxt" name="mainSchTxt" placeholder="검색어 입력" autocomplete="off" />
+						<!-- <button type="button" class="btn-search-delete txt-indent">삭제</button> -->
+						<button type="button" id="btnKonanSearch" class="btn-search txt-indent">검색</button>
+					</div>
+					<div class="search-autobox">
+						<div class="left-box">
+							<ul id="autolist"></ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="search-txt">찾으시는 메뉴명과 관심 지역명을 검색해보세요(순위확인서, 대구, 역삼 등)</div>
+			</div>
+			<div class="search-shadow"></div>
+			
+			<script>
+			$(function () {
+			    var searchTerm = "";
+			    $("#mainSchTxt").autocomplete({
+			        source: function (request, response) {
+			            searchTerm = request.term;
+			            $.ajax({
+			                url: "/co/coz/searchSuggestResult.do",
+			                data: { term: searchTerm },
+			                type: "GET",
+			                success: function(data) {
+			                    //console.log(data);
+			                    var jsonData = (typeof data === "string") ? JSON.parse(data) : data;
+			                    var html = "";
+			                    $.each(jsonData.suggestions.s || [], function(index, item) {
+			                        var itemTxt = item.keyword || '';
+			                        //자동완성 API 호출값에 URL이 포함되어지면 해당 ID값 호출 처리
+			                        //console.log(item.addtional || '');
+			                        var url = item.addtional[0] || '';			                        
+			                        var searchRegex = searchTerm.replace(/[.*+?^$()|[]\\]/g, '\\$&');
+			                        var highlighted = itemTxt.replace(new RegExp('(' + searchRegex + ')', 'gi'),'<span>$1</span>');
+			                        html += '<li data-url="'+url+'"><a href="'+url+'">';
+			                        if(!url || url.length === 0) {
+			                            html += highlighted;
+			                        }else {
+			                            html += highlighted + ' ≫';
+			                        }
+			                        html += '<div class="url-box"></div></a></li>';
+			                    });
+			                    $("#autolist").html(html).show();
+			                    //response(data);
+			                    response([]);
+			                }
+			            });
+			        },
+			        minLength: 1,
+			        delay: 300
+			    });
+			    $("#mainSchTxt").on("keydown", function(e) {
+			        if(e.keyCode === 13) {
+			            e.preventDefault();
+			            var chkArr = search.checkSearchCondition();
+			            var searchTxt = $("#mainSchTxt").val();
+			            var recordCountPerPage = 10;
+			            if(searchTxt.length > 1) {
+			                if ( chkArr ) {
+				                $('#konanSearchform').append( $('<input/>', {type:'hidden',id:'schTxt', name:'schTxt', value:searchTxt}) );
+				                $('#konanSearchform').append( $('<input/>', {type:'hidden',id:'recordCountPerPage', name:'recordCountPerPage', value:recordCountPerPage}) );
+					    		$net.submit("konanSearchform", "/co/coz/integratedSearchResultView.do");
+			                }
+			            }else {
+			                alert('검색어를 2글자 이상 입력해주세요.');
+			                return false;
+			            }
+			        }
+			    });
+			    $("#btnKonanSearch").on("click", function(e) {
+			        e.preventDefault();
+			        var chkArr = search.checkSearchCondition();
+			        var searchTxt = $("#mainSchTxt").val();
+			        var recordCountPerPage = 10;
+		            if(searchTxt.length > 1) {
+		                if ( chkArr ) {
+			                $('#konanSearchform').append( $('<input/>', {type:'hidden',id:'schTxt', name:'schTxt', value:searchTxt}) );
+			                $('#konanSearchform').append( $('<input/>', {type:'hidden',id:'recordCountPerPage', name:'recordCountPerPage', value:recordCountPerPage}) );
+				    		$net.submit("konanSearchform", "/co/coz/integratedSearchResultView.do");
+		                }
+		            }else {
+		                alert('검색어를 2글자 이상 입력해주세요.');
+		                return false;
+		            }
+			    });
+			    $(document).on("mouseenter", "#autolist li", function(e) {
+			        var $currentLi = $(this);
+			        $("#autolist li").not(this).find("div").empty().removeData("inited"); //다른 li의 div값을 비움
+			        
+			        if($currentLi.find("div").data("inited")) return; //이미 만들었다면 스킵하기
+			        
+			        var selectedTxt = $(this).children("a").first().text().replace("≫", "").trim();
+			        var url = $(this).data("url");
+			        if(url){
+			            var html = '<span>'+url+'</spna><span class="search-url">'+selectedTxt+'로 바로 이동</span>';
+				        $currentLi.find("div").html(html).data("inited", true);
+			        }
+			    });
+			    $(document).on("click", "#autolist li a", function(e) {
+			        e.preventDefault();
+			        var chkArr = search.checkSearchCondition();
+			        var selectedTxt = $(this).text().replace("≫", "").trim();
+			        var url = $(this).closest("li").data("url");
+			        var recordCountPerPage = 10;
+			        $("#autolist").val(selectedTxt);
+			        if(url){
+			            $net.href(""+url+"");
+			        }else{
+			            if ( chkArr ) {
+				            $('#konanSearchform').append( $('<input/>', {type:'hidden',id:'schTxt', name:'schTxt', value:selectedTxt}) );
+				            $('#konanSearchform').append( $('<input/>', {type:'hidden',id:'recordCountPerPage', name:'recordCountPerPage', value:recordCountPerPage}) );
+				    		$net.submit("konanSearchform", "/co/coz/integratedSearchResultView.do");
+			            }
+			        }
+			    });
+			    $(document).on("click", function(e) {
+			        if(!$(e.target).closest(".search-area").length) {
+			            $("#mainSchTxt").val("");
+			            $("#autolist").hide();
+			        }
+			    });
+			    $("#mainSchTxt").on("input", function(e) {
+					if(!e.target.value) {
+						$("#autolist").empty();
+					}
+				});
+			});
+			
+			var search = {
+			    checkSearchCondition : function() {
+					
+		    		var regApct = /[\%\&\<\>\"\']/gi;		
+		    		if(regApct.test($('#mainSchTxt').val()))
+		    		{
+		    			alert("검색어에 허용되지 않는 특수문자가 존재합니다.");	
+		    			$('#mainSchTxt').focus();
+		    			return false;
+		    		}
+		    		
+		    		var regApct = /(<([^>]+)>)/gi;		
+		    		if(regApct.test($('#mainSchTxt').val()))
+		    		{
+		    			alert("검색어에 허용되지 않는 문자스크립트가 존재합니다.");	
+		    			$('#mainSchTxt').val('');
+		    			$('#mainSchTxt').focus();
+		    			return false;
+		    		}
+		    		return true;
+		    	}
+			}
+			</script>
+                </div>
+                <div class="scrolling">
+	                <nav id="gnb">
+	                    <div class="btn-box">
+	                    	<div>
+		                    
+								
+									<a href="javascript:$net.href('/co/cob/selectSubscrptBnkbSbscrbDesc.do');" class="btn-login">마이페이지</a>
+								
+								
+							
+							</div>
+							<button type="button" class="btn-close txt-indent">닫기</button>
+	                    </div>
+	                    
+	<ul class="main">
+		<li>
+			<a href="#">청약신청</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/ap/aph/reqst/selectSubscrtReqstAptMainView.do');" id="menu639">APT</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ap/aph/reqst/selectSubscrtReqstAptMainView.do');" id="menu667">특별공급</a></li>
+							<li><a href="javascript:$net.href('/ap/aph/reqst/selectSubscrtReqstAptMainView.do?se=01&ty=10');" id="menu100085">1순위/2순위</a></li>
+							<li><a href="javascript:$net.href('/ap/aph/reqst/selectSubscrtReqstAptMainView.do?se=04&ty=10');" id="menu100133">무순위</a></li>
+							<li><a href="javascript:$net.href('/ap/aph/reqst/selectSubscrtReqstAptMainView.do?se=11&ty=10');" id="menu100337">임의공급</a></li>
+							<li><a href="javascript:$net.href('/ap/aph/reqst/selectSubscrtReqstAptMainView.do?se=06&ty=20');" id="menu100164">불법행위재공급</a></li>
+							<li><a href="javascript:$net.href('/ap/apa/selectAptSpsplySubscrptReqstList.do');" id="menu668">청약신청 내역조회</a></li>
+							<li><a href="javascript:$net.href('/ap/apa/selectAptSpsplySubscrptCanclList.do');" id="menu669">청약취소</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ap/apb/reqst/selectSubscrtReqstUOMainView.do');" id="menu640">오피스텔/생활숙박시설/도시형/민간임대</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ap/apb/reqst/selectSubscrtReqstUOMainView.do');" id="menu670">청약신청</a></li>
+							<li><a href="javascript:$net.href('/ap/apb/selectUrbtyOfctlSubscrptReqstList.do');" id="menu671">청약신청 내역조회</a></li>
+							<li><a href="javascript:$net.href('/ap/apb/selectUrbtyOfctlSubscrptCanclList.do');" id="menu672">청약취소</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ap/apc/reqst/selectSubscrtReqstPRMainView.do');" id="menu641">공공지원민간임대</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ap/apc/reqst/selectSubscrtReqstPRMainView.do');" id="menu673">청약신청</a></li>
+							<li><a href="javascript:$net.href('/ap/apc/selectPrvateRentSubscrptReqstList.do');" id="menu674">청약신청 내역조회</a></li>
+							<li><a href="javascript:$net.href('/ap/apc/selectPrvateRentSubscrptCanclList.do');" id="menu675">청약취소</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">청약당첨조회</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/wa/waa/selectAptPrzwinDescList.do');" id="menu646">APT</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/wa/wab/selectOfctlUrbtyPrzwinHouseList.do');" id="menu647">오피스텔/생활숙박시설/도시형/민간임대</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/wa/wac/selectPrvateRentPrzwinHouseList.do');" id="menu648">공공지원민간임대</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/wa/wad/selectMxtrHouseDrwtList.do');" id="menu649">주택조합 동·호수 추첨결과</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">청약자격확인</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/ra/rab/selectHshldInfoProvdAgreRequestView.do');" id="menu100022">세대구성원 등록/조회</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ra/rab/selectHshldMbInfoProvdAgreView.do');" id="menu100127">세대구성원 동의</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/co/cob/selectSubscrptLmttCnList.do');" id="menu100128">청약제한사항확인</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ap/apd/selectHousePosesnList.do');" id="menu100129">주택소유확인</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ap/apd/selectSubscrptBnkbSbscrbDesc.do');" id="menu100276">청약통장</a>
+						<ul>
+							<li><a href="javascript:NetFunnel.href('/ap/apd/selectSubscrptBnkbSbscrbDesc.do', '');" id="menu100277">가입내역</a></li>
+							<li><a href="javascript:$net.href('/cu/cud/selectRankCnfrmnIssuView.do');" id="menu100278">순위확인서 발급</a></li>
+							<li><a href="javascript:$net.href('/cu/cue/selectRankCnfrmnIssuView.do');" id="menu100279">순위확인서 발급내역</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/co/coc/selectSubscrptQualfDiagMain.do');" id="menu100312">청약자격진단</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">공고단지 청약연습</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/ap/apr/reqst/selectSubscrtReqstAptMainView.do');" id="menu100280">공고단지</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ap/apr/reqst/selectSubscrtReqstAptMainView.do');" id="menu100281">청약연습</a></li>
+							<li><a href="javascript:$net.href('/ra/raa/selectAptSpsplyPreparSubscrptReqstList.do');" id="menu100282">연습내역 조회</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ap/apg/selectAddpntCalculatorView.do');" id="menu100125">청약가점계산기</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ap/app/reqst/selectSubscrtReqstAptMainView.do');" id="menu100126">청약가상체험</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">청약일정 및 통계</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/ai/aib/selectSubscrptCalenderView.do');" id="menu651">청약캘린더(청약일정)</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/cu/cuc/selectSubscrptAllimiView.do');" id="menu652">청약알리미 신청</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ai/aia/selectAPTLttotPblancListView.do');" id="menu650">분양정보/경쟁률</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ai/aia/selectAPTLttotPblancListView.do');" id="menu686">APT</a></li>
+							<li><a href="javascript:$net.href('/ai/aia/selectOtherLttotPblancListView.do');" id="menu687">오피스텔/생활숙박시설/도시형/(공공지원)민간임대</a></li>
+							<li><a href="javascript:$net.href('/ai/aia/selectAPTRemndrLttotPblancListView.do');" id="menu818">APT 잔여세대</a></li>
+							<li><a href="javascript:$net.href('/ap/apk/selectAPTLttotPblancListView.do');" id="menu100383">민간사전청약</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ai/aie/selectSubscrptBnkbAllSbscrbStusView.do');" id="menu654">청약통장 통계</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ai/aie/selectSubscrptBnkbAllSbscrbStusView.do');" id="menu688">전체 현황</a></li>
+							<li><a href="javascript:$net.href('/ai/aie/selectSubscrptBnkbAcctoSbscrbStusView.do');" id="menu689">통장별 현황</a></li>
+							<li><a href="javascript:$net.href('/ai/aie/selectSubscrptBnkbSbscrbPdAcctoStusView.do');" id="menu690">가입기간별 현황</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">청약제도안내</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/ar/ara/selectSubscrptIntroHouseView.do');" id="menu655">APT</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroHouseView.do');" id="menu692">청약주택</a></li>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroBnkbView.do');" id="menu693">청약통장</a></li>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroQualfView.do');" id="menu694">청약자격</a></li>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroSpetialView.do');" id="menu695">특별공급</a></li>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroHowToReqstView.do');" id="menu696">청약신청방법</a></li>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroPreawnerSlctnView.do');" id="menu697">당첨자 선정</a></li>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroRemndrHshldView.do');" id="menu761">잔여세대</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ar/arb/selectPROUSubscriptionHouseInfoView.do');" id="menu656">오피스텔/생활숙박시설/도시형/(공공지원)민간임대</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ar/arb/selectPROUSubscriptionHouseInfoView.do');" id="menu698">청약주택</a></li>
+							<li><a href="javascript:$net.href('/ar/arb/selectPROUSubscriptionReqstMthInfoView.do');" id="menu699">청약신청방법</a></li>
+							<li><a href="javascript:$net.href('/ar/arb/selectPROUSubscrptIntroPreawnerSlctn.do');" id="menu700">당첨자 선정</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ar/arb/selectsubscriptionDepositInfoView.do');" id="menu657">주택청약 상품정보</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ai/aic/selectSpecltSubscrptRndAreaList.do');" id="menu100121">규제지역정보</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ar/ard/selectSubscriptVocabularyView.do');" id="menu658">주택청약 용어설명</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">청약소통방</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/cu/cua/selectNoticeListView.do');" id="menu660">공지사항</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/cu/cub/selectFAQList.do');" id="menu661">자주묻는질문</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/wa/waa/selectAptPrzwinCnfrmnList.do');" id="menu100156">APT당첨사실조회</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/cu/cui/selectAdvPrzwnerCanclView.do');" id="menu100382">사전청약 당첨취소자 조회</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/rs/rsa/selectResaleListView.do');" id="menu100174">분양권 정보(전매제한등)</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ai/aia/selectAPTMvnPrearngeHsHldcoList.do');" id="menu100267">입주(예정)정보</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">본인전송정보</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/as/asa/selectMySendInfoList.do');" id="menu100449">본인전송정보 확인</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+
+	                </nav>
+            		<footer>
+		                <div class="cs-box">
+		                    <strong class="txt-phone">청약문의</strong>
+		                    <div>
+		                        <strong class="num-phone">1644-칠사사오</strong>
+		                        <span>문의 시간  <strong>월~금 09:00 ~ 17:30</strong> </span>
+		                        <p>상담은 법적 효력 없는 참고용입니다.</p>
+		                    </div>
+		                </div>
+		                <div class="family-box">
+		                    <ul>
+		                        <li><a href="javascript:$net.href('/kabbnk/cn/cna/selectMainView.do');">대행은행</a></li>
+		                        <li><a href="javascript:$net.href('/kabbiz/cm/cma/selectMainView.do');">사업주체</a></li>
+		                    </ul>
+		                </div>
+		                <h2><a href="javascript:$net.href('/co/coa/selectMainView.do');" class="logo-bottom txt-indent">한국부동산원 청약 HOME</a></h2>
+		                <div class="policy-box">
+		                    <ul>
+		                        <li class="policy"><a href="javascript:$net.href('/co/coz/selectIndvdlinfoPolicyView.do');">개인정보처리방침</a></li>
+		                        <li><a href="javascript:$net.href('/co/coz/selectMobileUseInfoView.do');">모바일 사용에 대한 안내</a></li>
+		                        <li><a href="javascript:$net.href('/co/coz/selectMailColctDenialView.do');">이메일 추출방지정책 </a></li>
+		                        <li><a href="javascript:$net.href('/co/coz/selectSecurityProgrmView.do');">보안프로그램</a></li>
+		                        <li><a href="javascript:$net.href('/co/coz/selectCrtfctCopyView.do');">공동인증서 관리</a></li>
+		                        <li><a href="http://remote.kais.kr" target="_blank">원격연결</a></li>
+		                        <li><a href="#" class="menu-sitemap">사이트맵</a></li>
+		                    </ul>
+		                    <div class="info-sitemap">
+			                    <div class="site-wrap">
+			                        <a class="btn-close txt-indent color-wh">닫기</a>            	
+			    					
+	<ul class="main">
+		<li>
+			<a href="#">청약신청</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/ap/aph/reqst/selectSubscrtReqstAptMainView.do');" class="title" id="menu639">APT</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ap/aph/reqst/selectSubscrtReqstAptMainView.do');" id="menu667">특별공급</a></li>
+							<li><a href="javascript:$net.href('/ap/aph/reqst/selectSubscrtReqstAptMainView.do?se=01&ty=10');" id="menu100085">1순위/2순위</a></li>
+							<li><a href="javascript:$net.href('/ap/aph/reqst/selectSubscrtReqstAptMainView.do?se=04&ty=10');" id="menu100133">무순위</a></li>
+							<li><a href="javascript:$net.href('/ap/aph/reqst/selectSubscrtReqstAptMainView.do?se=11&ty=10');" id="menu100337">임의공급</a></li>
+							<li><a href="javascript:$net.href('/ap/aph/reqst/selectSubscrtReqstAptMainView.do?se=06&ty=20');" id="menu100164">불법행위재공급</a></li>
+							<li><a href="javascript:$net.href('/ap/apa/selectAptSpsplySubscrptReqstList.do');" id="menu668">청약신청 내역조회</a></li>
+							<li><a href="javascript:$net.href('/ap/apa/selectAptSpsplySubscrptCanclList.do');" id="menu669">청약취소</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ap/apb/reqst/selectSubscrtReqstUOMainView.do');" class="title" id="menu640">오피스텔/생활숙박시설/도시형/민간임대</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ap/apb/reqst/selectSubscrtReqstUOMainView.do');" id="menu670">청약신청</a></li>
+							<li><a href="javascript:$net.href('/ap/apb/selectUrbtyOfctlSubscrptReqstList.do');" id="menu671">청약신청 내역조회</a></li>
+							<li><a href="javascript:$net.href('/ap/apb/selectUrbtyOfctlSubscrptCanclList.do');" id="menu672">청약취소</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ap/apc/reqst/selectSubscrtReqstPRMainView.do');" class="title" id="menu641">공공지원민간임대</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ap/apc/reqst/selectSubscrtReqstPRMainView.do');" id="menu673">청약신청</a></li>
+							<li><a href="javascript:$net.href('/ap/apc/selectPrvateRentSubscrptReqstList.do');" id="menu674">청약신청 내역조회</a></li>
+							<li><a href="javascript:$net.href('/ap/apc/selectPrvateRentSubscrptCanclList.do');" id="menu675">청약취소</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">청약당첨조회</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/wa/waa/selectAptPrzwinDescList.do');" class="title" id="menu646">APT</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/wa/wab/selectOfctlUrbtyPrzwinHouseList.do');" class="title" id="menu647">오피스텔/생활숙박시설/도시형/민간임대</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/wa/wac/selectPrvateRentPrzwinHouseList.do');" class="title" id="menu648">공공지원민간임대</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/wa/wad/selectMxtrHouseDrwtList.do');" class="title" id="menu649">주택조합 동·호수 추첨결과</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">청약자격확인</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/ra/rab/selectHshldInfoProvdAgreRequestView.do');" class="title" id="menu100022">세대구성원 등록/조회</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ra/rab/selectHshldMbInfoProvdAgreView.do');" class="title" id="menu100127">세대구성원 동의</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/co/cob/selectSubscrptLmttCnList.do');" class="title" id="menu100128">청약제한사항확인</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ap/apd/selectHousePosesnList.do');" class="title" id="menu100129">주택소유확인</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ap/apd/selectSubscrptBnkbSbscrbDesc.do');" class="title" id="menu100276">청약통장</a>
+						<ul>
+							<li><a href="javascript:NetFunnel.href('/ap/apd/selectSubscrptBnkbSbscrbDesc.do', '');" id="menu100277">가입내역</a></li>
+							<li><a href="javascript:$net.href('/cu/cud/selectRankCnfrmnIssuView.do');" id="menu100278">순위확인서 발급</a></li>
+							<li><a href="javascript:$net.href('/cu/cue/selectRankCnfrmnIssuView.do');" id="menu100279">순위확인서 발급내역</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/co/coc/selectSubscrptQualfDiagMain.do');" class="title" id="menu100312">청약자격진단</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">공고단지 청약연습</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/ap/apr/reqst/selectSubscrtReqstAptMainView.do');" class="title" id="menu100280">공고단지</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ap/apr/reqst/selectSubscrtReqstAptMainView.do');" id="menu100281">청약연습</a></li>
+							<li><a href="javascript:$net.href('/ra/raa/selectAptSpsplyPreparSubscrptReqstList.do');" id="menu100282">연습내역 조회</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ap/apg/selectAddpntCalculatorView.do');" class="title" id="menu100125">청약가점계산기</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ap/app/reqst/selectSubscrtReqstAptMainView.do');" class="title" id="menu100126">청약가상체험</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">청약일정 및 통계</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/ai/aib/selectSubscrptCalenderView.do');" class="title" id="menu651">청약캘린더(청약일정)</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/cu/cuc/selectSubscrptAllimiView.do');" class="title" id="menu652">청약알리미 신청</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ai/aia/selectAPTLttotPblancListView.do');" class="title" id="menu650">분양정보/경쟁률</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ai/aia/selectAPTLttotPblancListView.do');" id="menu686">APT</a></li>
+							<li><a href="javascript:$net.href('/ai/aia/selectOtherLttotPblancListView.do');" id="menu687">오피스텔/생활숙박시설/도시형/(공공지원)민간임대</a></li>
+							<li><a href="javascript:$net.href('/ai/aia/selectAPTRemndrLttotPblancListView.do');" id="menu818">APT 잔여세대</a></li>
+							<li><a href="javascript:$net.href('/ap/apk/selectAPTLttotPblancListView.do');" id="menu100383">민간사전청약</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ai/aie/selectSubscrptBnkbAllSbscrbStusView.do');" class="title" id="menu654">청약통장 통계</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ai/aie/selectSubscrptBnkbAllSbscrbStusView.do');" id="menu688">전체 현황</a></li>
+							<li><a href="javascript:$net.href('/ai/aie/selectSubscrptBnkbAcctoSbscrbStusView.do');" id="menu689">통장별 현황</a></li>
+							<li><a href="javascript:$net.href('/ai/aie/selectSubscrptBnkbSbscrbPdAcctoStusView.do');" id="menu690">가입기간별 현황</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">청약제도안내</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/ar/ara/selectSubscrptIntroHouseView.do');" class="title" id="menu655">APT</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroHouseView.do');" id="menu692">청약주택</a></li>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroBnkbView.do');" id="menu693">청약통장</a></li>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroQualfView.do');" id="menu694">청약자격</a></li>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroSpetialView.do');" id="menu695">특별공급</a></li>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroHowToReqstView.do');" id="menu696">청약신청방법</a></li>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroPreawnerSlctnView.do');" id="menu697">당첨자 선정</a></li>
+							<li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroRemndrHshldView.do');" id="menu761">잔여세대</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ar/arb/selectPROUSubscriptionHouseInfoView.do');" class="title" id="menu656">오피스텔/생활숙박시설/도시형/(공공지원)민간임대</a>
+						<ul>
+							<li><a href="javascript:$net.href('/ar/arb/selectPROUSubscriptionHouseInfoView.do');" id="menu698">청약주택</a></li>
+							<li><a href="javascript:$net.href('/ar/arb/selectPROUSubscriptionReqstMthInfoView.do');" id="menu699">청약신청방법</a></li>
+							<li><a href="javascript:$net.href('/ar/arb/selectPROUSubscrptIntroPreawnerSlctn.do');" id="menu700">당첨자 선정</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ar/arb/selectsubscriptionDepositInfoView.do');" class="title" id="menu657">주택청약 상품정보</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ai/aic/selectSpecltSubscrptRndAreaList.do');" class="title" id="menu100121">규제지역정보</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ar/ard/selectSubscriptVocabularyView.do');" class="title" id="menu658">주택청약 용어설명</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">청약소통방</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/cu/cua/selectNoticeListView.do');" class="title" id="menu660">공지사항</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/cu/cub/selectFAQList.do');" class="title" id="menu661">자주묻는질문</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/wa/waa/selectAptPrzwinCnfrmnList.do');" class="title" id="menu100156">APT당첨사실조회</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/cu/cui/selectAdvPrzwnerCanclView.do');" class="title" id="menu100382">사전청약 당첨취소자 조회</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/rs/rsa/selectResaleListView.do');" class="title" id="menu100174">분양권 정보(전매제한등)</a>
+					</li>
+					<li>
+						<a href="javascript:$net.href('/ai/aia/selectAPTMvnPrearngeHsHldcoList.do');" class="title" id="menu100267">입주(예정)정보</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#">본인전송정보</a>
+			<div class="sub-wrap">
+				<ul class="sub">
+					<li>
+						<a href="javascript:$net.href('/as/asa/selectMySendInfoList.do');" class="title" id="menu100449">본인전송정보 확인</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+
+			    				</div>
+			    			</div>
+		                </div>
+		                <p class="txt-address">(우)41068 대구광역시 동구 이노밸리로 291 (신서동)</p>
+		                <p class="txt-copyright">COPYRIGHT ⓒ KOREA REAL ESTATE BOARD, ALL RIGHTS RESERVED.</p>
+		            </footer>
+            	</div>
+            </div>
+	        <div id="container">
+	            <div id="content">
+	                <section>
+	                    <h2>오늘의 청약</h2>
+	                    <!-- confirm-box 에 no-service class 추가시 문구 출력 -->
+	                    <div class="confirm-box">
+	                        <a href="#" onclick="fn_selectSchdulListNewMain('subscrpt', 'pop_date', '');" class="ing">
+	                            <strong>청약 진행 중인 공고 확인하기</strong>
+						
+							
+								<div class="num-wrap"><span class="num-ing">2</span>건</div>
+							
+							
+						
+	                            <p class="txt-notice">청약 신청 시간은 09:00~17:30 입니다</p>
+	                        </a>
+	                        <div class="info-schedule going" id="pop_date">
+	                        </div>
+	                        <a href="#" onclick="fn_selectSchdulListNewMain('przwner', 'pop_winner', '');" class="result">
+	                            <strong>당첨자 발표 확인하기</strong>
+	                            <div class="num-wrap"><span class="num-result">7</span>건</div>
+	                            <p class="txt-notice">오늘의 당첨자 발표를 확인하세요</p>
+	                        </a>
+	                        <div class="info-schedule success" id="pop_winner">
+	                        </div>
+	                    </div>
+	                    <div class="calender-box">
+	                        <a href="javascript:$net.href('/ai/aib/selectSubscrptCalenderView.do');">
+	                            <strong>청약 캘린더 보기</strong>
+	                            <div class="img-wrap">
+	                                <img src="/images/kabhom/main/ico/ico_caleander.svg" alt="청약 캘린더 보기 아이콘">
+	                            </div>
+	                        </a>
+	                    </div>
+	                    <div class="pre-box">
+	                        <a href="#" class="main-area">
+	                             <div class="img-wrap"></div>
+	                             <div>
+	                                 <strong>나의 청약, 준비해 볼까요?</strong>
+	                                 <p>청약 가점부터 자격진단까지 한 번에 확인해 보세요.</p>
+	                             </div>
+	                        </a>
+	                        <div class="sub-area">
+	                            <div class="left">
+	                                <h3>청약 자격 알아보기</h3>
+	                                <ul>
+	                                    <!-- li에 disable class 추가시, 비활성화 -->
+	                                    <li><a href="javascript:$net.href('/co/cob/selectSubscrptLmttCnList.do');">청약제한사항 확인</a></li>
+	                                    <li class="end_error"><a href="javascript:$net.href('/co/coc/selectSubscrptQualfDiagMain.do');">청약자격진단</a></li>
+	                                    <li><a href="javascript:$net.href('/ap/apg/selectAddpntCalculatorView.do');">청약 가점 계산기</a></li>
+	                                    <li><a href="javascript:$net.href('/ap/apd/selectHousePosesnList.do');">주택 소유 확인</a></li>
+	                                    <li class="end_error3"><a href="javascript:$net.href('/ap/apd/selectSubscrptBnkbSbscrbDesc.do');">청약통장 가입내역</a></li>
+	                                    <li><a href="javascript:$net.href('/ra/rab/selectHshldInfoProvdAgreRequestView.do');">세대구성원 등록/조회</a></li>
+	                                </ul>
+	                            </div>
+	                            <div class="right">
+	                                <h3>청약 연습해보기</h3>
+	                                <ul>
+	                                    <li><a href="javascript:$net.href('/ap/app/reqst/selectSubscrtReqstAptMainView.do');">청약 가상체험</a></li>
+	                                    <li class="end_error"><a href="javascript:$net.href('/ap/apr/reqst/selectSubscrtReqstAptMainView.do');">공고단지 청약연습</a></li>
+	                                    <li class="end_error2"><a href="javascript:$net.href('/ra/raa/selectAptRankPreparSubscrptReqstList.do');">청약연습 내역조회</a></li>
+	                                </ul>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </section>
+	                <section>
+	                    <h2>주택 유형별 청약 정보</h2>
+	                    <ul class="type-area">
+	                        <li><a href="javascript:$net.href('/ai/aia/selectAPTLttotPblancListView.do');">
+	                            <span><img src="/images/kabhom/main/ico/ico_type_1.svg" alt="APT 아이콘"></span>
+	                            <strong>APT</strong>
+	                        </a></li>
+	                        <li><a href="javascript:$net.href('/ai/aia/selectAPTRemndrLttotPblancListView.do');">
+	                            <span><img src="/images/kabhom/main/ico/ico_type_2.svg" alt="APT 잔여세대 아이콘"></span>
+	                            <strong>APT 잔여세대</strong>
+	                        </a></li>
+	                        <li><a href="javascript:$net.href('/ai/aia/selectOtherLttotPblancListView.do');">
+	                            <span><img src="/images/kabhom/main/ico/ico_type_3.svg" alt="오피스텔, 생활숙박시설,도시형생활주택, (공공지원)민간임대 아이콘"></span>
+	                            <strong>오피스텔 / 생활숙박시설<br>
+	                                / 도시형생활주택 /<br>
+	                                (공공지원)민간임대</strong>
+	                        </a></li>
+	                    </ul>
+	                </section>
+	            </div>
+	            <div class="side-wrap">
+	            	<div class="ban_policy"><a href="javascript:$net.href('/co/coz/selectIndvdlinfoPolicyView.do');">개인정보처리방침</a></div>
+	                <section class="notice-area">
+	                    <div>
+	                        <h2>공지사항</h2>
+	                        <a href="#">전체보기</a>
+	                    </div>
+	                    <ul>
+	                    
+							
+								
+									<!-- li에 class new 추가시 'n' badge 생성 -->
+									<li >
+										<a href="#" data-sn="93">
+											<p>마이데이터 서비스 일시 중단 안내</p>
+	                            			<span>2026.09.18</span>
+										</a>
+									</li>
+								
+									<!-- li에 class new 추가시 'n' badge 생성 -->
+									<li >
+										<a href="#" data-sn="92">
+											<p>청약이 궁금하다면? 한국부동산원 공식 유튜브에서 확인하세요!</p>
+	                            			<span>2026.09.11</span>
+										</a>
+									</li>
+								
+									<!-- li에 class new 추가시 'n' badge 생성 -->
+									<li >
+										<a href="#" data-sn="91">
+											<p>청약홈 본인전송정보 서비스 제공 안내</p>
+	                            			<span>2026.08.20</span>
+										</a>
+									</li>
+								
+									<!-- li에 class new 추가시 'n' badge 생성 -->
+									<li >
+										<a href="#" data-sn="90">
+											<p>2026년 「주택청약의 모든 것」 NEW 패키지 출간 및 강연회 개최</p>
+	                            			<span>2026.08.14</span>
+										</a>
+									</li>
+								
+							
+							
+						
+	                    </ul>
+	                </section>
+	                <section>
+	                    <div class="etc-box">
+	                        <ul>
+	                        	<li><a href="javascript:$net.href('/co/coz/selectIndvdlinfoPolicyView.do');">개인정보처리방침</a></li>
+	                            <li><a href="javascript:$net.href('/cu/cub/selectFAQList.do');">자주묻는 질문</a></li>
+	                            <li><a href="javascript:$net.href('/ai/aic/selectSpecltSubscrptRndAreaList.do');">규제지역 정보</a></li>
+	                            <li><a href="javascript:$net.href('/ai/aia/selectAPTMvnPrearngeHsHldcoList.do');" id="menu100316">입주(예정) 정보</a></li>
+	                            <li><a href="javascript:$net.href('/ar/ara/selectSubscrptIntroQualfView.do');">청약제도 안내</a></li>
+	                            <li><a href="javascript:$net.href('/cu/cuc/selectSubscrptAllimiView.do');">청약알리미 신청</a></li>
+	                            <li class="end_error3"><a href="javascript:$net.href('/cu/cud/selectRankCnfrmnIssuView.do');">청약통장 순위확인서</a></li>
+	                        </ul>
+	                    </div>
+	                    <div class="banner-box">
+	                        <div id="slideBanner">
+	                            <div class="slide active">
+	                                <div class="active"><a href="#" onclick="fn_openPopup('https://www.reb.or.kr/reb/cm/cntnts/cntntsView.do?mi=9683&cntntsId=1140', '한국부동산원');">
+	                                    <picture>
+	                                        <source media="(max-width: 1199px)" srcset="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner28.jpg">
+	                                        <img src="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner28.jpg" alt="한국부동산원">
+	                                    </picture>
+	                                </a></div>
+	                                <div><a href="#">
+	                                    <picture>
+	                                        <source media="(max-width: 1199px)" srcset="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner25.jpg">
+	                                        <img src="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner25.jpg" alt="국무총리 기관표창 수상">
+	                                    </picture>
+	                                </a></div>
+	                            </div>
+	                            <div class="slide">
+	                                <div><a href="#">
+	                                    <picture>
+	                                        <source media="(max-width: 1199px)" srcset="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner29.jpg">
+	                                        <img src="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner29.jpg" alt="공공혁신서비스 이노스타 인증 획득">
+	                                    </picture>
+	                                </a></div>
+	                                <div><a href="#" onclick="fn_openPopup('https://youtu.be/VIRgvSIxL_Y', '주택 임대차 계약 신고 꼭 하세요');">
+	                                    <picture>
+	                                        <source media="(max-width: 1199px)" srcset="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner7.jpg">
+	                                        <img src="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner7.jpg" alt="주택 임대차 계약 신고 꼭 하세요">
+	                                    </picture>
+	                                </a></div>
+	                            </div>
+	                            <div class="slide">
+	                                <div><a href="#" onclick="fn_openPopup('https://irts.molit.go.kr', '안전한 계약 편리한 거래 부동산 전자계약 부동산거래전자계약시스템 바로가기');">
+	                                    <picture>
+	                                        <source media="(max-width: 1199px)" srcset="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner8.jpg">
+	                                        <img src="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner8.jpg" alt="안전한 계약 편리한 거래 부동산 전자계약 부동산거래전자계약시스템 바로가기">
+	                                    </picture>
+	                                </a></div>
+	                                <div><a href="#" onclick="fn_openPopup('https://ncp.clean.go.kr/cmn/secCtfcKMC.do?menuCode=acs&mapAcs=Y&insttCd=B554388', '부패공익신고는 국민권익위원회 청렴포털 www.clean.go.kr');">
+	                                    <picture>
+	                                        <source media="(max-width: 1199px)" srcset="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner11.jpg">
+	                                        <img src="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner11.jpg" alt="부패공익신고는 국민권익위원회 청렴포털 www.clean.go.kr">
+	                                    </picture>
+	                                </a></div>
+	                            </div>
+	                            <div class="slide">
+	                                <div><a href="#" onclick="fn_openPopup('https://www.reb.or.kr/reb/cm/cntnts/cntntsView.do?mi=10305&cntntsId=1535', '미래도시지원센터 정비사업 종합 컨설팅');">
+	                                    <picture>
+	                                        <source media="(max-width: 1199px)" srcset="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner17.jpg">
+	                                        <img src="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner17.jpg" alt="미래도시지원센터 정비사업 종합 컨설팅">
+	                                    </picture>
+	                                </a></div>
+	                                <div><a href="#" onclick="fn_openPopup('https://www.k-apt.go.kr', 'K-apt 공동주택관리정보시스템');">
+	                                    <picture>
+	                                        <source media="(max-width: 1199px)" srcset="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner14.jpg">
+	                                        <img src="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner14.jpg" alt="K-apt 공동주택관리정보시스템">
+	                                    </picture>
+	                                </a></div>
+	                            </div>
+	                            <div class="slide">
+	                            	<div><a href="#" onclick="fn_openPopup('https://onestop.khug.or.kr/appDownLink.html', 'HUG안심전세 앱');">
+	                                    <picture>
+	                                        <source media="(max-width: 1199px)" srcset="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner15.jpg">
+	                                        <img src="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner15.jpg" alt="HUG안심전세 앱">
+	                                    </picture>
+	                                </a></div>
+	                                <div><a href="#">
+	                                    <picture>
+	                                        <source media="(max-width: 1199px)" srcset="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner26.jpg">
+	                                        <img src="https://static.applyhome.co.kr/images/kabhom/sub/mobilebanner26.jpg" alt="철저한 개인정보 보호와 정보 보안에서 시작됩니다.">
+	                                    </picture>
+	                                </a></div>
+	                            </div>
+	                        </div>
+	                        <ul class="navigation-wrap txt-indent"></ul>
+	                    </div>
+	                </section>
+	            </div>
+	        </div>
+        	<div class="shadow"></div>
+    	</div>
+<script src="/js/kabhom/com/hom.core.js"></script>
+<script src="/js/kabhom/util/hom.all.js"></script>
+<script src="/js/kabhom/main/common.js"></script>
+	
+<script>
+	var gvPgmId = "COA01M04";
+</script>
+
+<script>
+	//<![CDATA[
+	
+	var Now = new Date();
+	
+	
+	window.onpageshow = function(event) {
+	    if(event.persisted) {
+			
+			window.location.reload(true);
+		}
+	}
+	
+	 /**
+	 * 설명		: 청약일정목록, 당첨자발표목록 조회
+	 * 사용방식		: fn_selectSchdulListNewMain(strFlag, strDivId, optSearchDate)
+	 * 주의		: 
+	 * 리턴		:
+	 */
+	function fn_selectSchdulListNewMain(strFlag, strDivId, optSearchDate)
+	{
+	     if(strFlag == 'subscrpt'){
+	         if($('.confirm-box .ing p').hasClass('txt-noService')){
+	             alert("서비스 이용 가능 시간이 아닙니다.");
+	             return;
+	         }
+	         infoSchedule.classList.add('active');
+	         bgShadow.classList.add('show');
+	         document.body.style.overflowY = 'hidden';
+	     }
+	     var strUrl = "/co/coa/selectSubscrptSchdulList.do";
+	     if(strFlag == 'przwner'){
+	         strUrl = "/co/coa/selectPrzwnerSchdulList.do";
+	         infoSchedule2.classList.add('active');
+	         bgShadow.classList.add('show');
+	         document.body.style.overflowY = 'hidden';
+	     }
+	     
+	     if(optSearchDate != null && optSearchDate != ""){
+	         strUrl += "?searchDate=" + optSearchDate;
+         }
+	     gfn_showCmmnProgressBar();
+	     try{
+	         $('#' + strDivId).load(strUrl);
+	         
+         }catch(e){
+             gfn_hideCmmnProgressBar();
+             alert(e.message);	// 에러 메시지 알림
+         }
+	}
+	
+	$(document).on("change","#subscrpt_list", function() {
+	    var strFlag = $(this).data('pm1');
+	    var strDivId = $(this).data('pm2');
+	    var optSearchDate = $(this).val();
+		var strUrl = "/co/coa/selectSubscrptSchdulList.do";
+			
+		if(optSearchDate != null && optSearchDate != "")
+		{
+			strUrl += "?searchDate=" + optSearchDate;			
+		}
+		gfn_showCmmnProgressBar();
+		try{
+			$('#' + strDivId).load(strUrl);
+		}catch(e){
+			gfn_hideCmmnProgressBar();
+			alert(e.message);	// 에러 메시지 알림
+		}
+	});
+	
+	
+	$('.notice-area').on('click', 'div', function() {
+		$net.submit("bbsSearchFrm", "/cu/cua/selectNoticeListView.do");
+	}).on('click', 'li a', function(){
+		$('#bbsSearchFrm').append($('<input/>', {type:'hidden', name:'bbsSn', value:$(this).data('sn')}));
+		$net.submit("bbsSearchFrm", "/cu/cua/selectNoticeDetailView.do");
+	});
+	
+	/**
+	 * 설명		: 팝업 닫기
+	 * 사용방식		: pop_close()
+	 * 주의		: 
+	 * 리턴		:
+	 */
+	function pop_close(popId){
+		if($('#today:checked').length > 0)
+		{
+			gfn_setCookie('COA01M04_POPUP01', 'Y', 1);
+		}
+		$("#" + popId).fadeOut();
+	}
+	
+	
+	if(gfn_getCookie("COA01M04_POPUP01") != "Y")
+	{
+		var isShow = '';
+		if(isShow){
+			var mobileAt = '';
+			if(mobileAt == 'A'){//전체 대상
+				$("#pop_info").show().insertBefore('.navi_tab');
+			}else if(mobileAt == 'M' || mobileAt == 'MM'){
+				if(gfn_isMobile()){
+					$("#pop_info").show().insertBefore('.navi_tab');
+				}
+			}else if(mobileAt == 'P') {//pc 만
+				if(!gfn_isMobile()){
+					$("#pop_info").show().insertBefore('.navi_tab');
+				}
+			}
+		}
+	}
+	
+	
+	$('#pop_info').on('click', '#btnDetail', function(){
+		$('#bbsSearchFrm').append($('<input/>', {type:'hidden', name:'bbsSn', value:$(this).data('sn')}));
+		$net.submit("bbsSearchFrm", "/cu/cua/selectNoticeDetailView.do");
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	$(".etc-box a").click(function(e){
+		if($(this).siblings('ul').length > 0) {
+			e.preventDefault();
+			if($(this).parents('li').hasClass('disable')){
+				alert("서비스 이용 가능 시간이 아닙니다.");
+			}
+		} else {
+			if($(this).parents('li').hasClass('disable')){
+				e.preventDefault();
+				alert("서비스 이용 가능 시간이 아닙니다.");
+			}
+		}
+	});
+	$(".sub-area a").click(function(e){
+		if($(this).siblings('ul').length > 0) {
+			e.preventDefault();
+			if($(this).parents('li').hasClass('disable')){
+				alert("서비스 이용 가능 시간이 아닙니다.");
+			}
+		} else {
+			if($(this).parents('li').hasClass('disable')){
+				e.preventDefault();
+				alert("서비스 이용 가능 시간이 아닙니다.");
+			}
+		}
+	});
+	
+	function fn_openPopup(url, title) {
+		window.open(url, title);
+	}
+	
+	function fn_goApp(){
+		if(navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+			window.location.href="market://details?id=kr.co.applyhome";
+		}
+		else {
+			window.location.href="itms-apps://itunes.apple.com/kr/app/id1492025423";
+		}
+	}
+	
+	$(function() {
+	    if(gfn_getCookie("COA01M04_POPUP02") == "Y")
+		{
+		    $("#snb .info-wrap").addClass("hide");
+		}
+	});
+	//]]>
+</script>
+</body>
+</html>
