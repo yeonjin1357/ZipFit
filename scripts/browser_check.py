@@ -1,4 +1,5 @@
-"""Exercise the local MVP in installed Chrome, including the mobile layout."""
+"""Exercise the MVP in installed Chrome, including the mobile layout."""
+import argparse
 import json
 from pathlib import Path
 
@@ -10,18 +11,22 @@ OUT.mkdir(parents=True,exist_ok=True)
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--base-url", default="http://127.0.0.1:8765")
+    args = parser.parse_args()
+    base_url = args.base_url.rstrip("/")
     errors=[]
     with sync_playwright() as p:
         browser=p.chromium.launch(channel="chrome",headless=True)
         page=browser.new_page(viewport={"width":1440,"height":1050},device_scale_factor=1)
         page.on("pageerror",lambda err:errors.append(str(err)))
-        page.goto("http://127.0.0.1:8765/")
+        page.goto(base_url + "/")
         page.locator(".notice-card").first.wait_for()
         page.evaluate("document.fonts.ready")
         assert page.evaluate("document.fonts.check('16px Pretendard')")
         assert page.locator(".notice-card").count()==18
         page.screenshot(path=str(OUT/"desktop.png"),full_page=False)
-        initial = page.request.get("http://127.0.0.1:8765/api/notices").json()
+        initial = page.request.get(base_url + "/api/notices").json()
         for reason in ("needs_input", "unreviewed", "stale"):
             expected = [n for n in initial["notices"] if n["kind"] == "recruitment" and n["schedule"]["state"] not in ("closed", "superseded") and n["evaluation"]["unknown_reason"] == reason]
             page.locator("#eligibility-filter").select_option(reason)

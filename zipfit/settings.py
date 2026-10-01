@@ -11,10 +11,10 @@ class Settings:
 
     @classmethod
     def from_env(cls):
-        production = os.environ.get("ZIPFIT_ENV", "local") == "production"
+        production = os.environ.get("ZIPFIT_ENV", "local") == "production" or os.environ.get("VERCEL_ENV") in ("production", "preview")
         configured = os.environ.get("ZIPFIT_ALLOWED_HOSTS", "")
-        platform_host = os.environ.get("RENDER_EXTERNAL_HOSTNAME", "")
-        hosts = [h.strip().lower() for h in (configured + "," + platform_host).split(",") if h.strip()]
+        platform_hosts = [os.environ.get(key, "") for key in ("RENDER_EXTERNAL_HOSTNAME", "VERCEL_URL", "VERCEL_BRANCH_URL", "VERCEL_PROJECT_PRODUCTION_URL")]
+        hosts = [h.strip().lower() for h in ",".join([configured, *platform_hosts]).split(",") if h.strip()]
         for host in hosts:
             if not re.fullmatch(r"[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?", host):
                 raise ValueError("ZIPFIT_ALLOWED_HOSTS must contain exact hostnames, without schemes, ports or wildcards")

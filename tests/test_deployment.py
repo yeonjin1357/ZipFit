@@ -20,6 +20,21 @@ def test_render_hostname_configuration(monkeypatch):
     assert "testserver" not in settings.allowed_hosts
 
 
+@pytest.mark.parametrize("environment", ["production", "preview"])
+def test_vercel_deployment_and_stable_domains(monkeypatch, environment):
+    monkeypatch.delenv("ZIPFIT_ENV", raising=False)
+    monkeypatch.setenv("VERCEL_ENV", environment)
+    monkeypatch.setenv("VERCEL_URL", "zipfit-build123-example.vercel.app")
+    monkeypatch.setenv("VERCEL_BRANCH_URL", "zipfit-git-main-example.vercel.app")
+    monkeypatch.setenv("VERCEL_PROJECT_PRODUCTION_URL", "zipfit-example.vercel.app")
+    settings = Settings.from_env()
+    assert settings.production
+    assert "zipfit-build123-example.vercel.app" in settings.allowed_hosts
+    assert "zipfit-git-main-example.vercel.app" in settings.allowed_hosts
+    assert "zipfit-example.vercel.app" in settings.allowed_hosts
+    assert "unrelated-project.vercel.app" not in settings.allowed_hosts
+
+
 @pytest.mark.parametrize("host", ["", "*", "https://housing.example.com", "housing.example.com:443", "*.onrender.com"])
 def test_production_requires_exact_hostname(monkeypatch, host):
     monkeypatch.setenv("ZIPFIT_ENV", "production")
