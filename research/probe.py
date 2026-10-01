@@ -63,7 +63,7 @@ def probe(job: dict) -> dict:
                 kind = "pdf" if body.startswith(b"%PDF-") else "zip" if body.startswith(b"PK\x03\x04") else "bin" if body.startswith(b"\xd0\xcf\x11\xe0") else "html" if "html" in (result["content_type"] or "").lower() else "txt"
                 raw = OUT / f"{name}.{kind}"
                 raw.write_bytes(body)
-                result["raw_file"] = str(raw.relative_to(ROOT))
+                result["raw_file"] = raw.relative_to(ROOT).as_posix()
                 if kind in {"html", "txt"}:
                     response._content = body
                     if not response.encoding or response.encoding.lower() == "iso-8859-1":
@@ -78,7 +78,7 @@ def probe(job: dict) -> dict:
                         tag.decompose()
                     text_path = OUT / f"{name}.text.txt"
                     text_path.write_text(soup.get_text("\n", strip=True), encoding="utf-8")
-                    result["text_file"] = str(text_path.relative_to(ROOT))
+                    result["text_file"] = text_path.relative_to(ROOT).as_posix()
     except requests.RequestException as exc:
         result["error"] = f"{type(exc).__name__}: {exc}"
     except ValueError as exc:

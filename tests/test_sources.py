@@ -12,7 +12,8 @@ from tests.test_rules import NOW
 
 def fixture(name,phase="research"):
     meta=json.loads((ROOT/phase/"evidence"/(name+".json")).read_text(encoding="utf-8"))
-    return (ROOT/phase/meta["raw_file"]).read_text(encoding="utf-8"),meta["final_url"]
+    # Original evidence was captured on Windows; replay it on either OS.
+    return (ROOT/phase/meta["raw_file"].replace("\\", "/")).read_text(encoding="utf-8"),meta["final_url"]
 
 
 @pytest.mark.parametrize("name,source,count,phase,board",[("lh-list","LH",50,"research",None),("sh-list","SH",10,"research",None),("gh-purchase-list","GH",9,"research","sr7155"),("gh-main-board","GH_MAIN",10,"research/phase2",None),("seoul-audit-p1","SEOUL_YOUTH",10,"research/phase2",None),("applyhome-september-private-p1","APPLYHOME",0,"research/phase2",None)])

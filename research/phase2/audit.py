@@ -31,11 +31,11 @@ def meta(name, phase1=False):
 
 def doc(name, phase1=False):
     root = HERE.parent if phase1 else HERE
-    return BeautifulSoup((root / meta(name,phase1)["raw_file"]).read_bytes(),"lxml")
+    return BeautifulSoup((root / meta(name,phase1)["raw_file"].replace("\\", "/")).read_bytes(),"lxml")
 
 
 def text(name):
-    return (HERE / meta(name)["text_file"]).read_text(encoding="utf-8")
+    return (HERE / meta(name)["text_file"].replace("\\", "/")).read_text(encoding="utf-8")
 
 
 def date(value):
@@ -134,8 +134,8 @@ def main():
     old_active=[r for r in long_running if r["published_date"]<START and r["status_raw"]=="접수중"]
     check("Old active notices detected",bool(old_active),[{"id":r["notice_id"],"published":r["published_date"],"closes":r["listed_closing_date"]} for r in old_active])
 
-    corr=(HERE/meta("lh-correction-musil")["raw_file"]).read_text(encoding="utf-8")
-    orig=(HERE/meta("lh-musil-original")["raw_file"]).read_text(encoding="utf-8")
+    corr=(HERE/meta("lh-correction-musil")["raw_file"].replace("\\", "/")).read_text(encoding="utf-8")
+    orig=(HERE/meta("lh-musil-original")["raw_file"].replace("\\", "/")).read_text(encoding="utf-8")
     parent=re.search(r"var sOtxtPanId\s*=\s*'([^']+)'",corr)[1]
     latest=re.search(r"var currPanId\s*=\s*'([^']+)'",orig)[1]
     check("Explicit LH revision relationship",parent=="2015122300020739" and latest=="2015122300020792",{"original":parent,"correction":latest})

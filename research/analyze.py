@@ -23,7 +23,7 @@ def metadata(name):
 
 
 def soup(name):
-    return BeautifulSoup((ROOT / metadata(name)["raw_file"]).read_bytes(), "lxml")
+    return BeautifulSoup((ROOT / metadata(name)["raw_file"].replace("\\", "/")).read_bytes(), "lxml")
 
 
 def compact(value):
@@ -33,7 +33,7 @@ def compact(value):
 def extract(name, source):
     records = []
     if source == "SEOUL_YOUTH":
-        data = json.loads((ROOT / metadata(name)["raw_file"]).read_text(encoding="utf-8"))
+        data = json.loads((ROOT / metadata(name)["raw_file"].replace("\\", "/")).read_text(encoding="utf-8"))
         for row in data["resultList"]:
             records.append({
                 "notice_id": str(row["boardId"]), "title": row["nttSj"],
@@ -96,8 +96,8 @@ def main():
         if info["status"] != 200 or not info["is_pdf_signature"] or not first_page_text.strip():
             raise ValueError(f"Downloaded PDF did not validate: {path.name}")
         documents.append({"snapshot_id":path.stem,"file":str(path.relative_to(ROOT)),"pages":len(reader.pages),"first_page_text_characters":len(first_page_text),"bytes":info["bytes"],"sha256":info["sha256"],"source_url":info["final_url"]})
-    hwp = ROOT / metadata("sh-notice-hwp")["raw_file"]
-    hwpx = ROOT / metadata("lh-notice-hwpx")["raw_file"]
+    hwp = ROOT / metadata("sh-notice-hwp")["raw_file"].replace("\\", "/")
+    hwpx = ROOT / metadata("lh-notice-hwpx")["raw_file"].replace("\\", "/")
     with zipfile.ZipFile(hwpx) as archive:
         hwpx_checks = {"crc_error_file":archive.testzip(),"contains_contents":any(n.startswith("Contents/") for n in archive.namelist()),"mimetype":archive.read("mimetype").decode("ascii") if "mimetype" in archive.namelist() else None}
     if hwp.read_bytes()[:8] != bytes.fromhex("D0CF11E0A1B11AE1") or hwpx_checks["crc_error_file"] or not hwpx_checks["contains_contents"]:
