@@ -1,5 +1,8 @@
 ZipFit 배포
 
+서비스 주소: https://zipfit-mocha.vercel.app
+Vercel 프로젝트: https://vercel.com/yeonjins-projects/zipfit
+
 Vercel의 FastAPI 런타임으로 기존 서버와 HTML/CSS/JS를 함께 배포한다.
 데이터베이스와 외부 AI API 키는 필요 없다.
 
@@ -14,6 +17,8 @@ Vercel의 FastAPI 런타임으로 기존 서버와 HTML/CSS/JS를 함께 배포�
      npx vercel git connect
      npx vercel --prod
 6. 발급된 실제 프로덕션 주소에서 화면, /api/health, 조건 검색, 공고 PDF를 확인한다.
+   PC·모바일 브라우저 검증:
+     uv run python scripts/browser_check.py --base-url https://zipfit-mocha.vercel.app
 
 배포 구성
 - Python 3.13, Linux. pyproject.toml과 uv.lock으로 의존성을 설치한다.
