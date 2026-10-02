@@ -79,6 +79,15 @@ def main():
         assert dialog.locator("a[href*='#page=']").count()>0
         page.screenshot(path=str(OUT/"detail.png"))
         page.keyboard.press("Escape")
+        page.locator("#search").fill("서면 지원")
+        page.get_by_role("button",name="자세히 보기",exact=True).click()
+        assert "매일 09:00~17:30" in dialog.inner_text()
+        assert "신혼부부 일반공급" in dialog.inner_text()
+        assert dialog.locator("a[href$='#page=2']").count() > 0
+        assert "본문·첨부 재확인" in dialog.inner_text()
+        assert page.evaluate("document.querySelector('#detail-dialog').scrollWidth <= document.querySelector('#detail-dialog').clientWidth")
+        page.screenshot(path=str(OUT/"private-detail.png"))
+        page.keyboard.press("Escape")
         page.locator("#search").fill("<script>alert(1)</script>")
         assert page.get_by_text("현재 필터에 맞는 공고가 없어요.").is_visible()
         page.get_by_role("button",name="필터 초기화").click()

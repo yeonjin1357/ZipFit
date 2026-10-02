@@ -46,6 +46,18 @@ def schedule(notice, now=None):
     if start and now < start:
         return {"state":"upcoming", "label":"접수 예정"}
     if start and end and start <= now <= end:
+        if notice.get("daily_hours"):
+            try:
+                opens, closes = (time.fromisoformat(t) for t in notice["daily_hours"])
+                if closes <= opens:
+                    raise ValueError("Invalid daily interval")
+            except (TypeError, ValueError):
+                return {"state":"unknown", "label":"일정 확인 필요"}
+            local_time = now.astimezone(KST).time()
+            if not opens <= local_time < closes:
+                if now >= end:
+                    return {"state":"closed", "label":"접수 종료"}
+                return {"state":"upcoming", "label":"다음 접수시간 대기"}
         date_only = "T" not in (notice.get("application_start") or "") or "T" not in (notice.get("application_end") or "")
         return {"state":"open", "label":"접수 기간 · 시간 확인" if date_only else "접수 기간", "date_only": date_only}
     return {"state":"unknown", "label":"접수일 확인 필요"}

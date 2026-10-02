@@ -11,6 +11,7 @@ KST = timezone(timedelta(hours=9))
 INCOME_120 = {1: 4_576_036, 2: 7_039_524, 3: 9_802_115, 4: 10_562_642, 5: 11_192_382}
 LABELS = {"match": "기본조건 일치", "conditional": "조건부 검토", "unknown": "추가 확인 필요", "mismatch": "기본조건 불일치"}
 FIELD_LABELS = {
+    "marriage_total_within_7_years": "공고일 기준 혼인 합산 기간 7년 이내",
     "birth_date": "생년월일", "marriage": "혼인 상태", "marriage_date": "혼인신고일",
     "marriage_before_movein": "입주 전 혼인신고 가능 여부", "korean": "국적", "residence": "등본상 거주지",
     "self_homeless": "본인 무주택 여부", "household_homeless": "세대 전원 무주택 여부",
@@ -121,13 +122,16 @@ def songpa_tracks(p):
     return tracks
 
 
-def lh_tracks(p):
-    reference = date(2026, 10, 1)
+def lh_tracks(p, config=None):
+    config = config or {"reference_date": "2026-10-01", "regions": ["서울", "경기", "인천"], "eligibility_page": 4, "region_page": 3}
+    reference = date.fromisoformat(config["reference_date"])
+    page = config["eligibility_page"]
     c = common(p, reference)
     a = age_on(p.birth_date, reference) if p.birth_date else None
-    c.append(check("age", "성년 신청자 또는 미성년 예외", "pass" if a is not None and a >= 19 else "unknown", "공고일 만 19세 이상이에요." if a is not None and a >= 19 else "미성년 세대주 예외가 있어 원문 4쪽 확인이 필요해요.", 4, "birth_date"))
-    c.append(yes_check("household_homeless", "무주택세대구성원", p.household_homeless, 4))
-    c.append(check("residence", "등본상 수도권 거주", "unknown" if not p.residence else "pass" if p.residence in ("서울", "경기", "인천") else "fail", "신청자의 등본상 주소가 서울·경기·인천이어야 해요. 희망 지역과는 별개예요.", 3, "residence"))
+    c.append(check("age", "성년 신청자 또는 미성년 예외", "pass" if a is not None and a >= 19 else "unknown", "공고일 만 19세 이상이에요." if a is not None and a >= 19 else f"미성년 세대주 예외가 있어 원문 {page}쪽 확인이 필요해요.", page, "birth_date"))
+    c.append(yes_check("household_homeless", "무주택세대구성원", p.household_homeless, page))
+    areas = "·".join(config["regions"])
+    c.append(check("residence", "등본상 모집지역 거주", "unknown" if not p.residence else "pass" if p.residence in config["regions"] else "fail", f"신청자의 등본상 주소가 {areas}이어야 해요. 희망 지역과는 별개예요.", config["region_page"], "residence"))
     return [{"id": "general", "name": "든든전세 기본조건", "checks": c, "status": aggregate(c)}]
 
 
@@ -216,6 +220,11 @@ def evaluate(notice, p, now=None):
     model = notice.get("rule_model")
     builders = {"songpa_20260922": songpa_tracks, "lh_20261001": lh_tracks, "sh_newlywed_20260930": sh_tracks}
     tracks = builders[model](p) if model in builders else []
+    if model == "lh_deposit" and notice.get("rule_config"):
+        tracks = lh_tracks(p, notice["rule_config"])
+    if model == "seomyeon_20260929":
+        from .private_rules import seomyeon_tracks
+        tracks = seomyeon_tracks(p)
     if not p.reference_confirmed:
         for track in tracks:
             track["status"] = "unknown"
@@ -227,10 +236,13 @@ def evaluate(notice, p, now=None):
         fresh = reviewed_time is not None and reviewed_time.tzinfo is not None and timedelta() <= now - reviewed_time <= timedelta(hours=24)
     except (ValueError, TypeError):
         fresh = False
-    stale = bool(tracks) and (not fresh or any(notice.get(key) for key in ("review_invalidated", "superseded_by", "correction_url", "withdrawn")))
+    from .verification import source_fresh
+    verified = source_fresh(notice, now)
+    verification_failed = notice.get("source_verification", {}).get("state") in ("error", "changed", "missing_baseline")
+    stale = bool(tracks) and (not (fresh or verified) or verification_failed or any(notice.get(key) for key in ("review_invalidated", "superseded_by", "correction_url", "withdrawn")))
     if stale:
         for track in tracks:
-            track["checks"].append(check("version", "공고 최신 버전 재확인", "unknown", "규칙 검토 후 24시간이 지났거나 원문 목록 정보가 바뀌었어요. 정정·취소와 첨부파일을 다시 확인해야 해요."))
+            track["checks"].append(check("version", "공고 최신 버전 재확인", "unknown", "원문 재확인 기한이 지났거나 변경·수집 오류가 있어요. 본문·정정·취소와 첨부파일을 다시 확인해야 해요."))
             # Even historical failure must not be asserted against a changed rule.
             track["status"] = "unknown"
     status = alternative_status(tracks)

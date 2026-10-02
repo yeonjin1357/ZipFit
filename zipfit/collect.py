@@ -106,6 +106,10 @@ def merge_records(existing, updates):
                 keep.update({k:old[k] for k in ("title","region","housing_type","application_start","application_end","application_text","notes","rule_model")})
                 keep["review_invalidated"] = old.get("review_invalidated",False) or changed
             keep["notes"] = old.get("notes",[])
+            if changed:
+                previous = old_fingerprint or old
+                keep["list_changes"] = [{"field": k, "before": previous.get(k), "after": fingerprint.get(k)} for k in fields if previous.get(k) != fingerprint.get(k)]
+                keep["list_changed_at"] = n.get("observed_at")
             n = {**n,**keep,"list_fingerprint":fingerprint}
         else:
             n = {**n,"list_fingerprint":{k:n.get(k) for k in fields}}
@@ -136,6 +140,7 @@ def main():
                 if not errors: source["last_success"]=now.isoformat()
                 print(json.dumps({"provider":provider,"requests":count,"rows":len(rows),"errors":errors},ensure_ascii=False),flush=True)
         temporary = RUNTIME.with_suffix(".tmp")
+        catalog["last_collection_attempt"] = now.isoformat()
         temporary.write_text(json.dumps(catalog,ensure_ascii=False,indent=2),encoding="utf-8")
         temporary.replace(RUNTIME)
         print("Saved: " + str(RUNTIME))

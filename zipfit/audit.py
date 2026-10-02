@@ -68,6 +68,18 @@ def audit(catalog, now=None):
             for option in n.get("rent_options", []):
                 if option["track"] not in known_tracks or any(type(option[k]) is not int or option[k] < 0 for k in ("deposit", "monthly_rent")):
                     errors.append(prefix + "Invalid rent option")
+            if n.get("reviewed_source"):
+                from .verification import SCHEMA, HOSTS as VERIFIED_HOSTS, binding
+                proof = n["reviewed_source"]
+                files = proof.get("attachments", [])
+                if proof.get("schema") != SCHEMA or proof.get("binding") != binding(n):
+                    errors.append(prefix + "Reviewed source bound to different rules or evidence")
+                if not any(f.get("url") == n["document"]["url"] and f.get("sha256") == n["document"]["sha256"] for f in files):
+                    errors.append(prefix + "Reviewed PDF absent from source baseline")
+                for f in files:
+                    target = urlsplit(f.get("url", ""))
+                    if target.scheme != "https" or target.hostname not in VERIFIED_HOSTS or len(f.get("sha256", "")) != 64:
+                        errors.append(prefix + "Invalid source baseline attachment")
         state = schedule(n, now)
         if n.get("review_invalidated") and state["state"] in ("open", "upcoming"):
             errors.append(prefix + "Changed schedule still advertised")

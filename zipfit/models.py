@@ -13,6 +13,7 @@ class Profile(BaseModel):
     marriage: Literal["single", "planned", "married", "unknown"] = "unknown"
     marriage_date: date | None = None
     marriage_before_movein: Answer = "unknown"
+    marriage_total_within_7_years: Answer = "unknown"
     korean: Answer = "unknown"
     residence: str = Field(default="", max_length=30)
     self_homeless: Answer = "unknown"
