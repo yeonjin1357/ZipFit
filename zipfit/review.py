@@ -14,6 +14,7 @@ from .rules import KST, evaluate
 def build_report(catalog, now=None):
     now = now or datetime.now(KST)
     queue = []
+    unseen = set(catalog.get('discovery',{}).get('unseen_active_ids',[]))
     for n in catalog["notices"]:
         if n["kind"] != "recruitment":
             continue
@@ -21,6 +22,10 @@ def build_report(catalog, now=None):
         evaluation = evaluate(n, Profile(), now)
         verification = n.get("source_verification", {})
         reasons = []
+        if n['id'] in unseen and state not in ('closed','superseded'):
+            reasons.append('확장 탐색에서 미발견 · 개별 재확인')
+        if n.get('schedule_source',{}).get('state')=='error':
+            reasons.append('신청 일정 추출 실패')
         if n.get("review_invalidated") or verification.get("state") == "changed":
             reasons.append("원문 변경")
         if verification.get("state") == "error":
@@ -33,9 +38,9 @@ def build_report(catalog, now=None):
             if not n.get("rule_model"):
                 reasons.append("조건 규칙 미검토")
         if reasons:
-            queue.append({"id": n["id"], "title": n["title"], "provider": n["provider"], "url": n["url"], "published_date": n["published_date"], "schedule": state, "priority": 0 if n.get("rule_model") and evaluation["version_stale"] else 1 if state in ("open", "upcoming") else 2, "reasons": reasons, "changed_fields": verification.get("changed_fields", []), "error": verification.get("error"), "last_source_check": verification.get("checked_at"), "list_changes": n.get("list_changes", [])})
+            queue.append({"id": n["id"], "title": n["title"], "provider": n["provider"], "url": n["url"], "published_date": n["published_date"], "schedule": state, "priority": 0 if n.get("rule_model") and evaluation["version_stale"] else 1 if state in ("open", "upcoming") else 2, "reasons": reasons, "changed_fields": verification.get("changed_fields", []), "error": verification.get("error") or n.get("schedule_source", {}).get("error"), "last_source_check": verification.get("checked_at"), "list_changes": n.get("list_changes", [])})
     queue.sort(key=lambda x: (x["priority"], -(int((x["published_date"] or "0000-00-00").replace("-", "")))))
-    return {"checked_at": now.isoformat(), "source_posts": len(catalog["notices"]), "source_failures": [{"provider": s["provider"], "error": s["last_error"]} for s in catalog["sources"] if s.get("last_error")], "reason_counts": dict(Counter(reason for row in queue for reason in row["reasons"])), "queue": queue}
+    return {"checked_at": now.isoformat(), "source_posts": len(catalog["notices"]), "discovery": catalog.get("discovery"), "schedule_refresh": catalog.get("schedule_refresh"), "source_failures": [{"provider": s["provider"], "error": s["last_error"]} for s in catalog["sources"] if s.get("last_error")], "reason_counts": dict(Counter(reason for row in queue for reason in row["reasons"])), "queue": queue}
 
 
 def render_report(report):

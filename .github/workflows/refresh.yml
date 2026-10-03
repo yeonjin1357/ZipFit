@@ -3,7 +3,13 @@ name: Refresh housing notices
 on:
   schedule:
     - cron: '17 */6 * * *'
+    - cron: '47 3 * * 0'
   workflow_dispatch:
+    inputs:
+      discovery:
+        description: 'Expand to 6 pages and 365 days'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -33,7 +39,13 @@ jobs:
       - name: Test collectors and eligibility rules
         run: uv run --frozen pytest -q
       - name: Collect recent public lists
+        if: github.event.schedule != '47 3 * * 0' && inputs.discovery != true
         run: uv run --frozen python -m zipfit.collect --pages 2
+      - name: Scan broader publication range
+        if: github.event.schedule == '47 3 * * 0' || inputs.discovery == true
+        run: uv run --frozen python -m zipfit.collect --pages 6 --lookback-days 365 --discovery
+      - name: Refresh application periods
+        run: uv run --frozen python -m zipfit.schedules --limit 80
       - name: Recheck reviewed source versions
         run: uv run --frozen python -m zipfit.verification
       - name: Audit and prepare catalog

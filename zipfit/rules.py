@@ -11,6 +11,7 @@ KST = timezone(timedelta(hours=9))
 INCOME_120 = {1: 4_576_036, 2: 7_039_524, 3: 9_802_115, 4: 10_562_642, 5: 11_192_382}
 LABELS = {"match": "기본조건 일치", "conditional": "조건부 검토", "unknown": "추가 확인 필요", "mismatch": "기본조건 불일치"}
 FIELD_LABELS = {
+    "gh_family_type":"GH 공고의 신생아·한부모 유형", "gh_income_reference_confirmed":"GH 서류 접수일 소득 기준 확인", "gh_car_value":"GH 세대 자동차 중 최고 가액",
     "marriage_total_within_7_years": "공고일 기준 혼인 합산 기간 7년 이내",
     "birth_date": "생년월일", "marriage": "혼인 상태", "marriage_date": "혼인신고일",
     "marriage_before_movein": "입주 전 혼인신고 가능 여부", "korean": "국적", "residence": "등본상 거주지",
@@ -130,8 +131,11 @@ def lh_tracks(p, config=None):
     a = age_on(p.birth_date, reference) if p.birth_date else None
     c.append(check("age", "성년 신청자 또는 미성년 예외", "pass" if a is not None and a >= 19 else "unknown", "공고일 만 19세 이상이에요." if a is not None and a >= 19 else f"미성년 세대주 예외가 있어 원문 {page}쪽 확인이 필요해요.", page, "birth_date"))
     c.append(yes_check("household_homeless", "무주택세대구성원", p.household_homeless, page))
-    areas = "·".join(config["regions"])
-    c.append(check("residence", "등본상 모집지역 거주", "unknown" if not p.residence else "pass" if p.residence in config["regions"] else "fail", f"신청자의 등본상 주소가 {areas}이어야 해요. 희망 지역과는 별개예요.", config["region_page"], "residence"))
+    if config.get("regions") is None:
+        c.append(check("residence", "모집권역 제한 없음", "pass", "검토한 이 공고는 모집권역 구분 없이 신청할 수 있어요.", config["region_page"]))
+    else:
+        areas = "·".join(config["regions"])
+        c.append(check("residence", "등본상 모집지역 거주", "unknown" if not p.residence else "pass" if p.residence in config["regions"] else "fail", f"신청자의 등본상 주소가 {areas}이어야 해요. 희망 지역과는 별개예요.", config["region_page"], "residence"))
     return [{"id": "general", "name": "든든전세 기본조건", "checks": c, "status": aggregate(c)}]
 
 
@@ -225,6 +229,9 @@ def evaluate(notice, p, now=None):
     if model == "seomyeon_20260929":
         from .private_rules import seomyeon_tracks
         tracks = seomyeon_tracks(p)
+    if model == "gh_care_20260821":
+        from .private_rules import gh_care_tracks
+        tracks = gh_care_tracks(p)
     if not p.reference_confirmed:
         for track in tracks:
             track["status"] = "unknown"

@@ -1,7 +1,27 @@
-"""Reviewed Seomyeon notice, PDF pages 3, 5–7. No generalization to other rentals."""
+"""Individually reviewed Seomyeon and GH Care Hub notices."""
 from datetime import date
 
 from .rules import age_on, aggregate, check, common, limit_check, yes_check
+
+
+def gh_care_tracks(p):
+    c = common(p,date(2026,8,21)) + [yes_check('household_homeless','신청일 현재 공고상 세대 전원 무주택',p.household_homeless,1)]
+    c[0].update(label='공고별 판단 기준일',reason='기본 판단일은 2026.08.21이에요. 무주택은 신청일 현재, 소득은 서류 접수일 등 항목별 기준을 함께 확인해 주세요.')
+    if p.marriage == 'married':
+        c.append(check('family','혼인가구 신청 유형','pass','PDF 5쪽 ⑦ 혼인가구를 포함해요. 가점과 최종 심사는 별도예요.',5))
+    elif p.marriage == 'planned':
+        c.append(check('family','입주일 전일까지 혼인신고','conditional' if p.marriage_before_movein=='yes' else 'fail' if p.marriage_before_movein=='no' else 'unknown','구성될 세대의 무주택 및 입주 전 혼인 증명이 필요해요.',5,'marriage_before_movein'))
+    else:
+        state = 'pass' if p.gh_family_type in ('newborn','certified_parent','young_parent') else 'fail' if p.gh_family_type=='none' and p.marriage=='single' else 'unknown'
+        c.append(check('family','신생아·한부모가족 유형',state,'신생아는 2024.08.22 이후 출생·입양·태아, 어린 자녀 한부모는 2019.08.22 이후 출생·태아 기준이에요.',5,'gh_family_type'))
+    limits={1:4_576_036,2:6_452_897,3:8_168_429,4:8_802_202,5:9_326_985,6:9_906_263}
+    income=limit_check('income','공고 표의 세대 소득 기준',p.monthly_income_household,limits.get(p.household_size),5,'monthly_income_household')
+    if p.gh_income_reference_confirmed!='yes':
+        income.update(state='unknown',reason='이 공고는 서류 접수일의 공적 소득자료 기준이에요. 해당 기준으로 확인한 금액인지 알려주세요.',field='gh_income_reference_confirmed')
+    elif p.household_size not in limits:
+        income.update(state='unknown',reason='공고의 1~6인 가구 표 밖은 별도 확인이 필요해요.',field='household_size')
+    c += [income,limit_check('assets','세대 총자산 3억 4,500만원 이하',p.assets_household,345_000_000,5,'assets_household'),limit_check('car','세대 자동차 중 최고 가액 4,542만원 이하',p.gh_car_value,45_420_000,7,'gh_car_value')]
+    return [{'id':'gh_care_family','name':'GH Care Hub 신혼부부형 기본조건','checks':c,'status':aggregate(c)}]
 
 
 def seomyeon_tracks(p):

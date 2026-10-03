@@ -26,9 +26,11 @@ def iso(value):
 
 def classify(r):
     t = r["title"]
+    if any(s in t for s in ("임대상가", "산업시설", "청년창업몰", "분양주택")):
+        return "other"
     if any(s in t for s in ("마감 안내", "마감안내", "접수마감", "종료 안내", "취소공고")):
         return "update"
-    if any(s in t for s in ("당첨자", "심사대상자", "심사 대상자", "입주대상자 발표", "순번추첨", "순번 발표", "계약체결 안내", "납부", "조사결과")):
+    if any(s in t for s in ("당첨자", "심사대상자", "심사 대상자", "입주대상자 발표", "예비입주자 발표", "선정결과 발표", "선정 결과 발표", "순번추첨", "순번 발표", "계약체결 안내", "납부", "조사결과")):
         return "other"
     if r["source"] == "GH_MAIN" and r.get("source_category") not in ("주택", "기타"):
         return "other"

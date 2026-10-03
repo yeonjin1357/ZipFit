@@ -14,6 +14,9 @@ class Profile(BaseModel):
     marriage_date: date | None = None
     marriage_before_movein: Answer = "unknown"
     marriage_total_within_7_years: Answer = "unknown"
+    gh_family_type: Literal['unknown','newborn','certified_parent','young_parent','none'] = 'unknown'
+    gh_income_reference_confirmed: Answer = 'unknown'
+    gh_car_value: Money | None = None
     korean: Answer = "unknown"
     residence: str = Field(default="", max_length=30)
     self_homeless: Answer = "unknown"

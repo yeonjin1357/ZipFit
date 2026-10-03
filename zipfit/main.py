@@ -44,6 +44,8 @@ def create_app(settings=None):
     app.add_api_route("/api/match", match, methods=["POST"])
     app.add_api_route("/api/health", health, methods=["GET"])
     app.add_api_route("/api/documents/{notice_id:path}", document, methods=["GET"])
+    app.add_api_route("/api/calendar/{notice_id:path}", calendar, methods=["GET"])
+    app.add_api_route("/api/housing-document/{notice_id:path}", housing_document, methods=["GET"])
     return app
 
 
@@ -56,6 +58,7 @@ def results(profile):
     now = datetime.now(KST)
     notices = [{**n,"schedule":schedule(n, now),"evaluation":evaluate(n,profile,now)} for n in catalog["notices"]]
     return {"as_of":now.isoformat(),"sources":catalog["sources"],"notices":notices,
+            "discovery":catalog.get("discovery"), "schedule_refresh":catalog.get("schedule_refresh"),
             "coverage":{"source_posts":len(notices),"recruitment_candidates":sum(n["kind"]=="recruitment" for n in notices),"reviewed_notices":sum(bool(n.get("rule_model")) for n in notices),"reviewed_tracks":sum(len(n["evaluation"]["tracks"]) for n in notices)}}
 
 
@@ -81,6 +84,24 @@ def document(notice_id: str):
     if not path.is_relative_to(ROOT / "research") or path.suffix != ".pdf" or not path.is_file():
         raise HTTPException(404, "공고문을 찾지 못했어요.")
     return FileResponse(path, media_type="application/pdf")
+
+
+def calendar(notice_id: str):
+    from fastapi.responses import Response
+    from .calendar import export_calendar
+    n=next((n for n in load_catalog()['notices'] if n['id']==notice_id),None)
+    if not n: raise HTTPException(404,'공고를 찾지 못했어요.')
+    try: content=export_calendar(n)
+    except ValueError as exc: raise HTTPException(409,str(exc))
+    return Response(content,media_type='text/calendar',headers={'Content-Disposition':'attachment; filename="zipfit-application.ics"'})
+
+
+def housing_document(notice_id: str):
+    n=next((n for n in load_catalog()['notices'] if n['id']==notice_id),None)
+    if not n or not n.get('housing_document'): raise HTTPException(404,'공급목록을 찾지 못했어요.')
+    path=(ROOT/n['housing_document']['path']).resolve()
+    if not path.is_relative_to(ROOT/'research') or path.suffix!='.xlsx' or not path.is_file(): raise HTTPException(404,'공급목록을 찾지 못했어요.')
+    return FileResponse(path,filename='housing-list.xlsx',media_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 
 
 app = create_app()

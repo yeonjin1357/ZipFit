@@ -12,7 +12,7 @@ import requests
 
 from .catalog import ROOT, RUNTIME, load_catalog
 
-HOSTS = {"apply.lh.or.kr", "www.i-sh.co.kr", "soco.seoul.go.kr", "www.applyhome.co.kr", "static.applyhome.co.kr"}
+HOSTS = {"apply.lh.or.kr", "www.i-sh.co.kr", "soco.seoul.go.kr", "www.applyhome.co.kr", "static.applyhome.co.kr", "apply.gh.or.kr", "apply-cdn.gh.or.kr"}
 SCHEMA = 1
 
 
@@ -24,7 +24,9 @@ def digest(value):
 
 def binding(notice):
     """A previous source check cannot authorize a different PDF or rule revision."""
-    return digest({key: notice.get(key) for key in ("id", "url", "rule_model", "rule_config", "rule_reviewed_at", "reference_date", "document", "application_start", "application_end", "daily_hours", "rent_options")})
+    keys = ["id", "url", "rule_model", "rule_config", "rule_reviewed_at", "reference_date", "document", "application_start", "application_end", "daily_hours", "rent_options"]
+    keys += [key for key in ("housing_units", "housing_document") if key in notice]
+    return digest({key: notice.get(key) for key in keys})
 
 
 def fetch(session, url, max_bytes=40 * 1024 * 1024):
@@ -85,11 +87,16 @@ def extract_detail(raw, notice):
         if root:
             for a in root.select("a[href*='getAtchmnfl.do?']"):
                 attachments.append({"url": urljoin(url, a["href"]), "name": a.get_text(" ", strip=True)})
+    elif source == "GH":
+        root = doc.select_one('.sub_content .guide')
+        if root:
+            for a in root.select('a[href*="selectFileDown.do"]'):
+                attachments.append({"url":urljoin(url,a['href']),"name":a.get_text(' ',strip=True)})
     else:
         raise ValueError("아직 상세 재확인을 지원하지 않는 기관이에요.")
     if not root or not attachments or len(attachments) > 12:
         raise ValueError("본문·첨부 목록이 비어 있거나 예상 범위를 벗어났어요.")
-    for node in root.select("script, style, input, button, .preview, .viewerIco, a[onclick*='previewAjax'], a[onclick*='preListen']"):
+    for node in root.select("script, style, input, button, .preview, .viewerIco, .file_ic, a[onclick*='previewAjax'], a[onclick*='preListen']"):
         node.decompose()
     text = " ".join(root.get_text(" ", strip=True).split())
     text = re.sub(r"조회\s*수\s*[:：]?\s*[\d,]+", "조회수", text)

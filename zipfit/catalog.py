@@ -22,8 +22,22 @@ def schedule(notice, now=None):
         return {"state":"closed", "label":"취소된 공고"}
     if notice.get("source_status") == "접수마감":
         return {"state":"closed", "label":"목록상 접수 종료"}
-    if notice.get("review_invalidated"):
+    if notice.get("review_invalidated") or notice.get("schedule_invalidated"):
         return {"state":"unknown", "label":"변경된 일정 확인 필요", "changed": True}
+    if notice.get("application_windows"):
+        info = notice.get("schedule_source", {})
+        if info.get("state") == "extracted":
+            try:
+                age = now - datetime.fromisoformat(info["checked_at"])
+                if not 0 <= age.total_seconds() <= 86400:
+                    return {"state":"unknown", "label":"접수 일정 재확인 필요"}
+            except (KeyError, ValueError, TypeError):
+                return {"state":"unknown", "label":"접수 일정 재확인 필요"}
+        states = [schedule({"application_start":w["start"],"application_end":w["end"],"daily_hours":w.get("daily_hours")},now) for w in notice["application_windows"]]
+        for state in ("open","upcoming","unknown","closed"):
+            found = next((s for s in states if s["state"] == state), None)
+            if found:
+                return {**found,"windows":len(states)}
     def stamp(value, end=False):
         if not value:
             return None

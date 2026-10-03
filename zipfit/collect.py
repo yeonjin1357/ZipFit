@@ -22,8 +22,8 @@ from .rules import KST
 from .sources import parse_records
 
 
-def jobs_for(provider, pages, now):
-    start = now.date() - timedelta(days=60)
+def jobs_for(provider, pages, now, lookback_days=60):
+    start = now.date() - timedelta(days=lookback_days)
     jobs = []
     for page in range(1, pages+1):
         if provider == "LH":
@@ -46,14 +46,20 @@ def jobs_for(provider, pages, now):
     return jobs
 
 
-def collect_provider(provider, pages, now, folder):
+def collect_provider(provider, pages, now, folder, lookback_days=60):
     session = requests.Session()
     session.headers["User-Agent"] = "ZipFit-LocalMVP/0.1 (public housing notice reader)"
     rows, errors = [], []
     seen_pages = {}
-    jobs = jobs_for(provider,pages,now)
+    jobs = jobs_for(provider,pages,now,lookback_days)
+    exhausted = set()
+    attempted = 0
     for i, job in enumerate(jobs):
+        lane = (job["source"],job.get("board"), "0203" if "0203" in job["url"] else "0303" if "0303" in job["url"] else "")
+        if lane in exhausted:
+            continue
         snapshot = f"{provider.lower()}-{i+1}"
+        attempted += 1
         meta = {"request":job,"checked_at":datetime.now(KST).isoformat()}
         try:
             with session.request("POST" if "data" in job else "GET",job["url"],data=job.get("data"),headers={"Referer":job.get("referer",job["url"])},timeout=(10,25),stream=True) as response:
@@ -71,6 +77,8 @@ def collect_provider(provider, pages, now, folder):
                 text = raw.decode(encoding)
                 parsed = parse_records(text,job["source"],response.url,job.get("board"))
                 lane = (job["source"],job.get("board"), "0203" if "0203" in job["url"] else "0303" if "0303" in job["url"] else "")
+                if not parsed:
+                    exhausted.add(lane)
                 ids = {r["notice_id"] for r in parsed}
                 if ids and ids <= seen_pages.get(lane,set()):
                     raise ValueError("페이지 이동 결과가 이전 페이지와 같아요. 수집 범위를 확인해야 해요.")
@@ -85,7 +93,7 @@ def collect_provider(provider, pages, now, folder):
         (folder/(snapshot+".json")).write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding="utf-8")
         time.sleep(.5)
     session.close()
-    return provider,rows,errors,len(jobs)
+    return provider,rows,errors,attempted
 
 
 def merge_records(existing, updates):
@@ -106,6 +114,10 @@ def merge_records(existing, updates):
                 keep.update({k:old[k] for k in ("title","region","housing_type","application_start","application_end","application_text","notes","rule_model")})
                 keep["review_invalidated"] = old.get("review_invalidated",False) or changed
             keep["notes"] = old.get("notes",[])
+            if old.get("application_windows"):
+                keep["application_windows"] = old["application_windows"]
+                if changed:
+                    keep["schedule_invalidated"] = True
             if changed:
                 previous = old_fingerprint or old
                 keep["list_changes"] = [{"field": k, "before": previous.get(k), "after": fingerprint.get(k)} for k in fields if previous.get(k) != fingerprint.get(k)]
@@ -120,6 +132,8 @@ def merge_records(existing, updates):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pages",type=int,default=2,choices=range(1,11))
+    parser.add_argument("--lookback-days", type=int, default=60, choices=range(1,731))
+    parser.add_argument("--discovery", action="store_true", help="Record an expanded coverage scan")
     args = parser.parse_args()
     RUNTIME.parent.mkdir(parents=True,exist_ok=True)
     lock = RUNTIME.parent / "collection.lock"
@@ -131,9 +145,13 @@ def main():
         catalog = load_catalog();now=datetime.now(KST)
         folder = RUNTIME.parent/"snapshots"/now.strftime("%Y%m%dT%H%M%S%f")
         folder.mkdir(parents=True)
-        def run(source): return collect_provider(source["provider"],args.pages,now,folder)
+        before = {n["id"] for n in catalog["notices"]}
+        seen, scans = set(), []
+        def run(source): return collect_provider(source["provider"],args.pages,now,folder,args.lookback_days)
         with ThreadPoolExecutor(max_workers=5) as pool:
             for provider,rows,errors,count in pool.map(run,catalog["sources"]):
+                seen.update(n["id"] for n in rows)
+                scans.append({"provider":provider,"records":len({n["id"] for n in rows}),"max_pages_per_lane":args.pages,"lookback_days":args.lookback_days if provider in ("LH","APPLYHOME") else None,"errors":errors})
                 catalog["notices"] = merge_records(catalog["notices"],rows)
                 source = next(s for s in catalog["sources"] if s["provider"]==provider)
                 source.update(state="partial" if errors else "bounded_refresh",last_attempt=now.isoformat(),last_error=" / ".join(dict.fromkeys(errors)),count=sum(n["provider"]==provider for n in catalog["notices"]),scope=f"최근 목록 경로별 최대 {args.pages}페이지 갱신 + 기존 보관 자료. 과거·수시모집 전체 및 첨부파일 변경은 별도 확인이 필요해요.")
@@ -141,6 +159,9 @@ def main():
                 print(json.dumps({"provider":provider,"requests":count,"rows":len(rows),"errors":errors},ensure_ascii=False),flush=True)
         temporary = RUNTIME.with_suffix(".tmp")
         catalog["last_collection_attempt"] = now.isoformat()
+        if args.discovery:
+            from .catalog import schedule
+            catalog["discovery"] = {"checked_at":now.isoformat(),"sources":scans,"found_ids":len(seen),"new_ids":len(seen-before),"unseen_active_ids":[n["id"] for n in catalog["notices"] if n["id"] not in seen and n["kind"]=="recruitment" and schedule(n,now)["state"] not in ("closed","superseded")],"complete":False,"scope":"지정 기간·페이지 범위의 추가 탐색이며 전국 전수 수집을 의미하지 않아요."}
         temporary.write_text(json.dumps(catalog,ensure_ascii=False,indent=2),encoding="utf-8")
         temporary.replace(RUNTIME)
         print("Saved: " + str(RUNTIME))

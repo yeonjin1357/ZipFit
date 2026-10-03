@@ -55,6 +55,16 @@ def audit(catalog, now=None):
                     errors.append(prefix + "PDF checksum mismatch")
                 pdfs += 1
         result = evaluate(n, Profile(), now)
+        if n.get('housing_units'):
+            doc=n.get('housing_document',{})
+            path=(ROOT/doc.get('path','')).resolve()
+            if not path.is_relative_to((ROOT/'research').resolve()) or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=doc.get('sha256'):
+                errors.append(prefix+'Missing or changed housing spreadsheet')
+            if not any(f.get('sha256')==doc.get('sha256') and f.get('url')==doc.get('url') for f in n.get('reviewed_source',{}).get('attachments',[])):
+                errors.append(prefix+'Housing spreadsheet absent from approved source')
+            units=n['housing_units']
+            if len({u['id'] for u in units})!=len(units) or any(type(u['deposit']) is not int or u['deposit']<=0 or type(u['monthly_rent']) is not int or u['monthly_rent']<0 or not u.get('address') or u['area']<=0 for u in units):
+                errors.append(prefix+'Invalid housing unit')
         if result["status"] != "unknown":
             errors.append(prefix + "Empty profile must not assert eligibility")
         if n.get("rule_model"):

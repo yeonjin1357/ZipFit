@@ -39,8 +39,8 @@ def main():
             page.locator('.missing-inputs [data-profile-field="household_size"]').click()
             expect(page.locator("#detail-dialog")).not_to_be_visible()
             expect(page.locator(".profile-step[data-step='2']")).to_be_visible()
-            expect(page.locator("[name='household_size']")).to_be_focused()
-            expect(page.locator("[name='household_size']")).to_be_visible()
+            expect(page.locator("#profile-form [name='household_size']")).to_be_focused()
+            expect(page.locator("#profile-form [name='household_size']")).to_be_visible()
             page.keyboard.press("Escape")
         page.locator("#eligibility-filter").select_option("all")
         page.locator("#show-closed").check()
@@ -57,7 +57,7 @@ def main():
         page.screenshot(path=str(OUT/"profile-desktop.png"))
         page.get_by_role("button",name="다음",exact=True).click()
         page.locator("#step-back").click()
-        assert page.locator("[name='birth_date']").input_value()=="1995-04-15"
+        assert page.locator("#profile-form [name='birth_date']").input_value()=="1995-04-15"
         page.get_by_role("button",name="다음",exact=True).click()
         page.get_by_role("button",name="다음",exact=True).click()
         with page.expect_response("**/api/match") as matching:
@@ -97,7 +97,7 @@ def main():
         assert page.locator("#coverage-dialog").is_visible()
         page.keyboard.press("Escape")
         page.reload();page.locator(".notice-card").first.wait_for()
-        assert page.locator("[name='birth_date']").input_value()==""
+        assert page.locator("#profile-form [name='birth_date']").input_value()==""
         page.set_viewport_size({"width":390,"height":844})
         page.screenshot(path=str(OUT/"mobile.png"))
         assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"), "Mobile horizontal overflow"
@@ -110,30 +110,30 @@ def main():
         page.locator("#profile-open-button").click()
         assert page.locator("#profile-dialog").bounding_box()["width"]==390, "Mobile bottom sheet must fill the screen width"
         page.screenshot(path=str(OUT/"profile-mobile.png"))
-        page.locator("[name='birth_date']").fill("1997-01-15")
+        page.locator("#profile-form [name='birth_date']").fill("1997-01-15")
         page.locator("[data-marriage='planned']").click()
         expect(page.locator("#planned-field")).to_be_visible()
         page.locator("#step-next").click()
         expect(page.locator("#couple-field")).to_be_visible()
-        page.locator("[name='car_mode']").select_option("simple")
+        page.locator("#profile-form [name='car_mode']").select_option("simple")
         expect(page.locator("#car-value-field")).to_be_visible()
-        page.locator("[name='car_value']").fill("-1")
+        page.locator("#profile-form [name='car_value']").fill("-1")
         page.locator("#step-next").click()
         expect(page.locator(".profile-step[data-step='1']")).to_be_visible()
-        page.locator("[name='car_mode']").select_option("none")
+        page.locator("#profile-form [name='car_mode']").select_option("none")
         page.locator("#step-next").click()
         expect(page.locator(".profile-step[data-step='2']")).to_be_visible()
         page.locator("#sh-extra-fields summary").click()
-        expect(page.locator("[name='dual_income']")).to_be_visible()
+        expect(page.locator("#profile-form [name='dual_income']")).to_be_visible()
         assert page.evaluate("document.querySelector('#profile-dialog').scrollWidth <= document.querySelector('#profile-dialog').clientWidth"), "SH extra inputs overflow"
-        page.locator("[name='sh_newborn']").select_option("yes")
-        page.locator("[name='sh_asset_children']").select_option("none")
+        page.locator("#profile-form [name='sh_newborn']").select_option("yes")
+        page.locator("#profile-form [name='sh_asset_children']").select_option("none")
         with page.expect_response("**/api/match") as invalid_family:
             page.locator("#match-button").click()
         assert invalid_family.value.status==422
         expect(page.locator("#form-error")).to_be_visible()
-        page.locator("[name='sh_asset_children']").select_option("one")
-        page.locator("[name='dual_income']").scroll_into_view_if_needed()
+        page.locator("#profile-form [name='sh_asset_children']").select_option("one")
+        page.locator("#profile-form [name='dual_income']").scroll_into_view_if_needed()
         page.screenshot(path=str(OUT/"sh-inputs-mobile.png"))
         with page.expect_response("**/api/match") as mobile_matching:
             page.locator("#match-button").click()
@@ -142,7 +142,7 @@ def main():
         page.locator("#profile-open-button").click()
         page.locator("#reset-button").click()
         expect(page.locator("#profile-open-button")).to_have_text("내 조건 입력하기")
-        assert page.locator("[name='birth_date']").input_value()==""
+        assert page.locator("#profile-form [name='birth_date']").input_value()==""
         page.keyboard.press("Escape")
         for width in (360,768,1024):
             page.set_viewport_size({"width":width,"height":900})

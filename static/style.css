@@ -358,3 +358,23 @@ form input:not([type=checkbox]):focus, form select:not(.sr-only):focus { outline
 .missing-inputs button { display: inline-flex; align-items: center; gap: 4px; border: 0; border-radius: 8px; background: white; color: #2272eb; padding: 10px 12px; font-size: 13px; }
 .missing-inputs .icon { width: 14px; height: 14px; }
 .field-link { margin-top: 8px; font-size: 13px; }
+/* Notice tools follow the existing quiet blue and gray controls. */
+.notice-tools{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.small-button{border:1px solid #e5e8eb;background:white;color:#4e5968;border-radius:10px;padding:8px 12px;font-size:13px;cursor:pointer}
+.small-button[aria-pressed="true"]{border-color:#3182f6;background:#eaf3ff;color:#1b64da}
+.extra-filters{gap:12px;justify-content:flex-start;flex-wrap:wrap}
+.extra-filters select{max-width:240px;font-size:13px;border:0;background-color:#eaf0f6;color:var(--grey-700);height:36px;border-radius:9px;padding:0 32px 0 12px}
+.compare-bar{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:16px;background:white;border:1px solid #e5e8eb;box-shadow:0 4px 28px #191f2820;padding:12px 18px;border-radius:18px;z-index:30;white-space:nowrap}
+.compare-bar[hidden]{display:none}.compare-bar .primary-button{min-height:40px;padding:10px 16px}
+#compare-dialog{width:min(1080px,calc(100% - 32px))}.compare-table{min-width:640px;width:100%;border-collapse:collapse;table-layout:fixed}
+.compare-table th,.compare-table td{padding:18px 14px;text-align:left;vertical-align:top;border-bottom:1px solid #e5e8eb;overflow-wrap:anywhere;line-height:1.7}
+.compare-table th:first-child{width:100px}.compare-table thead th{background:#f2f6fc}.compare-table small{color:#6b7684}
+.simple-dialog{width:min(540px,calc(100% - 32px))}.simple-dialog h2{margin-bottom:12px}.simple-dialog p{line-height:1.65;color:#6b7684}
+.simple-dialog label{display:flex;flex-direction:column;gap:10px;margin:18px 0;color:#333d4b;font-size:14px}
+.simple-dialog label.checkbox-label{flex-direction:row}.simple-dialog input:not([type=checkbox]),.simple-dialog select,#unit-query{width:100%;min-height:46px;border:1px solid #d1d6db;border-radius:10px;padding:10px;font:inherit;box-sizing:border-box;background:white}
+.simple-dialog button[type=submit]{width:100%;margin-top:16px}.simple-dialog .form-row{gap:12px}.simple-dialog .form-row label{min-width:0;flex:1}
+.profile-summary>.secondary-button{width:100%;margin-top:10px}.calendar-button{margin:8px 0}.housing-table{min-width:580px}.housing-table td:first-child{min-width:210px}.housing-table td{vertical-align:top}
+.scroll-hint{display:none}.missing-inputs .primary-button{margin:14px 0;color:white}
+#unit-query{margin:8px 0 12px}#saved-help{font-size:12px}.detail-section .inline-check{margin:12px 0}
+@media(max-width:600px){.compare-bar{bottom:10px;gap:9px;padding:10px 12px;max-width:calc(100% - 20px)}.compare-bar .text-button{font-size:12px}.simple-dialog{padding:32px 20px}.extra-filters{gap:8px}.extra-filters select{max-width:180px}#compare-dialog{padding:40px 20px}.nav nav{gap:12px}.topbar .nav-help{font-size:12px}}
+@media(max-width:600px){.scroll-hint{display:block;color:var(--grey-600);font-size:13px}.housing-table{min-width:0}.housing-table thead{display:none}.housing-table tbody{display:block}.housing-table tr{display:grid;grid-template-columns:1fr 1fr;padding:14px 0;border-bottom:1px solid var(--grey-200)}.housing-table td{border:0;padding:8px 0}.housing-table td:first-child,.housing-table td:last-child{grid-column:1 / -1}.housing-table td:nth-child(2)::before{content:'전용면적';display:block;color:var(--grey-600);margin-bottom:6px}.housing-table td:nth-child(3)::before{content:'보증금 / 월세';display:block;color:var(--grey-600);margin-bottom:6px}.housing-table td:last-child::before{content:'원문 위치: ';color:var(--grey-600)}.housing-table td:last-child br{display:none}}

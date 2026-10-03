@@ -6,7 +6,7 @@ const providerNames = { LH: "LH", SH: "SH", GH: "GH", SEOUL_YOUTH: "청년안심
 const regions = ["서울", "경기", "인천", "부산", "대구", "대전", "광주", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"];
 const regionAliases = { 충북: "충청북", 충남: "충청남", 경북: "경상북", 경남: "경상남", 전북: "전라북", 전남: "전라남" };
 let data = null, provider = "", limit = 18, matched = false, profile = {}, sequence = 0, profileStep = 0, toastTimer;
-const moneyFields = ["car_value", "monthly_income_self", "monthly_income_household", "monthly_income_parents", "assets_self", "assets_household", "deposit_budget", "monthly_rent_budget"];
+const moneyFields = ["car_value", "gh_car_value", "monthly_income_self", "monthly_income_household", "monthly_income_parents", "assets_self", "assets_household", "deposit_budget", "monthly_rent_budget"];
 const escapeHTML = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const e = escapeHTML;
 const money = (n) => `${(n / 10000).toLocaleString("ko-KR", { maximumFractionDigits: 4 })}만원`;
@@ -174,10 +174,15 @@ function filtered() {
   const region = $("#region-filter").value;
   const eligibility = $("#eligibility-filter").value;
   const notices = data.notices.filter(n => {
+    if ($("#saved-only").checked && !savedIds.has(n.id)) return false;
+    if ($("#schedule-filter").value !== 'all' && $("#schedule-filter").value !== n.schedule.state) return false;
+    const prices = noticePrices(n), budgetFilter = $("#budget-filter").value;
+    if (budgetFilter === 'within' && !prices.some(withinBudget)) return false;
+    if (budgetFilter === 'unknown' && prices.length) return false;
     if (provider && n.provider !== provider) return false;
     if (!$("#show-other").checked && n.kind !== "recruitment") return false;
-    if (!$("#show-closed").checked && ["closed", "superseded"].includes(n.schedule.state)) return false;
-    if (query && !`${n.title} ${n.region} ${n.housing_type}`.toLocaleLowerCase().includes(query)) return false;
+    if (!$("#saved-only").checked && !$("#show-closed").checked && ["closed", "superseded"].includes(n.schedule.state)) return false;
+    if (query && !`${n.title} ${n.region} ${n.housing_type} ${(n.housing_units || []).map(u=>u.address+' '+u.name).join(' ')}`.toLocaleLowerCase().includes(query)) return false;
     // Unknown location remains discoverable; it is not a proven mismatch.
     if (region && n.region !== "지역 확인 필요" && n.region !== "전국" && !n.region.includes(" 외") && !n.region.includes(region) && !n.region.includes(regionAliases[region] || region)) return false;
     if (eligibility === "possible" && !["match","conditional"].includes(n.evaluation.status)) return false;
@@ -207,7 +212,7 @@ function filtered() {
 
 function card(n) {
   const ev = n.evaluation;
-  const option = ev.version_stale ? null : ev.rent_options.filter(o => o.track_status !== "mismatch" && o.within_budget).sort((a,b) => a.deposit-b.deposit)[0];
+  const option = noticePrices(n).filter(withinBudget).sort((a,b) => a.deposit-b.deposit)[0];
   const price = option ? `<div class="price-preview"><span>보증금 <strong>${money(option.deposit)}</strong></span><span>월세 <strong>${money(option.monthly_rent)}</strong></span><span class="dim">${option.area}㎡ · 한 가지 조합 예시</span></div>` : "";
   const providerIcon = ["LH", "SH", "GH"].includes(n.provider) ? e(n.provider) : icon(n.provider === "SEOUL_YOUTH" ? "home" : "building");
   const category = n.housing_type.replace("청년안심주택 · ", "");
@@ -216,12 +221,13 @@ function card(n) {
     <div class="card-top"><div class="provider-identity"><span class="provider-icon ${e(n.provider)}" aria-hidden="true">${providerIcon}</span><div><span class="provider-label">${e(providerNames[n.provider])}</span><span class="notice-category">${e(category)}${n.rule_model ? " · 조건 비교 지원" : ""}</span></div></div><span class="schedule-label ${e(n.schedule.state)}">${e(scheduleLabel)}</span></div>
     <h3><button class="card-title-button" data-detail="${e(n.id)}">${e(n.title)}</button></h3>
     <div class="card-meta"><span>${e(n.region)}</span><span>공고 ${shortDate(n.published_date)}</span></div><p class="card-date">${e(scheduleText(n))}</p>${price}
-    <div class="card-bottom">${statusBadge(ev)}<button class="card-action" data-detail="${e(n.id)}">자세히 보기${icon("chevron-right")}</button></div>
+    ${savedControls(n)}<div class="card-bottom">${statusBadge(ev)}<button class="card-action" data-detail="${e(n.id)}">자세히 보기${icon("chevron-right")}</button></div>
   </article>`;
 }
 
 function scheduleText(n) {
   if (n.schedule.changed) return "공고 정보가 변경됐어요. 최신 접수 일정을 확인해 주세요.";
+  if (n.application_windows?.length) return n.application_windows.map(w=>`${w.label}: ${shortDate(w.start)} ~ ${shortDate(w.end)}`).join(' / ');
   if (n.application_text) return `신청 ${n.application_text}${n.schedule.date_only ? " · 접수 시간은 원문 확인" : ""}`;
   if (n.listed_application_date) return `목록에 기재된 신청일 ${shortDate(n.listed_application_date)} · 전체 기간 확인 필요`;
   if (n.listed_closing_date) return `목록 마감 ${shortDate(n.listed_closing_date)} · 전체 접수 일정 확인 필요`;
@@ -237,13 +243,17 @@ function render() {
   $("#cards").innerHTML = notices.length ? notices.slice(0, limit).map(card).join("") : `<div class="empty"><strong>현재 필터에 맞는 공고가 없어요.</strong><p>‘추가 확인 필요’ 공고도 살펴보세요.<br>희망 지역이나 기관 필터를 넓히면 더 많은 공고를 볼 수 있어요.</p><button id="clear-filters">필터 초기화</button></div>`;
   $("#load-more").hidden = notices.length <= limit;
   $("#result-announcement").textContent = `조건에 맞춰 표시한 공고 ${notices.length}건. ${Math.min(limit,notices.length)}건을 보여드려요.`;
+  if ($("#saved-only").checked) $("#result-context").textContent += " 찜한 공고는 종료된 공고도 함께 보여요.";
+  if ($("#budget-filter").value === 'within') $("#result-context").textContent += profile.deposit_budget == null && profile.monthly_rent_budget == null ? " 예산 미입력: 금액이 확인된 공고를 보여요. 내 조건에서 상한을 입력해 주세요." : " 같은 보증금·월세 조합을 기준으로 비교해요. 금액 미확인 공고는 제외했어요.";
+  updateSavedUI();
 }
 function resetFilters() {
+  $("#saved-only").checked=false; $("#schedule-filter").value='all'; $("#budget-filter").value='all';
   provider = ""; $("#search").value = ""; $("#region-filter").value = ""; $("#eligibility-filter").value = "all"; $("#show-closed").checked = false; $("#show-other").checked = false;
   for (const b of $$("[data-provider]")) { b.classList.toggle("selected", b.dataset.provider === ""); b.setAttribute("aria-pressed", String(b.dataset.provider === "")); }
   limit = 18; render();
 }
-for (const el of $$("#search, #region-filter, #eligibility-filter, #show-closed, #show-other, #sort")) el.addEventListener(el.id === "search" ? "input" : "change", () => { limit = 18; render(); });
+for (const el of $$("#search, #region-filter, #eligibility-filter, #show-closed, #show-other, #sort, #saved-only, #schedule-filter, #budget-filter")) el.addEventListener(el.id === "search" ? "input" : "change", () => { limit = 18; render(); });
 for (const b of $$("[data-provider]")) b.addEventListener("click", () => {
   provider = b.dataset.provider; limit = 18;
   for (const tab of $$("[data-provider]")) { const on = tab === b; tab.classList.toggle("selected",on); tab.setAttribute("aria-pressed",String(on)); } render();
@@ -252,30 +262,34 @@ $("#load-more").addEventListener("click", () => { limit += 18; render(); });
 
 function openDetail(id) {
   const n = data.notices.find(n => n.id === id); if (!n) return;
+  activeNoticeId = id;
   const ev = n.evaluation;
   const trackNames = Object.fromEntries(ev.tracks.map(t => [t.id,t.name]));
   const checks = ev.tracks.map(t => `<details class="track" ${t.status !== "mismatch" ? "open" : ""}><summary>${e(t.name)}${statusBadge(t)}</summary><div class="check-list">${t.checks.map(c => `<div class="check-row"><span class="check-icon ${e(c.state)}">${{pass:"✓",fail:"−",unknown:"?",conditional:"◇"}[c.state]}</span><div class="check-copy"><strong>${e(c.label)}</strong><p>${e(c.reason)}</p>${c.input_needed && !ev.version_stale ? `<button class="text-button field-link" data-profile-field="${e(c.field)}" type="button">이 정보 입력하기 →</button>` : ""}</div>${c.page && n.document ? `<a href="${pdfURL(n,c.page)}" target="_blank" rel="noopener noreferrer">PDF ${c.page}쪽 ↗</a>` : ""}</div>`).join("")}</div></details>`).join("");
   const options = ev.rent_options.filter(o => o.track_status !== "mismatch");
   const rentPages = [...new Set(options.map(o => o.page).filter(Boolean))];
   const budgetSet = profile.deposit_budget != null || profile.monthly_rent_budget != null;
-  const prices = options.length ? `<div class="table-scroll"><table class="rent-table"><thead><tr><th>공급유형 / 면적</th><th>보증금</th><th>월세</th>${budgetSet ? "<th>예산</th>" : ""}</tr></thead><tbody>${options.map(o=>`<tr class="${!o.within_budget ? "over-budget" : ""}"><td>${e(trackNames[o.track])}<br><span class="dim">${o.unit ? e(o.unit) + " · " : ""}${o.area}㎡</span></td><td>${money(o.deposit)}</td><td>${money(o.monthly_rent)}</td>${budgetSet ? `<td>${o.within_budget ? "범위 내" : "예산 초과"}</td>` : ""}</tr>`).join("")}</tbody></table></div><p>보증금과 월세는 같은 행의 조합이에요. 관리비·보증료 별도. ${rentPages.map(p => `<a href="${pdfURL(n,p)}" target="_blank" rel="noopener noreferrer">공고문 ${p}쪽 ↗</a>`).join(" · ")}</p>` : `<p>${ev.rent_options.length ? "기본조건이 일치하는 공급 유형을 찾지 못했어요. 전체 금액은 원문에서 확인할 수 있어요." : "주택별 보증금·월세를 아직 구조화하지 않았어요. 원문과 공급주택 목록을 확인해 주세요."}</p>`;
+  const prices = options.length ? `<div class="table-scroll"><table class="rent-table"><thead><tr><th>공급유형 / 면적</th><th>보증금</th><th>월세</th>${budgetSet ? "<th>예산</th>" : ""}</tr></thead><tbody>${options.map(o=>`<tr class="${!o.within_budget ? "over-budget" : ""}"><td>${e(trackNames[o.track])}<br><span class="dim">${o.unit ? e(o.unit) + " · " : ""}${o.area}㎡</span></td><td>${money(o.deposit)}</td><td>${money(o.monthly_rent)}</td>${budgetSet ? `<td>${o.within_budget ? "범위 내" : "예산 초과"}</td>` : ""}</tr>`).join("")}</tbody></table></div><p>보증금과 월세는 같은 행의 조합이에요. 관리비·보증료 별도. ${rentPages.map(p => `<a href="${pdfURL(n,p)}" target="_blank" rel="noopener noreferrer">공고문 ${p}쪽 ↗</a>`).join(" · ")}</p>` : `<p>${ev.rent_options.length ? "기본조건이 일치하는 공급 유형을 찾지 못했어요. 전체 금액은 원문에서 확인할 수 있어요." : (n.housing_units?.length ? "아래 공급목록에서 주택별 주소·면적·금액을 확인해 주세요." : "주택별 보증금·월세를 아직 구조화하지 않았어요. 원문과 공급주택 목록을 확인해 주세요.")}</p>`;
   const superseded = n.superseded_by ? data.notices.find(x=>x.id===n.superseded_by) : null;
   const correctionURL = superseded?.url || n.correction_url;
-  const needed = ev.missing_fields?.length ? `<div class="missing-inputs"><strong>이 정보를 더 알려주면 비교할 수 있어요</strong><div>${ev.missing_fields.map(f=>`<button type="button" data-profile-field="${e(f.field)}">${e(f.label)}${icon("chevron-right")}</button>`).join("")}</div></div>` : "";
-  $("#detail-content").innerHTML = `<div class="detail-header"><div class="tags"><span class="provider-label">${e(providerNames[n.provider])}</span><span class="subtle-tag">${e(n.region)}</span><span class="schedule-label">${e(n.schedule.label)}</span></div><h2 id="detail-title">${e(n.title)}</h2><p>공고일 ${shortDate(n.published_date)} ${n.reference_date ? ` · 자격 판단 기준일 ${shortDate(n.reference_date)}` : ""}<br>${e(scheduleText(n))}</p></div>
+  const needed = ev.missing_fields?.length ? `<div class="missing-inputs"><strong>이 정보를 더 알려주면 비교할 수 있어요</strong><button type="button" class="primary-button" data-needed="${e(n.id)}">이 공고에 필요한 정보 ${ev.missing_fields.length}개 입력</button><div>${ev.missing_fields.map(f=>`<button type="button" data-profile-field="${e(f.field)}">${e(f.label)}${icon("chevron-right")}</button>`).join("")}</div></div>` : "";
+  $("#detail-content").innerHTML = `<div class="detail-header"><div class="tags"><span class="provider-label">${e(providerNames[n.provider])}</span><span class="subtle-tag">${e(n.region)}</span><span class="schedule-label">${e(n.schedule.label)}</span></div><h2 id="detail-title" tabindex="-1">${e(n.title)}</h2><p>공고일 ${shortDate(n.published_date)} ${n.reference_date ? ` · 자격 판단 기준일 ${shortDate(n.reference_date)}` : ""}<br>${e(scheduleText(n))}</p></div>
     <div class="detail-links"><a href="${safeURL(n.url)}" target="_blank" rel="noopener noreferrer">공식 공고 확인 ↗</a>${n.document ? `<a href="${pdfURL(n)}" target="_blank" rel="noopener noreferrer">검토한 공고문 PDF ↗</a>` : ""}${correctionURL ? `<a href="${safeURL(correctionURL)}" target="_blank" rel="noopener noreferrer">정정 공고로 이동 ↗</a>` : ""}</div>
     <div class="detail-alert">${e(ev.scope)}${n.schedule.state === "closed" ? " 이 공고의 접수 기간은 종료됐어요." : ""}${ev.version_stale ? " 기존 판정은 보류하고 원문의 최신 버전 확인을 요청해요." : ""}</div>
     ${needed}<section class="detail-section"><h3>공급 유형별 조건 비교</h3>${checks || '<p>이 공고는 현재 목록 탐색만 지원해요. 자격 규칙을 검토 중이에요.</p>'}</section>
     <section class="detail-section"><h3>${ev.version_stale ? "검토 당시 보증금과 월세" : "보증금과 월세"}</h3>${ev.version_stale ? "<p>보관한 공고문 기준 금액이에요. 현재 금액은 최신 원문에서 확인해 주세요.</p>" : ""}${prices}</section>
     ${n.notes.length ? `<section class="detail-section"><h3>신청 전에 함께 확인해 주세요</h3><ul>${n.notes.map(t=>`<li>${e(t)}</li>`).join("")}</ul></section>` : ""}
     <section class="detail-section"><h3>이 정보의 출처</h3><p>목록 확인: ${koreaTime(n.observed_at)} (한국시간)<br>${n.rule_reviewed_at ? `기본조건 검토: ${koreaTime(n.rule_reviewed_at)}<br>` : ""}${n.source_verification ? `본문·첨부 재확인: ${koreaTime(n.source_verification.checked_at)} · ${e({unchanged:"검토본과 일치",changed:"변경 발견",error:"확인 실패",missing_baseline:"비교 기준 검토 필요"}[n.source_verification.state] || "확인 필요")}<br>` : ""}${n.document ? `PDF 보관본 확인: ${koreaTime(n.document.checked_at)}<br>쪽수는 PDF 파일의 첫 페이지부터 센 번호예요.<br>` : ""}공식 원문에 정정·취소가 있을 수 있어요. 신청 직전 최신 공고를 확인해 주세요.</p></section>`;
+  $("#detail-content").insertAdjacentHTML('beforeend',extraDetail(n));
+  renderUnits();
   $("#detail-dialog").showModal();
+  $("#detail-title").focus({preventScroll:true});$("#detail-dialog").scrollTop=0;
 }
 
 function openCoverage() {
   if (!data) return;
   const c = data.coverage;
-  $("#coverage-content").innerHTML = `<div class="detail-header"><h2 id="coverage-title">지금 어디까지 확인했나요?</h2><p>목록 수집과 자격 판정은 지원 범위가 달라요.</p></div><div class="detail-alert">원본 게시물 ${c.source_posts}건 · 모집 후보 ${c.recruitment_candidates}건<br>자동 기본조건 비교: ${c.reviewed_notices}개 공고 / ${c.reviewed_tracks}개 공급 유형</div>${data.sources.map(s=>`<div class="source-row"><div><strong>${e(s.label)}</strong><p>마지막 정상 수집 ${koreaTime(s.last_success)}<br>${e(s.scope)}${s.last_error ? `<br>최근 갱신 실패: ${e(s.last_error)}. 기존 자료를 유지해요.` : ""}</p></div><span class="source-count">${s.count}<small>건</small></span></div>`).join("")}<section class="detail-section"><h3>첫 버전의 지원 범위</h3><ul><li>송파해링턴타워, LH 서울·경기북부 든든전세, SH 신혼·신생아 매입임대Ⅱ, 서면 지원 더뷰 드림아파트의 검토한 기본조건을 비교해요.</li><li>나머지 공고는 기관·지역·제목·일정으로 탐색할 수 있어요. 자격을 자동 확정하지 않아요.</li><li>모집 후보 분류는 제목 기반이므로 결과 발표나 비주거 공고가 일부 섞일 수 있어요.</li><li>청약홈에 등록된 민간임대와 서울 청년안심주택을 포함하며 모든 민간사업자 공고를 포괄하지 않아요.</li><li>최근 목록은 약 6시간 간격으로 갱신을 시도해요. 검토된 공고는 본문·첨부도 재확인하며, 변경·확인 실패 또는 24시간 초과 시 판정을 보류해요. 예약 실행은 지연될 수 있어요.</li><li>페이지를 새로고침하면 입력한 개인정보가 사라져요. 외부 AI 호출·가입·결제는 없어요.</li></ul></section>`;
+  $("#coverage-content").innerHTML = `<div class="detail-header"><h2 id="coverage-title">지금 어디까지 확인했나요?</h2><p>목록 수집과 자격 판정은 지원 범위가 달라요.</p></div><div class="detail-alert">원본 게시물 ${c.source_posts}건 · 모집 후보 ${c.recruitment_candidates}건<br>자동 기본조건 비교: ${c.reviewed_notices}개 공고 / ${c.reviewed_tracks}개 공급 유형</div>${data.sources.map(s=>`<div class="source-row"><div><strong>${e(s.label)}</strong><p>마지막 정상 수집 ${koreaTime(s.last_success)}<br>${e(s.scope)}${s.last_error ? `<br>최근 갱신 실패: ${e(s.last_error)}. 기존 자료를 유지해요.` : ""}</p></div><span class="source-count">${s.count}<small>건</small></span></div>`).join("")}${coverageExtras()}<section class="detail-section"><h3>현재 지원 범위</h3><ul><li>송파해링턴타워, LH 서울·경기북부·경기남부·제주 든든전세, SH 신혼·신생아 매입임대Ⅱ, 서면 지원 더뷰 드림아파트, GH Care Hub의 검토한 기본조건을 비교해요. 종료된 공고도 지원 건수에 포함돼요.</li><li>LH 서울·경기북부의 검토한 공급목록 190호는 주소·전용면적·보증금·월세를 함께 확인하고 예산으로 좁힐 수 있어요.</li><li>나머지 공고는 기관·지역·제목·일정으로 탐색할 수 있어요. 자격을 자동 확정하지 않아요.</li><li>모집 후보 분류는 제목 기반이므로 결과 발표나 비주거 공고가 일부 섞일 수 있어요.</li><li>청약홈에 등록된 민간임대와 서울 청년안심주택을 포함하며 모든 민간사업자 공고를 포괄하지 않아요.</li><li>최근 목록은 약 6시간 간격으로 갱신을 시도해요. 검토된 공고는 본문·첨부도 재확인하며, 변경·확인 실패 또는 24시간 초과 시 판정을 보류해요. 예약 실행은 지연될 수 있어요.</li><li>페이지를 새로고침하면 입력한 개인정보가 사라져요. 외부 AI 호출·가입·결제는 없어요.</li></ul></section>`;
   $("#coverage-dialog").showModal();
 }
 $("#coverage-open").addEventListener("click",openCoverage);
