@@ -52,7 +52,7 @@ function extraDetail(n) {
   const windows = n.application_windows || [];
   const canCalendar = ["open", "upcoming"].includes(n.schedule.state) && !n.evaluation.version_stale && (windows.length || n.application_start && n.application_end);
   const missing = n.evaluation.missing_fields || [];
-  return `<section class="detail-section">${savedControls(n)}${canCalendar ? `<button class="secondary-button calendar-button" data-calendar="${e(n.id)}">캘린더에 신청 일정 저장</button><p class="field-help">ICS 파일을 개인 캘린더로 가져올 수 있어요. 저장 후 공고 변경은 자동 반영되지 않아요.</p>` : ''}${missing.length ? `<button class="primary-button" data-needed="${e(n.id)}">이 공고에 필요한 정보 ${missing.length}개 입력</button>` : ''}${windows.length ? `<h3>공급 유형별 접수 기간</h3>${windows.map(w=>`<p><strong>${e(w.label)}</strong><br>${e(w.start)} ~ ${e(w.end)}<br>${e(w.hours_note || '')}</p>`).join('')}<p class="field-help">기관 상세 확인 ${koreaTime(n.schedule_source?.checked_at)} · 서류제출·발표 일정과 구분한 신청 기간이에요.</p>` : ''}</section>${n.housing_units?.length ? `<section class="detail-section"><h3>${n.evaluation.version_stale ? '보관 당시의' : '공급목록의'} 주택 ${n.housing_units.length}호</h3><p>선택한 주택의 주소·전용면적·보증금을 함께 확인해요. 실제 공급 여부와 동호수 배정은 공고 절차를 따릅니다.</p><label>동네·주소·주택명<input id="unit-query" type="search" placeholder="예: 고양시, 백석동" autocomplete="off"></label><label class="inline-check"><input id="unit-budget-only" type="checkbox">입력한 예산에 맞는 주택만</label><p id="unit-budget-help" class="field-help"></p><div id="unit-results"></div><p><a href="/api/housing-document/${encodeURIComponent(n.id)}">검토한 공급목록 엑셀 다운로드 ↗</a> · <a href="${safeURL(n.housing_document.url)}" target="_blank" rel="noopener noreferrer">최신 공급목록 ↗</a></p><p class="field-help">전세 월세는 0원, 관리비는 별도예요. 금액은 계약 시 변경될 수 있어요.</p></section>` : ''}`;
+  return `<section class="detail-section">${savedControls(n)}${canCalendar ? `<button class="secondary-button calendar-button" data-calendar="${e(n.id)}">캘린더에 신청 일정 저장</button><p class="field-help">ICS 파일을 개인 캘린더로 가져올 수 있어요. 저장 후 공고 변경은 자동 반영되지 않아요.</p>` : ''}${missing.length ? `<button class="primary-button" data-needed="${e(n.id)}">이 공고에 필요한 정보 ${missing.length}개 입력</button>` : ''}${windows.length ? `<h3>공급 유형별 접수 기간</h3>${windows.map(w=>`<p><strong>${e(w.label)}</strong><br>${e(w.start)} ~ ${e(w.end)}<br>${e(w.hours_note || '')}</p>`).join('')}<p class="field-help">기관 상세 확인 ${koreaTime(n.schedule_source?.checked_at)} · 서류제출·발표 일정과 구분한 신청 기간이에요.</p>` : ''}</section>${n.housing_units?.length ? `<section class="detail-section"><h3>${n.evaluation.version_stale ? '보관 당시의' : '공급목록의'} 주택 ${n.housing_units.length}호</h3><p>선택한 주택의 주소·전용면적·보증금을 함께 확인해요. 실제 공급 여부와 동호수 배정은 공고 절차를 따릅니다.</p><label>동네·주소·주택명<input id="unit-query" type="search" placeholder="예: 고양시, 백석동" autocomplete="off"></label><div class="form-row unit-area"><label>최소 전용면적 ㎡<input id="unit-area-min" type="number" min="0" step="any" inputmode="decimal" placeholder="제한 없음"></label><label>최대 전용면적 ㎡<input id="unit-area-max" type="number" min="0" step="any" inputmode="decimal" placeholder="제한 없음"></label></div><label class="inline-check"><input id="unit-budget-only" type="checkbox">입력한 예산에 맞는 주택만</label><p id="unit-budget-help" class="field-help"></p><div id="unit-results"></div><p><a href="/api/housing-document/${encodeURIComponent(n.id)}">검토한 공급목록 엑셀 다운로드 ↗</a> · <a href="${safeURL(n.housing_document.url)}" target="_blank" rel="noopener noreferrer">최신 공급목록 ↗</a></p><p class="field-help">전세 월세는 0원, 관리비는 별도예요. 금액은 계약 시 변경될 수 있어요.</p></section>` : ''}`;
 }
 
 function renderUnits() {
@@ -61,7 +61,12 @@ function renderUnits() {
   const query = $("#unit-query").value.trim().toLowerCase();
   const budget = $("#unit-budget-only").checked;
   const hasBudget = profile.deposit_budget != null || profile.monthly_rent_budget != null;
-  const rows = n.housing_units.filter(u => `${u.address} ${u.name}`.toLowerCase().includes(query) && (!budget || !hasBudget || withinBudget(u)));
+  const minInput=$("#unit-area-min"), maxInput=$("#unit-area-max");
+  const minArea=minInput.value==='' ? 0 : Number(minInput.value), maxArea=maxInput.value==='' ? Infinity : Number(maxInput.value);
+  if (!minInput.validity.valid || !maxInput.validity.valid || minArea > maxArea) {
+    $("#unit-results").innerHTML='<p role="status">면적은 0 이상의 숫자로, 최소 면적이 최대 면적보다 작거나 같게 입력해 주세요.</p>';return;
+  }
+  const rows = n.housing_units.filter(u => u.area >= minArea && u.area <= maxArea && `${u.address} ${u.name}`.toLowerCase().includes(query) && (!budget || !hasBudget || withinBudget(u)));
   $("#unit-budget-help").textContent = hasBudget ? "내 조건에 입력한 보증금·월세 상한을 함께 적용해요. 자격 판정과는 별개예요." : "예산을 입력하지 않았어요. 내 조건에서 보증금·월세 상한을 정하면 비교할 수 있어요.";
   $("#unit-results").innerHTML = `<p>${rows.length}호</p>${rows.length ? `<div class="table-scroll"><table class="rent-table housing-table"><thead><tr><th>주소 / 주택</th><th>전용면적</th><th>보증금 / 월세</th><th>원문 위치</th></tr></thead><tbody>${rows.map(u=>`<tr><td>${e(u.address)}<br>${e(u.name)} ${e(u.building)}동 ${e(u.room)}호</td><td>${u.area}㎡</td><td>${money(u.deposit)}<br>${money(u.monthly_rent)}</td><td>${e(u.source_sheet)}<br>${u.source_row}행</td></tr>`).join('')}</tbody></table></div>` : '<p>이 주소·예산 조건에 맞는 주택이 없어요. 검색어나 예산을 조정해 주세요.</p>'}`;
 }
@@ -126,7 +131,7 @@ document.addEventListener("click", async event => {
     } catch(error){toast(error.message);}finally{calendar.disabled=false;}
   }
 });
-document.addEventListener('input',event=>{if(event.target.id==='unit-query')renderUnits();});
+document.addEventListener('input',event=>{if(['unit-query','unit-area-min','unit-area-max'].includes(event.target.id))renderUnits();});
 document.addEventListener('change',event=>{if(event.target.id==='unit-budget-only')renderUnits();});
 document.addEventListener('DOMContentLoaded',()=>{
   $("#quick-open").addEventListener('click',openQuick);

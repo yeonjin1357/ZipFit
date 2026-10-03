@@ -41,6 +41,12 @@ def main():
         matched=next(n for n in response.value.json()['notices'] if n['id']==seoul['id'])
         assert matched['evaluation']['status']=='match'
         expect(page.locator('#detail-dialog')).to_be_visible()
+        page.locator('#unit-area-min').fill('55')
+        page.locator('#unit-area-max').fill('60')
+        assert page.locator('.housing-table tbody tr').count()==sum(55<=u['area']<=60 for u in seoul['housing_units'])
+        page.locator('#unit-area-min').fill('61')
+        expect(page.locator('#unit-results')).to_contain_text('최소 면적이 최대 면적보다')
+        page.locator('#unit-area-min').fill('');page.locator('#unit-area-max').fill('')
         page.locator('#unit-query').fill(seoul['housing_units'][0]['address'].split()[1])
         expected=[u for u in seoul['housing_units'] if seoul['housing_units'][0]['address'].split()[1] in u['address']]
         assert page.locator('.housing-table tbody tr').count()==len(expected)
