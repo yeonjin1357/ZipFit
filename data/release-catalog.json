@@ -5,21 +5,21 @@
     {
       "provider": "LH",
       "label": "LH 청약플러스",
-      "last_success": "2026-10-07T14:56:21.244606+09:00",
-      "count": 616,
+      "last_success": "2026-10-07T22:19:24.762282+09:00",
+      "count": 617,
       "scope": "최근 목록 경로별 최대 2페이지 갱신 + 기존 보관 자료. 과거·수시모집 전체 및 첨부파일 변경은 별도 확인이 필요해요.",
       "state": "bounded_refresh",
-      "last_attempt": "2026-10-07T14:56:21.244606+09:00",
+      "last_attempt": "2026-10-07T22:19:24.762282+09:00",
       "last_error": ""
     },
     {
       "provider": "SH",
       "label": "SH 서울주택도시개발공사",
-      "last_success": "2026-10-07T14:56:21.244606+09:00",
-      "count": 65,
+      "last_success": "2026-10-07T22:19:24.762282+09:00",
+      "count": 69,
       "scope": "최근 목록 경로별 최대 2페이지 갱신 + 기존 보관 자료. 과거·수시모집 전체 및 첨부파일 변경은 별도 확인이 필요해요.",
       "state": "bounded_refresh",
-      "last_attempt": "2026-10-07T14:56:21.244606+09:00",
+      "last_attempt": "2026-10-07T22:19:24.762282+09:00",
       "last_error": ""
     },
     {
@@ -28,28 +28,28 @@
       "last_success": "2026-10-07T14:56:21.244606+09:00",
       "count": 131,
       "scope": "최근 목록 경로별 최대 2페이지 갱신 + 기존 보관 자료. 과거·수시모집 전체 및 첨부파일 변경은 별도 확인이 필요해요.",
-      "state": "bounded_refresh",
-      "last_attempt": "2026-10-07T14:56:21.244606+09:00",
-      "last_error": ""
+      "state": "partial",
+      "last_attempt": "2026-10-07T22:19:24.762282+09:00",
+      "last_error": "HTTPSConnectionPool(host='apply.gh.or.kr', port=443): Max retries exceeded with url: /sb/sr/sr7150/selectPbancRentHouseList.do?pageIndex=1 (Caused by ConnectTimeoutError(<HTTPSConnection(host='apply.gh.or.kr', port=443) at 0x7fb5ccb4c910>,  / HTTPSConnectionPool(host='apply.gh.or.kr', port=443): Max retries exceeded with url: /sb/sr/sr7155/selectPbancRentHouseList.do?pageIndex=1 (Caused by ConnectTimeoutError(<HTTPSConnection(host='apply.gh.or.kr', port=443) at 0x7fb5cd3c5810>,  / HTTPSConnectionPool(host='www.gh.or.kr', port=443): Max retries exceeded with url: /gh/announcement-of-salerental001.do?article.offset=0&articleLimit=10 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.gh.or.kr', port=443) at 0x7fb / HTTPSConnectionPool(host='apply.gh.or.kr', port=443): Max retries exceeded with url: /sb/sr/sr7150/selectPbancRentHouseList.do?pageIndex=2 (Caused by ConnectTimeoutError(<HTTPSConnection(host='apply.gh.or.kr', port=443) at 0x7fb5cd3c6210>,  / HTTPSConnectionPool(host='apply.gh.or.kr', port=443): Max retries exceeded with url: /sb/sr/sr7155/selectPbancRentHouseList.do?pageIndex=2 (Caused by ConnectTimeoutError(<HTTPSConnection(host='apply.gh.or.kr', port=443) at 0x7fb5cd3c65d0>,  / HTTPSConnectionPool(host='www.gh.or.kr', port=443): Max retries exceeded with url: /gh/announcement-of-salerental001.do?article.offset=10&articleLimit=10 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.gh.or.kr', port=443) at 0x7f"
     },
     {
       "provider": "SEOUL_YOUTH",
       "label": "서울 청년안심주택",
-      "last_success": "2026-10-07T14:56:21.244606+09:00",
+      "last_success": "2026-10-07T22:19:24.762282+09:00",
       "count": 69,
       "scope": "최근 목록 경로별 최대 2페이지 갱신 + 기존 보관 자료. 과거·수시모집 전체 및 첨부파일 변경은 별도 확인이 필요해요.",
       "state": "bounded_refresh",
-      "last_attempt": "2026-10-07T14:56:21.244606+09:00",
+      "last_attempt": "2026-10-07T22:19:24.762282+09:00",
       "last_error": ""
     },
     {
       "provider": "APPLYHOME",
       "label": "청약홈 민간임대",
-      "last_success": "2026-10-07T14:56:21.244606+09:00",
+      "last_success": "2026-10-07T22:19:24.762282+09:00",
       "count": 78,
       "scope": "최근 목록 경로별 최대 2페이지 갱신 + 기존 보관 자료. 과거·수시모집 전체 및 첨부파일 변경은 별도 확인이 필요해요.",
       "state": "bounded_refresh",
-      "last_attempt": "2026-10-07T14:56:21.244606+09:00",
+      "last_attempt": "2026-10-07T22:19:24.762282+09:00",
       "last_error": ""
     }
   ],
@@ -72,8 +72,8 @@
       "application_end": "2026-10-16T16:00:00+09:00",
       "application_text": "10.14 10:00 ~ 10.16 16:00",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": "lh_20261001",
       "notes": [
         "무주택세대구성원·수도권 거주·성년 여부의 기본조건을 비교해요.",
@@ -104,7 +104,7 @@
       "review_invalidated": false,
       "source_verification": {
         "state": "unchanged",
-        "checked_at": "2026-10-07T05:57:31.500639+00:00",
+        "checked_at": "2026-10-07T13:21:36.624390+00:00",
         "binding": "5f10123be781807984e9a9cd83c1ec134935f6b0e60b9a9642d0e4325666d29b",
         "changed_fields": [],
         "error": null
@@ -844,8 +844,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -868,10 +868,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020692&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "extracted",
-        "sha256": "16dcf6235079e8317447d1133416ca7e6cfaebe6c429fa4e325096f3648b19b8"
+        "sha256": "1a4fdc6fe8cb5319e40cebe55dc26dd82b0bb727a429841db96dda7ab2c6e4af"
       }
     },
     {
@@ -892,8 +892,8 @@
       "application_end": "2026-10-15T16:00:00+09:00",
       "application_text": "10.13 10:00 ~ 10.15 16:00 (기간 중 24시간)",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": "lh_deposit",
       "notes": [
         "성년·무주택세대구성원·수도권 거주 기본조건을 비교해요. 자격은 입주 시까지 유지해야 해요.",
@@ -935,7 +935,7 @@
       },
       "source_verification": {
         "state": "unchanged",
-        "checked_at": "2026-10-07T05:57:31.500639+00:00",
+        "checked_at": "2026-10-07T13:21:36.624390+00:00",
         "binding": "53692e6ca55ec3dee3fdfce3a7546909559fc5c39c8fa123df7a2307cdeb418b",
         "changed_fields": [],
         "error": null
@@ -2611,8 +2611,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -2635,10 +2635,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020815&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "6309465347b6aa3a96946237219a0b76b9f60aadad48923e43ffd35b56d0f74e"
+        "sha256": "8ea2b012d78c266d7dc3ddf9c2fc1fcbf8dbd34d259b9c0f9b5c0fae3c72792e"
       }
     },
     {
@@ -2659,8 +2659,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -2683,10 +2683,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020814&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "c4addbe253c99f7131dd9bea1e6fae0a55a287f8b7b3b4ce170226d2c6f225fc"
+        "sha256": "741b32c39a36f8e8bd7f9b1d924b19d4df363c8e651df6a480072ebc77bf6f30"
       }
     },
     {
@@ -2707,8 +2707,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -2731,10 +2731,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020825&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07",
         "state": "extracted",
-        "sha256": "2d68268fa2d814161ab6d62ef87dfb9643f5a65440aafee69d9e3a1f20d31610"
+        "sha256": "4c17f23fdc3be1a7838cd746f99c2b731927d419f155e33268269f34ec6a2be4"
       }
     },
     {
@@ -2755,8 +2755,8 @@
       "application_end": "2026-10-23T16:00:00+09:00",
       "application_text": "2026-10-21 10:00 ~ 2026-10-23 16:00 (기간 중 24시간)",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": "lh_deposit",
       "notes": [
         "PDF 3~4쪽의 성년·무주택세대·모집권역 기본조건을 비교해요. 미성년·외국인 배우자·주택 소유 예외는 별도 확인이 필요해요.",
@@ -2836,7 +2836,7 @@
       },
       "source_verification": {
         "state": "unchanged",
-        "checked_at": "2026-10-07T05:57:31.500639+00:00",
+        "checked_at": "2026-10-07T13:21:36.624390+00:00",
         "binding": "19d26da3bff833d761465cf012cf22b2c0514896bddd334cf2ab352afa13879e",
         "changed_fields": [],
         "error": null
@@ -2860,8 +2860,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -2884,10 +2884,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020821&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "cbae2a938ac3ca17450e8f26254f5d7f9a78c7b57113f61df541fcd76bf08ab7"
+        "sha256": "57e1d6d15abd7fa03fb34980f298ee888f1091366b6f1183132ce401c596573a"
       }
     },
     {
@@ -2908,8 +2908,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -2932,10 +2932,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020835&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "400083a09ff5da21c07a624805f44360f897c98591e1159e6b9711e6e797f87f"
+        "sha256": "2c47c169bcb9166b581d423bb1af942e335af3cac63dd4e0f64ceb76affe2feb"
       }
     },
     {
@@ -2956,8 +2956,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -2980,10 +2980,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020858&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10",
         "state": "extracted",
-        "sha256": "e5a71e228c1ca95291c770401bf29ef015d53c22e32c8b3f68a144d1e782e981"
+        "sha256": "ca8cb1c6b2e1afa60869027d3592130c02e3201939b485741c0f407958d24774"
       }
     },
     {
@@ -3004,8 +3004,8 @@
       "application_end": "2026-10-13T16:00:00+09:00",
       "application_text": "2026-10-12 10:00 ~ 2026-10-13 16:00 (기간 중 24시간)",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": "lh_deposit",
       "notes": [
         "PDF 3~4쪽의 성년·무주택세대·모집권역 기본조건을 비교해요. 미성년·외국인 배우자·주택 소유 예외는 별도 확인이 필요해요.",
@@ -3081,7 +3081,7 @@
       },
       "source_verification": {
         "state": "unchanged",
-        "checked_at": "2026-10-07T05:57:31.500639+00:00",
+        "checked_at": "2026-10-07T13:21:36.624390+00:00",
         "binding": "27d260f1a8be82e387e6e8534a3959e4b0b8cf732dab72a9c78564970caf6c3d",
         "changed_fields": [],
         "error": null
@@ -3105,8 +3105,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3129,7 +3129,7 @@
       ],
       "schedule_invalidated": true,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020855&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=48",
         "state": "error",
         "error": "정정·취소 공고 연결 확인 필요",
@@ -3162,8 +3162,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3186,10 +3186,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020824&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "extracted",
-        "sha256": "021d879536c81312eee0304f98d1dd1dff9daea62ed770bc8806c8b2c7a85fa4"
+        "sha256": "05599af44bea634220910f93171d790eaa279357b0dbeff1ca17ae5d672675ae"
       }
     },
     {
@@ -3210,8 +3210,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3234,10 +3234,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020856&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=08",
         "state": "extracted",
-        "sha256": "a04595fb0d5293dce74e7603646f01a5da53ef85fc919b53075780416c839ba3"
+        "sha256": "4bc68762c38b86022deac5d785d01349460aeaab64a3e28c07eebac32046379c"
       }
     },
     {
@@ -3258,8 +3258,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3282,10 +3282,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020841&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "6a7e99018f8a1c988fa68add94158f885ad9fe2d9b47167e1928823021cb2496"
+        "sha256": "3d88d5f9811cf87d8aab7c58dd437fab8ca398db89eec2ed083982bad4664293"
       }
     },
     {
@@ -3306,8 +3306,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3330,7 +3330,7 @@
       ],
       "schedule_invalidated": true,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020840&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "error",
         "error": "정정·취소 공고 연결 확인 필요",
@@ -3363,8 +3363,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3387,10 +3387,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020839&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "c5d43ef3e4b81529cbb0b98eb0fcb653c38695efdebf726be6983bdeb4163b1e"
+        "sha256": "a7243d753c32aac4da17aae523d8b90d49ec58e99fd59c825080e6cab26cd6a2"
       }
     },
     {
@@ -3411,8 +3411,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3435,10 +3435,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020838&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "0bf2652a851341828df8233ca84e49b1754c5a37d101796f1fd875ab7db415ca"
+        "sha256": "83d15be0da5c45882678416867562713883edf44bfbc5e8066c6d49d889f47c9"
       }
     },
     {
@@ -3459,8 +3459,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3483,10 +3483,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020737&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "e9f67efed794ad3a1c1177df82f4bc629ac68803d3ddd7def9204378e10a1115"
+        "sha256": "15ca9d8ea2f2649bbf253fe5e361594fe1b7f7d228c4d6dd7c1be00f0637a413"
       }
     },
     {
@@ -3507,8 +3507,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3531,10 +3531,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020803&ccrCnntSysDsCd=03&uppAisTpCd=39&aisTpCd=42",
         "state": "extracted",
-        "sha256": "27532fb8e1d7f44b292780238372dd0c61553dafac6a8c04658ebaa54676f5e3"
+        "sha256": "dabdacd24e2f3bd988b2597f509237bca6570adefdbe7bf82dc80512b850255f"
       }
     },
     {
@@ -3555,8 +3555,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3571,7 +3571,7 @@
       "withdrawn": false,
       "schedule_invalidated": true,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=0000061176&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08",
         "state": "error",
         "error": "정정·취소 공고 연결 확인 필요",
@@ -3596,8 +3596,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3620,10 +3620,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020761&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "b85bf6d4cb46dc4510cb5110767c9e6bee65e5942bd6904d535348d5087da265"
+        "sha256": "4b1306dda63bb05894f9596cddfe9877dfd246f39175f1104d80c959725d9ccf"
       }
     },
     {
@@ -3644,8 +3644,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3668,10 +3668,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020787&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "e1f747785d94c6d87682b5605491fd614fae3349ecbe36a9386dd0dfa9dc28e1"
+        "sha256": "611cff9871f6d6fd4d07eef625b54be2ec0060fede8d3212e45c3357afd4e159"
       }
     },
     {
@@ -3692,8 +3692,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3716,10 +3716,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020812&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=40",
         "state": "extracted",
-        "sha256": "34f4badf3c015438b78f67744b281cd7f052b602f9bb7811831eb685a7cc9c93"
+        "sha256": "52df99da58724b91ae188e77f53ef6ec054091856f769c8bd387f5ef32d5bc1e"
       }
     },
     {
@@ -3740,8 +3740,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3764,10 +3764,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020765&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=08",
         "state": "extracted",
-        "sha256": "a684f3f6c513e68e13f82a38864e9da0c52bd3f0b9993c17c042065693abe404"
+        "sha256": "e7c7d578c2d1b61a9b63b227f0da185848cff862822d71e0162c9479032d38e1"
       }
     },
     {
@@ -3788,8 +3788,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3844,8 +3844,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3868,10 +3868,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020770&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "ad292e227193927586f5b4c621f6bd42ee98f88417ef1154f04820d5a6cd480e"
+        "sha256": "f11946e22bce75754aa1f8e725989fef5b87636cdc13e30a68b54e8e8460e27f"
       }
     },
     {
@@ -3892,8 +3892,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3916,10 +3916,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020768&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "940dbc7de2f5c69c8900c2cf921c61c15f94129701d42a9ef30cc619f308778e"
+        "sha256": "098068a3f2b5db3e03e306b35819be042d76e395e975a6bd1259c85fcce2b3aa"
       }
     },
     {
@@ -3940,8 +3940,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -3964,10 +3964,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020818&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "extracted",
-        "sha256": "c8158ad8658b8c5c9e209d5ad27a1d51ad63bc651954420af33381960e87a702"
+        "sha256": "5d1d20ceda22432db2a6d8b0707fed0c58e56f23fd3de90395180bc64774058e"
       }
     },
     {
@@ -3988,8 +3988,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4012,10 +4012,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020806&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10",
         "state": "extracted",
-        "sha256": "664a54663543e22133d212fe30e71bc4f4f770fbe5f8a9ff82cedfcfefce8ea1"
+        "sha256": "12502d8247d18f223ff0c883ac97137789ab2d32184d7ead212e96c1e0bd3363"
       },
       "list_changes": [
         {
@@ -4044,8 +4044,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4068,10 +4068,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020811&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "90924fabfe69d2b398b8d79b2563af43aa415c9645f7508deaaed6c6dbb20ef4"
+        "sha256": "710a0d0e01bddd7dbf99dc2382ad9e711c59be712363aa29db128fb192e5a2aa"
       },
       "list_changes": [
         {
@@ -4100,8 +4100,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4124,10 +4124,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020781&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "extracted",
-        "sha256": "1828ecba3750bc0737b0b737151f62f0a0e959f650fe4a1733bc14ca0219b4be"
+        "sha256": "d291706413c9606cdd650d7c3e3b18014656349ab3b1a05c80985cc744215a9d"
       }
     },
     {
@@ -4148,8 +4148,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4172,10 +4172,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020800&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "extracted",
-        "sha256": "5d65e683f6d8f9d169f9f60bed42ee221bb359c901f61fbdb61ac901a8665553"
+        "sha256": "b3a9a70e3b8252c04575b512bda447b844e7bbdc3eed00ef844a2a87d3a495ef"
       }
     },
     {
@@ -4196,8 +4196,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4220,10 +4220,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020727&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "extracted",
-        "sha256": "b90754fc744e2acbeb73eefcc2c13460dde5a18b5ab5e6ff571f1372a668d19a"
+        "sha256": "6ca781cf9f546015ebc0aa10edff936b8bf875af0b4a97bf31558cd42d2a7d7b"
       }
     },
     {
@@ -4244,8 +4244,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4277,8 +4277,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4318,8 +4318,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4351,8 +4351,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4375,10 +4375,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020793&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07",
         "state": "extracted",
-        "sha256": "73c6f6d7104ac469f65257a1724dc0bf8807e567b0ff603e9481b237cb30c6c6"
+        "sha256": "699eb884139b7c897d420687c95ad1009f6ca4208ae1a700ada1863a7fbf5791"
       }
     },
     {
@@ -4399,8 +4399,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4433,8 +4433,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4457,10 +4457,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020780&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10",
         "state": "extracted",
-        "sha256": "3f6772d9124fd183fbf91396c9cccd05b120616e84202e9073ea6e08f0cb81f7"
+        "sha256": "9ea1104b74cbccc605f0bd47d29a7748cb199da4647681fa7559a1add55b2956"
       }
     },
     {
@@ -4481,8 +4481,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4514,8 +4514,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4547,8 +4547,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4571,7 +4571,7 @@
       "list_changed_at": "2026-10-03T02:51:51.610197+09:00",
       "schedule_invalidated": true,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020746&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07",
         "state": "error",
         "error": "정정·취소 공고 연결 확인 필요",
@@ -4596,8 +4596,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4629,8 +4629,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4670,8 +4670,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [
         "정정 공고가 확인됐어요. 연결된 최신 공고를 확인해 주세요."
@@ -4700,14 +4700,14 @@
       "region": "강원특별자치도",
       "housing_type": "국민임대",
       "kind": "recruitment",
-      "source_status": "접수중",
+      "source_status": "접수마감",
       "listed_closing_date": "2026-10-07",
       "application_start": null,
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4717,7 +4717,7 @@
         "application_start": null,
         "application_end": null,
         "application_text": "",
-        "source_status": "접수중"
+        "source_status": "접수마감"
       },
       "withdrawn": false,
       "application_windows": [
@@ -4728,7 +4728,7 @@
           "hours_note": "공급 유형별·일별 접수 시간은 원문 확인"
         }
       ],
-      "schedule_invalidated": false,
+      "schedule_invalidated": true,
       "schedule_source": {
         "checked_at": "2026-10-07T14:56:32.403075+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020740&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07",
@@ -4738,11 +4738,11 @@
       "list_changes": [
         {
           "field": "source_status",
-          "before": "공고중",
-          "after": "접수중"
+          "before": "접수중",
+          "after": "접수마감"
         }
       ],
-      "list_changed_at": "2026-10-07T14:56:24.530294+09:00"
+      "list_changed_at": "2026-10-07T22:19:28.217018+09:00"
     },
     {
       "id": "LH:wrtanc-03:2015122300020733",
@@ -4762,8 +4762,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4803,8 +4803,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4844,8 +4844,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4877,8 +4877,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4901,10 +4901,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020726&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07",
         "state": "extracted",
-        "sha256": "ff744e3171382cb01497e002bf8ae45d985dada19bef2e632c214eff3c42187f"
+        "sha256": "5a73e6d11d7f1ed26502742548c474d7785e21cb4353787e0511baf1d2797a8d"
       }
     },
     {
@@ -4925,8 +4925,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4958,8 +4958,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -4991,8 +4991,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5024,8 +5024,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5057,8 +5057,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5081,10 +5081,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020742&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=48",
         "state": "extracted",
-        "sha256": "bffd64a63c161bee95f8820773d6f43dca99ee6010142b15b77487f1bc5a747c"
+        "sha256": "02d73ec90c476a3b809e04e1704d333d617ba4fe5b83b4c8207d3e3c0f585eb1"
       }
     },
     {
@@ -5105,8 +5105,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5129,10 +5129,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020730&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07",
         "state": "extracted",
-        "sha256": "4eb6a3d6420097096041a64b1c32466d9fc50791b14230f97be429e380e957bc"
+        "sha256": "590f3e3fe568a7342f6a44e82c905f2a3bae4d88414f52e9ca42b3136cb32a05"
       }
     },
     {
@@ -5153,8 +5153,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5194,8 +5194,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5218,10 +5218,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020735&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07",
         "state": "extracted",
-        "sha256": "446a8e2a4e98a4cd889e569d3bf1ab2cd3fe3f262b4cfbbf283772587907781e"
+        "sha256": "4ee5340de8354c0fcfe6d7e99f12d7a3912a335b9847401fc0986cbd1ea8da57"
       }
     },
     {
@@ -5242,8 +5242,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5275,8 +5275,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5308,8 +5308,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5332,10 +5332,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020649&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "extracted",
-        "sha256": "232771f74187bc721bfdc52aa670255873200a7885d3e6fa41184ec5cdc8dcde"
+        "sha256": "047a798b0639aa0b1dd67d73fd8c748ee1e491c0ce6cac015d3f22c24bb25b6a"
       }
     },
     {
@@ -5421,10 +5421,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020581&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07",
         "state": "extracted",
-        "sha256": "bea38727af3a3d220b0b9df0f9e69ddc70923e9d1391af895dd2832ec825486b"
+        "sha256": "0f2365eb63bd042d22184ed157ae03a544c6c9e8e5ba34dd3e6adeb0e449846b"
       }
     },
     {
@@ -5445,8 +5445,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5478,8 +5478,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5511,8 +5511,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5544,8 +5544,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5577,8 +5577,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5610,8 +5610,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5643,8 +5643,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5676,8 +5676,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5709,8 +5709,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5742,8 +5742,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5775,8 +5775,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5808,8 +5808,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5841,8 +5841,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -5874,8 +5874,8 @@
       "application_end": "2026-10-15T17:00:00+09:00",
       "application_text": "10.13 10:00 ~ 10.15 17:00 (온라인)",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245464+09:00",
-      "snapshot_id": "20261007T145621244606/sh-1",
+      "observed_at": "2026-10-07T22:19:27.139023+09:00",
+      "snapshot_id": "20261007T221924762282/sh-2",
       "rule_model": "sh_newlywed_20260930",
       "notes": [
         "신혼·신생아 매입임대Ⅱ는 혼인 7년을 넘긴 혼인가구도 신청 유형에 포함돼요. 순위·가점·당첨 가능성은 계산하지 않아요.",
@@ -5907,7 +5907,7 @@
       "review_invalidated": false,
       "source_verification": {
         "state": "unchanged",
-        "checked_at": "2026-10-07T05:57:31.500639+00:00",
+        "checked_at": "2026-10-07T13:21:36.624390+00:00",
         "binding": "c188224705788244d81c1602e395bc505845760ea49bc85e4ca903d5897b04bb",
         "changed_fields": [],
         "error": null
@@ -5976,8 +5976,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245464+09:00",
-      "snapshot_id": "20261007T145621244606/sh-1",
+      "observed_at": "2026-10-07T22:19:27.139023+09:00",
+      "snapshot_id": "20261007T221924762282/sh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -6009,8 +6009,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245464+09:00",
-      "snapshot_id": "20261007T145621244606/sh-1",
+      "observed_at": "2026-10-07T22:19:27.139023+09:00",
+      "snapshot_id": "20261007T221924762282/sh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -6042,8 +6042,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245464+09:00",
-      "snapshot_id": "20261007T145621244606/sh-1",
+      "observed_at": "2026-10-07T22:19:27.139023+09:00",
+      "snapshot_id": "20261007T221924762282/sh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -6075,8 +6075,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:23.903665+09:00",
-      "snapshot_id": "20261007T145621244606/sh-2",
+      "observed_at": "2026-10-07T22:19:27.139023+09:00",
+      "snapshot_id": "20261007T221924762282/sh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -6108,8 +6108,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:23.903665+09:00",
-      "snapshot_id": "20261007T145621244606/sh-2",
+      "observed_at": "2026-10-07T22:19:27.139023+09:00",
+      "snapshot_id": "20261007T221924762282/sh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -6141,8 +6141,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:23.903665+09:00",
-      "snapshot_id": "20261007T145621244606/sh-2",
+      "observed_at": "2026-10-07T22:19:27.139023+09:00",
+      "snapshot_id": "20261007T221924762282/sh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -6174,8 +6174,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:23.903665+09:00",
-      "snapshot_id": "20261007T145621244606/sh-2",
+      "observed_at": "2026-10-07T22:19:27.139023+09:00",
+      "snapshot_id": "20261007T221924762282/sh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -6207,8 +6207,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:23.903665+09:00",
-      "snapshot_id": "20261007T145621244606/sh-2",
+      "observed_at": "2026-10-07T22:19:27.139023+09:00",
+      "snapshot_id": "20261007T221924762282/sh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -6240,8 +6240,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:23.903665+09:00",
-      "snapshot_id": "20261007T145621244606/sh-2",
+      "observed_at": "2026-10-07T22:19:27.139023+09:00",
+      "snapshot_id": "20261007T221924762282/sh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -6649,11 +6649,11 @@
         "signals": {}
       },
       "source_verification": {
-        "state": "unchanged",
-        "checked_at": "2026-10-07T05:57:31.500639+00:00",
+        "state": "error",
+        "checked_at": "2026-10-07T13:21:36.624390+00:00",
         "binding": "1617c89c6c87bcb09b130ee837be70db57d531acc64dc1e7c94f89d845161991",
         "changed_fields": [],
-        "error": null
+        "error": "HTTPSConnectionPool(host='apply.gh.or.kr', port=443): Max retries exceeded with url: /sb/sr/sr7155/selectPbancDetailView.do?previewYn=0&pbancNo=812&pbancKndCd=01 (Caused by ConnectTimeoutError(<HTTPSConnection(host='apply.gh.or.kr', port=44"
       }
     },
     {
@@ -7604,8 +7604,8 @@
       "application_end": "2026-10-05T23:00:00+09:00",
       "application_text": "9.30 09:00 ~ 10.05 23:00",
       "listed_application_date": "2026-09-30",
-      "observed_at": "2026-10-07T14:56:21.246543+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-1",
+      "observed_at": "2026-10-07T22:19:24.767020+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-1",
       "rule_model": "songpa_20260922",
       "notes": [
         "한 사람은 한 유형만 신청할 수 있으며, 부부 중복신청도 무효 처리돼요.",
@@ -7722,7 +7722,7 @@
       "review_invalidated": false,
       "source_verification": {
         "state": "unchanged",
-        "checked_at": "2026-10-07T05:57:31.500639+00:00",
+        "checked_at": "2026-10-07T13:21:36.624390+00:00",
         "binding": "6be355d8d287815cd5b8dbdb1d30d407e1001b0440a9ef97d030bd391f8e51a5",
         "changed_fields": [],
         "error": null
@@ -7761,8 +7761,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-10-01",
-      "observed_at": "2026-10-07T14:56:21.246543+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-1",
+      "observed_at": "2026-10-07T22:19:24.767020+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -7794,8 +7794,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-09-20",
-      "observed_at": "2026-10-07T14:56:21.246543+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-1",
+      "observed_at": "2026-10-07T22:19:24.767020+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -7827,8 +7827,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-09-21",
-      "observed_at": "2026-10-07T14:56:21.246543+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-1",
+      "observed_at": "2026-10-07T22:19:24.767020+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -7860,8 +7860,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-09-21",
-      "observed_at": "2026-10-07T14:56:23.645941+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-2",
+      "observed_at": "2026-10-07T22:19:27.055575+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -7893,8 +7893,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-09-21",
-      "observed_at": "2026-10-07T14:56:23.645941+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-2",
+      "observed_at": "2026-10-07T22:19:27.055575+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -7926,8 +7926,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-09-18",
-      "observed_at": "2026-10-07T14:56:23.645941+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-2",
+      "observed_at": "2026-10-07T22:19:27.055575+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -7959,8 +7959,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-09-21",
-      "observed_at": "2026-10-07T14:56:23.645941+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-2",
+      "observed_at": "2026-10-07T22:19:27.055575+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -7992,8 +7992,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-09-21",
-      "observed_at": "2026-10-07T14:56:23.645941+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-2",
+      "observed_at": "2026-10-07T22:19:27.055575+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -8025,8 +8025,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-09-19",
-      "observed_at": "2026-10-07T14:56:23.645941+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-2",
+      "observed_at": "2026-10-07T22:19:27.055575+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -8058,8 +8058,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-09-21",
-      "observed_at": "2026-10-07T14:56:23.645941+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-2",
+      "observed_at": "2026-10-07T22:19:27.055575+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -8091,8 +8091,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-09-17",
-      "observed_at": "2026-10-07T14:56:23.645941+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-2",
+      "observed_at": "2026-10-07T22:19:27.055575+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -8124,8 +8124,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-09-21",
-      "observed_at": "2026-10-07T14:56:23.645941+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-2",
+      "observed_at": "2026-10-07T22:19:27.055575+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -8157,8 +8157,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-09-22",
-      "observed_at": "2026-10-07T14:56:23.645941+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-2",
+      "observed_at": "2026-10-07T22:19:27.055575+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -8755,8 +8755,8 @@
       "application_end": "2026-10-07T17:30:00+09:00",
       "application_text": "10.6~10.7 매일 09:00~17:30",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.248217+09:00",
-      "snapshot_id": "20261007T145621244606/applyhome-1",
+      "observed_at": "2026-10-07T22:19:24.768168+09:00",
+      "snapshot_id": "20261007T221924762282/applyhome-1",
       "rule_model": "seomyeon_20260929",
       "notes": [
         "청년·신혼부부 일반공급과 신혼부부 특별공급을 따로 비교해요. 신청자는 공고일 기준 만 19~39세인 대한민국 국민이어야 해요.",
@@ -8971,7 +8971,7 @@
       ],
       "source_verification": {
         "state": "unchanged",
-        "checked_at": "2026-10-07T05:57:31.500639+00:00",
+        "checked_at": "2026-10-07T13:21:36.624390+00:00",
         "binding": "13577bd47d73d9c9d6e9f30977a95b3f54ceccc7fda49647b6a628313b22d60f",
         "changed_fields": [],
         "error": null
@@ -9043,8 +9043,8 @@
       "application_end": "2026-09-29",
       "application_text": "2026-09-28 ~ 2026-09-29",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.248217+09:00",
-      "snapshot_id": "20261007T145621244606/applyhome-1",
+      "observed_at": "2026-10-07T22:19:24.768168+09:00",
+      "snapshot_id": "20261007T221924762282/applyhome-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -9109,8 +9109,8 @@
       "application_end": "2026-09-21",
       "application_text": "2026-09-21 ~ 2026-09-21",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.248217+09:00",
-      "snapshot_id": "20261007T145621244606/applyhome-1",
+      "observed_at": "2026-10-07T22:19:24.768168+09:00",
+      "snapshot_id": "20261007T221924762282/applyhome-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -9241,8 +9241,8 @@
       "application_end": "2026-09-15",
       "application_text": "2026-09-14 ~ 2026-09-15",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.248217+09:00",
-      "snapshot_id": "20261007T145621244606/applyhome-1",
+      "observed_at": "2026-10-07T22:19:24.768168+09:00",
+      "snapshot_id": "20261007T221924762282/applyhome-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -9340,8 +9340,8 @@
       "application_end": "2026-09-08",
       "application_text": "2026-09-07 ~ 2026-09-08",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.248217+09:00",
-      "snapshot_id": "20261007T145621244606/applyhome-1",
+      "observed_at": "2026-10-07T22:19:24.768168+09:00",
+      "snapshot_id": "20261007T221924762282/applyhome-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -9472,8 +9472,8 @@
       "application_end": "2026-08-24",
       "application_text": "2026-08-24 ~ 2026-08-24",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.248217+09:00",
-      "snapshot_id": "20261007T145621244606/applyhome-1",
+      "observed_at": "2026-10-07T22:19:24.768168+09:00",
+      "snapshot_id": "20261007T221924762282/applyhome-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -9604,8 +9604,8 @@
       "application_end": "2026-08-20",
       "application_text": "2026-08-19 ~ 2026-08-20",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.248217+09:00",
-      "snapshot_id": "20261007T145621244606/applyhome-1",
+      "observed_at": "2026-10-07T22:19:24.768168+09:00",
+      "snapshot_id": "20261007T221924762282/applyhome-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -9637,8 +9637,8 @@
       "application_end": "2026-08-20",
       "application_text": "2026-08-19 ~ 2026-08-20",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.248217+09:00",
-      "snapshot_id": "20261007T145621244606/applyhome-1",
+      "observed_at": "2026-10-07T22:19:24.768168+09:00",
+      "snapshot_id": "20261007T221924762282/applyhome-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -9670,8 +9670,8 @@
       "application_end": "2026-08-12",
       "application_text": "2026-08-12 ~ 2026-08-12",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.248217+09:00",
-      "snapshot_id": "20261007T145621244606/applyhome-1",
+      "observed_at": "2026-10-07T22:19:24.768168+09:00",
+      "snapshot_id": "20261007T221924762282/applyhome-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -9703,8 +9703,8 @@
       "application_end": "2026-08-14",
       "application_text": "2026-08-12 ~ 2026-08-14",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.248217+09:00",
-      "snapshot_id": "20261007T145621244606/applyhome-1",
+      "observed_at": "2026-10-07T22:19:24.768168+09:00",
+      "snapshot_id": "20261007T221924762282/applyhome-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -9940,8 +9940,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -9973,8 +9973,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10006,8 +10006,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10039,8 +10039,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10072,8 +10072,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10105,8 +10105,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10138,8 +10138,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10171,8 +10171,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10204,8 +10204,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10237,8 +10237,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10270,8 +10270,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10303,8 +10303,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10336,8 +10336,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10369,8 +10369,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10402,8 +10402,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10435,8 +10435,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10468,8 +10468,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10501,8 +10501,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10534,8 +10534,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10567,8 +10567,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10600,8 +10600,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10633,8 +10633,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10666,8 +10666,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10699,8 +10699,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10732,8 +10732,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10765,8 +10765,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10798,8 +10798,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10831,8 +10831,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10864,8 +10864,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10897,8 +10897,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10930,8 +10930,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10963,8 +10963,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -10996,8 +10996,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11029,8 +11029,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11062,8 +11062,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11095,8 +11095,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11128,8 +11128,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11161,8 +11161,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11194,8 +11194,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11227,8 +11227,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11260,8 +11260,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11293,8 +11293,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11326,8 +11326,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11359,8 +11359,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11392,8 +11392,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11425,8 +11425,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11458,8 +11458,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11491,8 +11491,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11524,8 +11524,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11557,8 +11557,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11590,8 +11590,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11623,8 +11623,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11656,8 +11656,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11689,8 +11689,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11722,8 +11722,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11755,8 +11755,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11788,8 +11788,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11821,8 +11821,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11854,8 +11854,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11887,8 +11887,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11920,8 +11920,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11953,8 +11953,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -11986,8 +11986,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12019,8 +12019,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12052,8 +12052,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12085,8 +12085,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12118,8 +12118,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12151,8 +12151,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12184,8 +12184,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12217,8 +12217,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12250,8 +12250,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12283,8 +12283,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12316,8 +12316,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12349,8 +12349,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12382,8 +12382,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12415,8 +12415,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12448,8 +12448,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12481,8 +12481,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12514,8 +12514,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12547,8 +12547,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12580,8 +12580,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12613,8 +12613,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12646,8 +12646,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12679,8 +12679,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12712,8 +12712,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12745,8 +12745,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12778,8 +12778,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12811,8 +12811,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12844,8 +12844,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12877,8 +12877,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12910,8 +12910,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12943,8 +12943,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -12976,8 +12976,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -13009,8 +13009,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -13042,8 +13042,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -13075,8 +13075,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -13108,8 +13108,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -13141,8 +13141,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -13174,8 +13174,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -13207,8 +13207,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -13240,8 +13240,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245464+09:00",
-      "snapshot_id": "20261007T145621244606/sh-1",
+      "observed_at": "2026-10-07T22:19:24.763504+09:00",
+      "snapshot_id": "20261007T221924762282/sh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -14560,8 +14560,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-10-06",
-      "observed_at": "2026-10-07T14:56:21.246543+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-1",
+      "observed_at": "2026-10-07T22:19:24.767020+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -14593,8 +14593,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-10-13",
-      "observed_at": "2026-10-07T14:56:21.246543+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-1",
+      "observed_at": "2026-10-07T22:19:24.767020+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -14626,8 +14626,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-10-05",
-      "observed_at": "2026-10-07T14:56:21.246543+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-1",
+      "observed_at": "2026-10-07T22:19:24.767020+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -14659,8 +14659,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-10-05",
-      "observed_at": "2026-10-07T14:56:21.246543+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-1",
+      "observed_at": "2026-10-07T22:19:24.767020+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -14692,8 +14692,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-10-04",
-      "observed_at": "2026-10-07T14:56:21.246543+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-1",
+      "observed_at": "2026-10-07T22:19:24.767020+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -14725,8 +14725,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": "2026-10-05",
-      "observed_at": "2026-10-07T14:56:21.246543+09:00",
-      "snapshot_id": "20261007T145621244606/seoul_youth-1",
+      "observed_at": "2026-10-07T22:19:24.767020+09:00",
+      "snapshot_id": "20261007T221924762282/seoul_youth-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -15897,10 +15897,10 @@
       "application_windows": [],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300019550&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17",
         "state": "unknown",
-        "sha256": "de62e54b4aca90b77ad0688ad17c1c185571e8a558d3c046d8d50d8853245d77"
+        "sha256": "3e5d7626576e5dd4ec82049bb59a7e6257aed6ce65472c2cdf806bbc855d3d46"
       }
     },
     {
@@ -15938,10 +15938,10 @@
       "application_windows": [],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300019551&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17",
         "state": "unknown",
-        "sha256": "368069d8084e64bf9ddea401ac592a365035b8e92418f705eaab987cf57d0453"
+        "sha256": "c4c6cac384bc8f60b44d9a692fe07b35a4613ccaa3384dbb38b79c01d2fb3ef2"
       }
     },
     {
@@ -15979,10 +15979,10 @@
       "application_windows": [],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300019546&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17",
         "state": "unknown",
-        "sha256": "dfeed26df02a4c03b96fd3765e9cddcca65ce6d98e42a9c1adcb8cfdbf843092"
+        "sha256": "0f53487bfe791a84ee03dcec553537a9e3ccf01f5b1f67837ad17b87f8767ef9"
       }
     },
     {
@@ -16020,10 +16020,10 @@
       "application_windows": [],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300019376&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17",
         "state": "unknown",
-        "sha256": "fab9bcb306e0629b24a526cb368d7e912280f0b87def5bffab87c458d03c6d6a"
+        "sha256": "0893858ecaa126c9c71125ef5a1563b429146294e929d83b0594b57bedc991fe"
       }
     },
     {
@@ -16044,8 +16044,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -16077,8 +16077,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -16110,8 +16110,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -16143,8 +16143,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -16836,8 +16836,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -16860,10 +16860,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020669&ccrCnntSysDsCd=03&uppAisTpCd=39&aisTpCd=42",
         "state": "extracted",
-        "sha256": "7fd4cb676c286f88bab912ae64b1586b70ae7e38566afe6532f4b3c2de17e65a"
+        "sha256": "20454b977101dd7b6db1abf1600f02611726b8942480bcf351229f2237f0bfb0"
       }
     },
     {
@@ -16884,8 +16884,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -16908,10 +16908,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020859&ccrCnntSysDsCd=03&uppAisTpCd=39&aisTpCd=42",
         "state": "extracted",
-        "sha256": "3823e5764b23219f59346f15b95961da942986c4a43f9a5bd045399b5c2a8eed"
+        "sha256": "15391ec09649b3ecb4e3d65052df14e2eb930ab6a80d51b82300f5be813a2c14"
       }
     },
     {
@@ -16932,8 +16932,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -16956,10 +16956,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020850&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10",
         "state": "extracted",
-        "sha256": "ada64c3ddca14909d881f700d61ad9dfd55fc5a66785d1859f8dc281e552d449"
+        "sha256": "ece14e1fbe3c94e986877f2e40e60d2cad34cbddb16a0088bf79fd592f707db1"
       }
     },
     {
@@ -16980,8 +16980,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -17004,10 +17004,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020864&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "extracted",
-        "sha256": "60098bcb821605079fcdcf8a9ead7ddda487dc873da897aaf4b1a59ea483a3e4"
+        "sha256": "22f1508225cc321050ee8dd1ac8ef016ae609d33b8f0ae0a29ddb97ce8b61d7e"
       }
     },
     {
@@ -17028,8 +17028,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245464+09:00",
-      "snapshot_id": "20261007T145621244606/sh-1",
+      "observed_at": "2026-10-07T22:19:24.763504+09:00",
+      "snapshot_id": "20261007T221924762282/sh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -17069,8 +17069,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -17093,10 +17093,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020842&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "b4243aad026e9890228145c195daca9516fc932eb74494a0ed5151d977a748c6"
+        "sha256": "5d518d780b8e67fa135ac6b9a30818e165b05d232579b3fc6e6df52d5ab56ad2"
       }
     },
     {
@@ -17117,8 +17117,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -17141,10 +17141,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020870&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10",
         "state": "extracted",
-        "sha256": "aab9e3427050c78aa34186b732943aad554323382a0c75296a097860fe9ed31a"
+        "sha256": "ee7b0835b13f0465d64467e009858b78f12925da50333ff2126a991c37920443"
       }
     },
     {
@@ -17165,8 +17165,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -17189,10 +17189,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020871&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10",
         "state": "extracted",
-        "sha256": "99c1967d20c4d89f40a52f0b915f5654b034d51580dab0b810c8ff13e6385937"
+        "sha256": "cc77edba9fd66fb9742ad89b97c19ec677628fa7421e3cb658e36554425ac56f"
       }
     },
     {
@@ -17213,8 +17213,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:24.530294+09:00",
-      "snapshot_id": "20261007T145621244606/lh-2",
+      "observed_at": "2026-10-07T22:19:28.217018+09:00",
+      "snapshot_id": "20261007T221924762282/lh-2",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -17229,7 +17229,7 @@
       "withdrawn": false,
       "schedule_invalidated": true,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020809&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07",
         "state": "error",
         "error": "정정·취소 공고 연결 확인 필요",
@@ -17254,8 +17254,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245464+09:00",
-      "snapshot_id": "20261007T145621244606/sh-1",
+      "observed_at": "2026-10-07T22:19:24.763504+09:00",
+      "snapshot_id": "20261007T221924762282/sh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -17287,8 +17287,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245464+09:00",
-      "snapshot_id": "20261007T145621244606/sh-1",
+      "observed_at": "2026-10-07T22:19:24.763504+09:00",
+      "snapshot_id": "20261007T221924762282/sh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -17320,8 +17320,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245464+09:00",
-      "snapshot_id": "20261007T145621244606/sh-1",
+      "observed_at": "2026-10-07T22:19:24.763504+09:00",
+      "snapshot_id": "20261007T221924762282/sh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -21370,10 +21370,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020453&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07",
         "state": "extracted",
-        "sha256": "0c626a04ba46a03f5397c38b4a16654dc3d1bf411b7dabed27ede0ca73fac0b4"
+        "sha256": "5f3d68ab0a0887f83a150d7ecf4998a96f1d50e273d502c082c4add9c0f7f8df"
       }
     },
     {
@@ -35122,8 +35122,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -35146,7 +35146,7 @@
       ],
       "schedule_invalidated": true,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020863&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "error",
         "error": "정정·취소 공고 연결 확인 필요",
@@ -35179,8 +35179,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -35203,10 +35203,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020874&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "extracted",
-        "sha256": "f17afb33467ea5144b3b78ca6108e019dcbc6b66a6ba3cee5c9ae5958990d54f"
+        "sha256": "f009eaa14ee59f6fc579cd514c3b34da2cafd28a2fb2291cfeea71810ff97f12"
       }
     },
     {
@@ -35227,8 +35227,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -35251,10 +35251,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020866&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "extracted",
-        "sha256": "68e905a3b50e778c34594867f5607b85a54bd5562feb7922c209da6062c4cd39"
+        "sha256": "96a4b677ffbd58c0b956497d28a0478f4317e559855b48ccdb3ce51381931646"
       }
     },
     {
@@ -35275,8 +35275,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -35299,10 +35299,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020868&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "extracted",
-        "sha256": "caf986c4931811b506420fca03ceacbd6a5eec24e3e5f75fa101e1ab887c4067"
+        "sha256": "10618a464a2c755abbcf035cc68992efaadf14a1148ad60ffd732373f496cd2b"
       }
     },
     {
@@ -35323,8 +35323,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -35339,7 +35339,7 @@
       "withdrawn": false,
       "schedule_invalidated": true,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020876&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "error",
         "error": "정정·취소 공고 연결 확인 필요",
@@ -35364,8 +35364,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -35388,10 +35388,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020865&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "extracted",
-        "sha256": "912f28de0460827c84fbde7bf01097a1e3f459ac7a2908ef974219d76834bbd6"
+        "sha256": "5f0ac6e9ea640c34afe31a049605d5ac189f7a9acf5da95db2447a7fbabb8644"
       }
     },
     {
@@ -35412,8 +35412,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -35436,10 +35436,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020873&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "354a064b67b380c762f10fe8c402db384741923bd9c3b2bd3da82d664f4c5eaa"
+        "sha256": "5b07ee501c34f0e84ecf5369af54e6e8dbce7d9b7363164f7aa01c770460bd79"
       }
     },
     {
@@ -35460,8 +35460,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -35484,10 +35484,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020875&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "58489bbd9bf4f8125b6791f1caa4a5eb9f7243520e08f6adbb04895c7327cb71"
+        "sha256": "6ff1879669c2ca37625a893d0984cd7aaad2a615d19cd9d84ae9f968399125db"
       }
     },
     {
@@ -35508,8 +35508,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -35524,7 +35524,7 @@
       "withdrawn": false,
       "schedule_invalidated": true,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020878&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=48",
         "state": "error",
         "error": "정정·취소 공고 연결 확인 필요",
@@ -35582,8 +35582,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -35606,10 +35606,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020880&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
         "state": "extracted",
-        "sha256": "8e85fb77f31fcdb47ce1256079c58a0235f522b67b5fa4955e4674d510fd61e8"
+        "sha256": "8c45109916c55153655e6dd765eb764711cce36d497f8fd059a136500d71158b"
       }
     },
     {
@@ -35630,8 +35630,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -35654,10 +35654,10 @@
       ],
       "schedule_invalidated": false,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020854&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10",
         "state": "extracted",
-        "sha256": "a78700bc20221c2fa3d9dc630164825229399c0a5b864889e6b3cd9016794f0a"
+        "sha256": "1b3d164748b6742855a7ccba2f87a7aa2d7e6814195db822b62115e2be138220"
       }
     },
     {
@@ -35678,8 +35678,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245230+09:00",
-      "snapshot_id": "20261007T145621244606/lh-1",
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -35694,7 +35694,7 @@
       "withdrawn": false,
       "schedule_invalidated": true,
       "schedule_source": {
-        "checked_at": "2026-10-07T14:56:32.403075+09:00",
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
         "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020881&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09",
         "state": "error",
         "error": "정정·취소 공고 연결 확인 필요",
@@ -35719,8 +35719,8 @@
       "application_end": null,
       "application_text": "",
       "listed_application_date": null,
-      "observed_at": "2026-10-07T14:56:21.245464+09:00",
-      "snapshot_id": "20261007T145621244606/sh-1",
+      "observed_at": "2026-10-07T22:19:24.763504+09:00",
+      "snapshot_id": "20261007T221924762282/sh-1",
       "rule_model": null,
       "notes": [],
       "list_fingerprint": {
@@ -35766,9 +35766,189 @@
         "source_status": null
       },
       "withdrawn": false
+    },
+    {
+      "id": "LH:wrtanc-03:2015122300020882",
+      "source": "LH",
+      "provider": "LH",
+      "board": "wrtanc-03",
+      "source_id": "2015122300020882",
+      "title": "[강원지역본부] 26년 2차 일반 매입임대주택 입주자 모집 공고",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020882&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
+      "published_date": "2026-10-07",
+      "region": "강원특별자치도",
+      "housing_type": "매입임대",
+      "kind": "recruitment",
+      "source_status": "공고중",
+      "listed_closing_date": "2026-10-29",
+      "application_start": null,
+      "application_end": null,
+      "application_text": "",
+      "listed_application_date": null,
+      "observed_at": "2026-10-07T22:19:24.763031+09:00",
+      "snapshot_id": "20261007T221924762282/lh-1",
+      "rule_model": null,
+      "notes": [],
+      "list_fingerprint": {
+        "title": "[강원지역본부] 26년 2차 일반 매입임대주택 입주자 모집 공고",
+        "published_date": "2026-10-07",
+        "listed_closing_date": "2026-10-29",
+        "application_start": null,
+        "application_end": null,
+        "application_text": "",
+        "source_status": "공고중"
+      },
+      "withdrawn": false,
+      "application_windows": [
+        {
+          "label": "청약 접수기간 (기관 상세)",
+          "start": "2026-10-27",
+          "end": "2026-10-29",
+          "hours_note": "시작 10:00 / 마감 16:00 · 일별 운영시간은 원문 확인"
+        }
+      ],
+      "schedule_invalidated": false,
+      "schedule_source": {
+        "checked_at": "2026-10-07T22:20:29.576862+09:00",
+        "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?mi=1026&panId=2015122300020882&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26",
+        "state": "extracted",
+        "sha256": "da636610e14824c1e525b3368e1d775995683fcc191cec92fe8d50af40e1ebf0"
+      }
+    },
+    {
+      "id": "SH:GS0401:311167",
+      "source": "SH",
+      "provider": "SH",
+      "board": "GS0401",
+      "source_id": "311167",
+      "title": "NEW 2026년 2차 희망하우징(공공기숙사) 입주자 모집공고(2026. 9. 17.) 서류심사대상자 발표",
+      "url": "https://www.i-sh.co.kr/app/lay2/program/S48T1581C563/www/brd/m_247/view.do?multi_itm_seq=2&seq=311167",
+      "published_date": "2026-10-07",
+      "region": "서울특별시",
+      "housing_type": "임대주택",
+      "kind": "other",
+      "source_status": null,
+      "listed_closing_date": null,
+      "application_start": null,
+      "application_end": null,
+      "application_text": "",
+      "listed_application_date": null,
+      "observed_at": "2026-10-07T22:19:24.763504+09:00",
+      "snapshot_id": "20261007T221924762282/sh-1",
+      "rule_model": null,
+      "notes": [],
+      "list_fingerprint": {
+        "title": "NEW 2026년 2차 희망하우징(공공기숙사) 입주자 모집공고(2026. 9. 17.) 서류심사대상자 발표",
+        "published_date": "2026-10-07",
+        "listed_closing_date": null,
+        "application_start": null,
+        "application_end": null,
+        "application_text": "",
+        "source_status": null
+      },
+      "withdrawn": false
+    },
+    {
+      "id": "SH:GS0401:311004",
+      "source": "SH",
+      "provider": "SH",
+      "board": "GS0401",
+      "source_id": "311004",
+      "title": "NEW [당첨자발표] 2026년 다자녀 매입임대주택 예비자 공급 계약대상자 발표(2026년 예비1차) 및 계약 안내",
+      "url": "https://www.i-sh.co.kr/app/lay2/program/S48T1581C563/www/brd/m_247/view.do?multi_itm_seq=2&seq=311004",
+      "published_date": "2026-10-07",
+      "region": "서울특별시",
+      "housing_type": "임대주택",
+      "kind": "other",
+      "source_status": null,
+      "listed_closing_date": null,
+      "application_start": null,
+      "application_end": null,
+      "application_text": "",
+      "listed_application_date": null,
+      "observed_at": "2026-10-07T22:19:24.763504+09:00",
+      "snapshot_id": "20261007T221924762282/sh-1",
+      "rule_model": null,
+      "notes": [],
+      "list_fingerprint": {
+        "title": "NEW [당첨자발표] 2026년 다자녀 매입임대주택 예비자 공급 계약대상자 발표(2026년 예비1차) 및 계약 안내",
+        "published_date": "2026-10-07",
+        "listed_closing_date": null,
+        "application_start": null,
+        "application_end": null,
+        "application_text": "",
+        "source_status": null
+      },
+      "withdrawn": false
+    },
+    {
+      "id": "SH:GS0401:311188",
+      "source": "SH",
+      "provider": "SH",
+      "board": "GS0401",
+      "source_id": "311188",
+      "title": "NEW [세이지움 태릉입구역] 청년안심주택 예비1차 주택공개 실시안내",
+      "url": "https://www.i-sh.co.kr/app/lay2/program/S48T1581C563/www/brd/m_247/view.do?multi_itm_seq=2&seq=311188",
+      "published_date": "2026-10-07",
+      "region": "서울특별시",
+      "housing_type": "임대주택",
+      "kind": "review",
+      "source_status": null,
+      "listed_closing_date": null,
+      "application_start": null,
+      "application_end": null,
+      "application_text": "",
+      "listed_application_date": null,
+      "observed_at": "2026-10-07T22:19:24.763504+09:00",
+      "snapshot_id": "20261007T221924762282/sh-1",
+      "rule_model": null,
+      "notes": [],
+      "list_fingerprint": {
+        "title": "NEW [세이지움 태릉입구역] 청년안심주택 예비1차 주택공개 실시안내",
+        "published_date": "2026-10-07",
+        "listed_closing_date": null,
+        "application_start": null,
+        "application_end": null,
+        "application_text": "",
+        "source_status": null
+      },
+      "withdrawn": false
+    },
+    {
+      "id": "SH:GS0401:311169",
+      "source": "SH",
+      "provider": "SH",
+      "board": "GS0401",
+      "source_id": "311169",
+      "title": "NEW 제8차 장기전세주택2(미리내집) 입주자 모집공고(2026. 8. 21.) 서류심사대상자 발표 및 서류제출 안내",
+      "url": "https://www.i-sh.co.kr/app/lay2/program/S48T1581C563/www/brd/m_247/view.do?multi_itm_seq=2&seq=311169",
+      "published_date": "2026-10-07",
+      "region": "서울특별시",
+      "housing_type": "임대주택",
+      "kind": "other",
+      "source_status": null,
+      "listed_closing_date": null,
+      "application_start": null,
+      "application_end": null,
+      "application_text": "",
+      "listed_application_date": null,
+      "observed_at": "2026-10-07T22:19:24.763504+09:00",
+      "snapshot_id": "20261007T221924762282/sh-1",
+      "rule_model": null,
+      "notes": [],
+      "list_fingerprint": {
+        "title": "NEW 제8차 장기전세주택2(미리내집) 입주자 모집공고(2026. 8. 21.) 서류심사대상자 발표 및 서류제출 안내",
+        "published_date": "2026-10-07",
+        "listed_closing_date": null,
+        "application_start": null,
+        "application_end": null,
+        "application_text": "",
+        "source_status": null
+      },
+      "withdrawn": false
     }
   ],
-  "last_collection_attempt": "2026-10-07T14:56:21.244606+09:00",
+  "last_collection_attempt": "2026-10-07T22:19:24.762282+09:00",
   "discovery": {
     "checked_at": "2026-10-04T19:05:48.411528+09:00",
     "sources": [
@@ -35830,7 +36010,7 @@
     "scope": "지정 기간·페이지 범위의 추가 탐색이며 전국 전수 수집을 의미하지 않아요."
   },
   "schedule_refresh": {
-    "checked_at": "2026-10-07T14:56:32.403075+09:00",
+    "checked_at": "2026-10-07T22:20:29.576862+09:00",
     "attempted": 64,
     "extracted": 51,
     "errors": 9
